@@ -1,0 +1,14 @@
+.header {
+    
+    background-color: var(--header-bg-color);
+    transition: background-color .3s linear;
+
+    &__inner {
+        padding: 20px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        gap: 20px;
+        height: 100px;
+    }
+}

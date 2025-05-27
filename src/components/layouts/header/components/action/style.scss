@@ -1,0 +1,15 @@
+.action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+
+    &__wrapper {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
