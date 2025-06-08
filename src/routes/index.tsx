@@ -7,6 +7,7 @@ import AdminDashboard from "../pages/admin";
 import Login from "../pages/auth/login";
 import SignUp from "../pages/auth/sign-up";
 import Home from "../pages/home";
+import ProductPage from "../pages/product";
 import StaffDashboard from "../pages/staff";
 import { Protected } from "./protected";
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path: 'product/:id',
+                element: <ProductPage />
             },
             {
                 element: <Protected requiredRole="admin" />,
