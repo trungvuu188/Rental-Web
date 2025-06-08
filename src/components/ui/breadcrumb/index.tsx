@@ -4,7 +4,7 @@ import './style.scss';
 
 export interface BreadcrumbItem {
   label: string;
-  path?: string;
+  href?: string;
 }
 
 interface BreadcrumbProps {
@@ -18,8 +18,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className = '' }) => {
       <ol className="breadcrumb__list">
         {items.map((item, index) => (
           <li key={index} className="breadcrumb__item">
-            {item.path && index < items.length - 1 ? (
-              <Link to={item.path} className="breadcrumb__link">
+            {item.href && index < items.length - 1 ? (
+              <Link to={item.href} className="breadcrumb__link">
                 {item.label}
               </Link>
             ) : (

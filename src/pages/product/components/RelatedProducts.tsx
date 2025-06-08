@@ -7,42 +7,55 @@ const mockRelatedProducts = [
   {
     id: '1',
     name: 'Áo dài truyền thống cao cấp',
-    image: 'https://via.placeholder.com/300x400?text=Áo+dài',
+    brand: 'XÉO XỌ',
+    image: '/images/ao-dai-placeholder.svg',
     rentalPrice: 500000,
-    purchasePrice: 2500000,
-    rating: 4.8,
-    reviewCount: 25,
-    isAvailable: true
+    membershipPrice: 375000,
+    depositPrice: 2500000,
+    colors: ['Đỏ', 'Vàng'],
+    sizes: ['S', 'M', 'L'],
+    isOutOfStock: false,
+    category: 'Áo dài nữ'
   },
   {
     id: '2',
     name: 'Váy cưới công chúa ren hoa',
-    image: 'https://via.placeholder.com/300x400?text=Váy+cưới',
+    brand: 'LAMUSE',
+    image: '/images/ao-dai-placeholder.svg',
     rentalPrice: 1200000,
-    purchasePrice: 8000000,
-    rating: 4.9,
-    reviewCount: 42,
-    isAvailable: true
+    membershipPrice: 900000,
+    depositPrice: 8000000,
+    colors: ['Trắng'],
+    sizes: ['S', 'M', 'L'],
+    isOutOfStock: false,
+    category: 'Váy cưới'
   },
   {
     id: '3',
     name: 'Vest nam sang trọng',
-    image: 'https://via.placeholder.com/300x400?text=Vest+nam',
+    brand: 'AMY STORE',
+    image: '/images/ao-dai-placeholder.svg',
     rentalPrice: 800000,
-    purchasePrice: 3500000,
-    rating: 4.7,
-    reviewCount: 18,
-    isAvailable: false
+    membershipPrice: 600000,
+    depositPrice: 3500000,
+    colors: ['Đen', 'Xanh dương'],
+    sizes: ['M', 'L', 'XL'],
+    isOutOfStock: true,
+    category: 'Vest nam'
   },
   {
     id: '4',
     name: 'Đầm dạ hội lệch vai',
-    image: 'https://via.placeholder.com/300x400?text=Đầm+dạ+hội',
+    brand: 'LESART',
+    image: '/images/ao-dai-placeholder.svg',
     rentalPrice: 600000,
-    purchasePrice: 2800000,
-    rating: 4.6,
-    reviewCount: 31,
-    isAvailable: true
+    membershipPrice: 450000,
+    depositPrice: 2800000,
+    clearancePrice: 1200000,
+    colors: ['Hồng', 'Tím'],
+    sizes: ['S', 'M'],
+    isOutOfStock: false,
+    category: 'Đầm dạ hội'
   }
 ];
 
@@ -63,14 +76,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ productIds }) => {
         {products.map((product) => (
           <ProductCard
             key={product.id}
-            id={product.id}
-            name={product.name}
-            image={product.image}
-            rentalPrice={product.rentalPrice}
-            purchasePrice={product.purchasePrice}
-            rating={product.rating}
-            reviewCount={product.reviewCount}
-            isAvailable={product.isAvailable}
+            product={product}
             className="related-products__card"
           />
         ))}

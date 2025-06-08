@@ -3,28 +3,41 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 interface ProductCardProps {
-  id: string;
-  name: string;
-  image: string;
-  rentalPrice: number;
-  purchasePrice?: number;
-  rating?: number;
-  reviewCount?: number;
-  isAvailable?: boolean;
+  product: {
+    id: string;
+    name: string;
+    brand: string;
+    image: string;
+    rentalPrice: number;
+    membershipPrice: number;
+    depositPrice: number;
+    clearancePrice?: number;
+    colors: string[];
+    sizes: string[];
+    isOutOfStock?: boolean;
+    category: string;
+  };
   className?: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
-  id,
-  name,
-  image,
-  rentalPrice,
-  purchasePrice,
-  rating = 0,
-  reviewCount = 0,
-  isAvailable = true,
+  product,
   className = ''
 }) => {
+  const {
+    id,
+    name,
+    brand,
+    image,
+    rentalPrice,
+    membershipPrice,
+    depositPrice,
+    clearancePrice,
+    colors,
+    sizes,
+    isOutOfStock = false,
+    category
+  } = product;
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('vi-VN', {
       style: 'currency',
@@ -33,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className={`product-card ${className} ${!isAvailable ? 'product-card--unavailable' : ''}`}>
+    <div className={`product-card ${className} ${isOutOfStock ? 'product-card--unavailable' : ''}`}>
       <Link to={`/product/${id}`} className="product-card__link">
         {/* Image */}
         <div className="product-card__image-container">
@@ -43,64 +56,52 @@ const ProductCard: React.FC<ProductCardProps> = ({
             className="product-card__image"
             loading="lazy"
           />
-          {!isAvailable && (
+          {isOutOfStock && (
             <div className="product-card__overlay">
               <span className="product-card__unavailable-text">Hết hàng</span>
+            </div>
+          )}
+          {sizes.length > 1 && (
+            <div className="product-card__sizes-badge">
+              +{sizes.length - 1} Kích thước
             </div>
           )}
         </div>
 
         {/* Content */}
         <div className="product-card__content">
+          {/* Brand */}
+          <div className="product-card__brand">{brand}</div>
+          
           <h3 className="product-card__title" title={name}>
             {name}
           </h3>
 
-          {/* Rating */}
-          {rating > 0 && (
-            <div className="product-card__rating">
-              <div className="product-card__stars">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <svg
-                    key={star}
-                    className={`product-card__star ${
-                      star <= rating ? 'product-card__star--filled' : ''
-                    }`}
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                  >
-                    <path
-                      d="M7 1L8.854 4.764L13 5.382L10 8.236L10.708 12.382L7 10.5L3.292 12.382L4 8.236L1 5.382L5.146 4.764L7 1Z"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeWidth="0.5"
-                    />
-                  </svg>
-                ))}
-              </div>
-              {reviewCount > 0 && (
-                <span className="product-card__review-count">
-                  ({reviewCount})
-                </span>
-              )}
-            </div>
-          )}
-
           {/* Prices */}
           <div className="product-card__prices">
-            <div className="product-card__rental-price">
-              <span className="product-card__price-label">Thuê:</span>
-              <span className="product-card__price-value">
+            <div className="product-card__price-row">
+              <span className="product-card__price-label">Giá thuê:</span>
+              <span className="product-card__price-value product-card__price-value--rental">
                 {formatPrice(rentalPrice)}
               </span>
             </div>
-            {purchasePrice && (
-              <div className="product-card__purchase-price">
-                <span className="product-card__price-label">Mua:</span>
-                <span className="product-card__price-value">
-                  {formatPrice(purchasePrice)}
+            <div className="product-card__price-row">
+              <span className="product-card__price-label">Giá membership:</span>
+              <span className="product-card__price-value product-card__price-value--membership">
+                {formatPrice(membershipPrice)}
+              </span>
+            </div>
+            <div className="product-card__price-row">
+              <span className="product-card__price-label">Giá cọc:</span>
+              <span className="product-card__price-value product-card__price-value--deposit">
+                {formatPrice(depositPrice)}
+              </span>
+            </div>
+            {clearancePrice && (
+              <div className="product-card__price-row">
+                <span className="product-card__price-label">Giá thanh lý:</span>
+                <span className="product-card__price-value product-card__price-value--clearance">
+                  {formatPrice(clearancePrice)}
                 </span>
               </div>
             )}
@@ -109,7 +110,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </Link>
 
       {/* Quick Actions */}
-      {isAvailable && (
+      {!isOutOfStock && (
         <div className="product-card__actions">
           <button
             type="button"
@@ -127,17 +128,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </button>
           <button
             type="button"
-            className="product-card__action product-card__action--cart"
-            aria-label="Thêm vào giỏ hàng"
+            className="product-card__action product-card__action--rent"
+            aria-label="Thuê ngay"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M2 2H3.4L3.8 4M3.8 4H14L12.6 9H5L3.8 4ZM5 12.5C5 13.328 5.672 14 6.5 14C7.328 14 8 13.328 8 12.5C8 11.672 7.328 11 6.5 11C5.672 11 5 11.672 5 12.5ZM11 12.5C11 13.328 11.672 14 12.5 14C13.328 14 14 13.328 14 12.5C14 11.672 13.328 11 12.5 11C11.672 11 11 11.672 11 12.5Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                fill="none"
-              />
-            </svg>
+            Thuê ngay
           </button>
         </div>
       )}

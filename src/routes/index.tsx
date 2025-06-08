@@ -8,6 +8,7 @@ import Login from "../pages/auth/login";
 import SignUp from "../pages/auth/sign-up";
 import Home from "../pages/home";
 import ProductPage from "../pages/product";
+import ProductsPage from "../pages/products";
 import StaffDashboard from "../pages/staff";
 import { Protected } from "./protected";
 
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path: 'products',
+                element: <ProductsPage />
+            },
+            {
+                path: 'products/ao-dai',
+                element: <ProductsPage />
             },
             {
                 path: 'product/:id',
