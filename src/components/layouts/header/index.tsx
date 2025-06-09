@@ -1,5 +1,5 @@
 import Logo from "../../ui/logo";
-import Action from "./components/action/action";
+import Action from "./components/action";
 import Navbar from "./components/navbar/navbar";
 import "./style.scss";
 

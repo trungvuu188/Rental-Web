@@ -1,4 +1,3 @@
-import { Children, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import AuthLayout from "../components/layouts/AuthLayout";
 import DefaultLayout from "../components/layouts/DefaultLayout";
@@ -6,6 +5,7 @@ import PageNotFound from "../pages/404";
 import AdminDashboard from "../pages/admin";
 import Login from "../pages/auth/login";
 import SignUp from "../pages/auth/sign-up";
+import Unauthorized from "../pages/auth/unauthorized";
 import Home from "../pages/home";
 import ProductPage from "../pages/product";
 import ProductsPage from "../pages/products";
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: 'product/:id',
                 element: <ProductPage />
+            },
+            {
+                path: 'unauthorized',
+                element: <Unauthorized />
             },
             {
                 element: <Protected requiredRole="admin" />,

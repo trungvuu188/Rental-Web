@@ -1,0 +1,101 @@
+// Responsive utilities and mixins
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Media query mixins
+@mixin media-down($size) {
+  @media (max-width: #{map-get($breakpoints, $size) - 1px}) {
+    @content;
+  }
+}
+
+@mixin media-up($size) {
+  @media (min-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+@mixin media-between($lower, $upper) {
+  @media (min-width: #{map-get($breakpoints, $lower)}) and (max-width: #{map-get($breakpoints, $upper) - 1px}) {
+    @content;
+  }
+}
+
+// Common responsive utilities
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include media-up(sm) {
+    max-width: 540px;
+  }
+
+  @include media-up(md) {
+    max-width: 720px;
+  }
+
+  @include media-up(lg) {
+    max-width: 960px;
+  }
+
+  @include media-up(xl) {
+    max-width: 1140px;
+  }
+
+  @include media-up(xxl) {
+    max-width: 1320px;
+  }
+}
+
+// Responsive text utilities
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+@include media-down(md) {
+  .text-center-mobile { text-align: center; }
+  .text-left-mobile { text-align: left; }
+  .text-right-mobile { text-align: right; }
+}
+
+// Display utilities
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+
+@include media-down(lg) {
+  .d-none-mobile { display: none; }
+  .d-block-mobile { display: block; }
+}
+
+@include media-up(lg) {
+  .d-none-desktop { display: none; }
+  .d-block-desktop { display: block; }
+}
+
+// Spacing utilities for mobile
+@include media-down(md) {
+  .p-mobile-0 { padding: 0; }
+  .p-mobile-1 { padding: 0.25rem; }
+  .p-mobile-2 { padding: 0.5rem; }
+  .p-mobile-3 { padding: 1rem; }
+  .p-mobile-4 { padding: 1.5rem; }
+  .p-mobile-5 { padding: 3rem; }
+
+  .m-mobile-0 { margin: 0; }
+  .m-mobile-1 { margin: 0.25rem; }
+  .m-mobile-2 { margin: 0.5rem; }
+  .m-mobile-3 { margin: 1rem; }
+  .m-mobile-4 { margin: 1.5rem; }
+  .m-mobile-5 { margin: 3rem; }
+} 
