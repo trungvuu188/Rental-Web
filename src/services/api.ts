@@ -82,18 +82,18 @@ async function fetchWithFallback(url: string): Promise<ApiProductsResponse> {
 
 // Advertised/Promoted Products
 export const fetchAdvertisedProducts = async (): Promise<ApiProductsResponse> => {
-  const url = `${API_BASE_URL}/home/products?$select=id,name,description,primaryImagesUrl&$filter=availabilityStatus eq available and isPromoted eq true`;
+  const url = `${API_BASE_URL}/odata/products?$select=id,name,description,primaryImagesUrl&$filter=availabilityStatus eq 'available' and isPromoted eq true`;
   return fetchWithFallback(url);
 };
 
 // Outstanding Products (most rented)
 export const fetchOutstandingProducts = async (): Promise<ApiProductsResponse> => {
-  const url = `${API_BASE_URL}/home/products?$filter=availabilityStatus eq available&$orderby=rentCount desc&$top=3`;
+  const url = `${API_BASE_URL}/odata/products?$filter=availabilityStatus eq 'available'&$orderby=rentCount desc&$top=3`;
   return fetchWithFallback(url);
 };
 
 // Latest Products
 export const fetchLatestProducts = async (): Promise<ApiProductsResponse> => {
-  const url = `${API_BASE_URL}/home/products?$filter=availabilityStatus eq available&$orderby=CreatedAt desc&$top=3`;
+  const url = `${API_BASE_URL}/odata/products?$filter=availabilityStatus eq 'available'&$orderby=CreatedAt desc&$top=3`;
   return fetchWithFallback(url);
 }; 

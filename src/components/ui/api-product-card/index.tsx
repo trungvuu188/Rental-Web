@@ -24,7 +24,7 @@ const ApiProductCard: React.FC<ApiProductCardProps> = ({ product, className = ''
       const primaryImage = product.images.find(img => img.isPrimary);
       return primaryImage ? primaryImage.imageUrl : product.images[0].imageUrl;
     }
-    return 'https://via.placeholder.com/300x300?text=No+Image';
+    return 'https://placehold.co/400';
   };
 
   return (
@@ -37,7 +37,7 @@ const ApiProductCard: React.FC<ApiProductCardProps> = ({ product, className = ''
             className="api-product-card__image"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
-              target.src = 'https://via.placeholder.com/300x300?text=No+Image';
+              target.src = 'https://placehold.co/400';
             }}
           />
           {product.isPromoted && (
