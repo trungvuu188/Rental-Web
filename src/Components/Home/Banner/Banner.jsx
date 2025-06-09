@@ -19,7 +19,7 @@ const Banner = () => {
           <h3 className="bannerh3">Women's T-shirts</h3>
           <h5 className="bannerh5">
             <Link to="/shop" onClick={scrollToTop} style={{ color: "white" }}>
-              Shop Now
+              Rent Now
             </Link>
           </h5>
         </div>
@@ -32,7 +32,7 @@ const Banner = () => {
           </h3>
           <h5 className="bannerh5">
             <Link to="/shop" onClick={scrollToTop} style={{ color: "black" }}>
-              Shop Now
+              Rent Now
             </Link>
           </h5>
         </div>

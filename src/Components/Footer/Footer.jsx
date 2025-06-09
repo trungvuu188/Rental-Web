@@ -31,14 +31,14 @@ const Footer = () => {
         <div className="footer__container">
           <div className="footer_left">
             <div className="footer_logo_container">
-              <img src={logo} alt="" Z />
+              <img src={logo} alt="" Z className="logo" />
             </div>
 
-            <p>1418 River Drive, Suite 35 Cottonhall, CA 9622 United States</p>
+            <p>1418 Ancient River, Hoi An Town, Viet Nam</p>
 
             <div className="footer_address">
-              <strong> sale@uomo.com </strong>
-              <strong> +1 246-345-0695 </strong>
+              <strong> Vunilla.com </strong>
+              <strong> +1 234-567-89 </strong>
             </div>
 
             <div className="social_links">
@@ -89,7 +89,7 @@ const Footer = () => {
                   <Link to="/shop">Women</Link>
                 </li>
                 <li>
-                  <Link to="/shop">Shop All</Link>
+                  <Link to="/shop">Rent All</Link>
                 </li>
               </ul>
             </div>
@@ -139,14 +139,14 @@ const Footer = () => {
         </div>
         <div className="footer_bottom">
           <p>
-            © {getCurrentYear()} Uomo. All Rights Reserved | Made By{" "}
+            © {getCurrentYear()} ShareIt. All Rights Reserved | Made By{" "}
             <a
-              href="https://github.com/shakti177"
+              href="https://github.com/trungvuu188"
               target="_blank"
               rel="noreferrer"
               style={{ color: "#C22928", textDecoration: "none" }}
             >
-              Shakti Tamrakar
+              Vunilla
             </a>{" "}
             with ❤️
           </p>
@@ -164,9 +164,6 @@ const Footer = () => {
               <p>Currency</p>
               <select name="currency" id="currency">
                 <option value="USD">$ USD</option>
-                <option value="INR">₹ INR</option>
-                <option value="EUR">€ EUR</option>
-                <option value="GBP">£ GBP</option>
               </select>
             </div>
           </div>

@@ -72,7 +72,7 @@ const DealTimer = () => {
               </h3>
               <div className="dealTimeLink">
                 <Link to="/shop" onClick={scrollToTop}>
-                  Shop Now
+                  Rent Now
                 </Link>
               </div>
             </div>
