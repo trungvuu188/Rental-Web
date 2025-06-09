@@ -1,26 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Breadcrumb from '../../components/ui/breadcrumb';
 import ProductCard from '../../components/ui/product-card';
+import { mockUiProducts, productFilterOptions, type UiProduct } from '../../data';
 import './style.scss';
 
-interface Product {
-  id: string;
-  name: string;
-  brand: string;
-  image: string;
-  rentalPrice: number;
-  membershipPrice: number;
-  depositPrice: number;
-  clearancePrice?: number;
-  colors: string[];
-  sizes: string[];
-  isOutOfStock?: boolean;
-  category: string;
-}
-
 const ProductsPage: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<UiProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<UiProduct[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -29,169 +15,13 @@ const ProductsPage: React.FC = () => {
 
   const productsPerPage = 24;
 
-  // Mock data based on Hizu website
-  const mockProducts: Product[] = [
-    {
-      id: '1',
-      name: 'Áo dài Bạch Diệp quần đỏ XÉO XỌ',
-      brand: 'XÉO XỌ',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 730000,
-      membershipPrice: 547500,
-      depositPrice: 3230000,
-      clearancePrice: 1825000,
-      colors: ['Đỏ', 'Trắng'],
-      sizes: ['S', 'M', 'L'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '2',
-      name: 'Áo dài Bích Chi quần xanh lá đậm XÉO XỌ',
-      brand: 'XÉO XỌ',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 1200000,
-      membershipPrice: 900000,
-      depositPrice: 4700000,
-      colors: ['Xanh lá'],
-      sizes: ['S', 'M', 'L'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '3',
-      name: 'Áo dài cách tân trắng Nam LAMUSE',
-      brand: 'LAMUSE',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 290000,
-      membershipPrice: 217500,
-      depositPrice: 1090000,
-      colors: ['Trắng'],
-      sizes: ['M', 'L', 'XL'],
-      category: 'Áo dài nam'
-    },
-    {
-      id: '4',
-      name: 'Áo dài cam AMY',
-      brand: 'AMY STORE',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 600000,
-      membershipPrice: 450000,
-      depositPrice: 2600000,
-      clearancePrice: 950000,
-      colors: ['Cam'],
-      sizes: ['S', 'M'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '5',
-      name: 'Áo dài cam đào LESART',
-      brand: 'LESART',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 900000,
-      membershipPrice: 675000,
-      depositPrice: 3900000,
-      clearancePrice: 1500000,
-      colors: ['Cam'],
-      sizes: ['S', 'M', 'L'],
-      isOutOfStock: true,
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '6',
-      name: 'Áo dài cam quần vàng HUONG BOUTIQUE',
-      brand: 'HUONG BOUTIQUE',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 1200000,
-      membershipPrice: 900000,
-      depositPrice: 5200000,
-      colors: ['Cam', 'Vàng'],
-      sizes: ['M', 'L'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '7',
-      name: 'Áo dài đỏ truyền thống LALIN',
-      brand: 'LALIN',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 800000,
-      membershipPrice: 600000,
-      depositPrice: 3500000,
-      colors: ['Đỏ'],
-      sizes: ['S', 'M', 'L', 'XL'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '8',
-      name: 'Áo dài hồng pastel XÉO XỌ',
-      brand: 'XÉO XỌ',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 650000,
-      membershipPrice: 487500,
-      depositPrice: 2900000,
-      clearancePrice: 1200000,
-      colors: ['Hồng'],
-      sizes: ['S', 'M'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '9',
-      name: 'Áo dài xanh dương nam LAMUSE',
-      brand: 'LAMUSE',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 350000,
-      membershipPrice: 262500,
-      depositPrice: 1200000,
-      colors: ['Xanh dương'],
-      sizes: ['M', 'L', 'XL'],
-      category: 'Áo dài nam'
-    },
-    {
-      id: '10',
-      name: 'Áo dài tím lavender LESART',
-      brand: 'LESART',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 950000,
-      membershipPrice: 712500,
-      depositPrice: 4200000,
-      colors: ['Tím'],
-      sizes: ['S', 'M', 'L'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '11',
-      name: 'Áo dài vàng gold HUONG BOUTIQUE',
-      brand: 'HUONG BOUTIQUE',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 1100000,
-      membershipPrice: 825000,
-      depositPrice: 4800000,
-      clearancePrice: 1800000,
-      colors: ['Vàng'],
-      sizes: ['M', 'L'],
-      category: 'Áo dài nữ'
-    },
-    {
-      id: '12',
-      name: 'Áo dài đen elegant AMY STORE',
-      brand: 'AMY STORE',
-      image: '/images/ao-dai-placeholder.svg',
-      rentalPrice: 750000,
-      membershipPrice: 562500,
-      depositPrice: 3300000,
-      colors: ['Đen'],
-      sizes: ['S', 'M', 'L'],
-      category: 'Áo dài nữ'
-    }
-  ];
-
-  const brands = ['XÉO XỌ', 'LAMUSE', 'AMY STORE', 'LESART', 'HUONG BOUTIQUE', 'LALIN'];
-  const colors = ['Trắng', 'Đen', 'Đỏ', 'Hồng', 'Xanh lá', 'Xanh dương', 'Cam', 'Vàng', 'Tím'];
-  const categories = ['Áo dài nữ', 'Áo dài nam', 'Áo dài bưng quả'];
+  const { brands, colors, categories } = productFilterOptions;
 
   useEffect(() => {
     // Simulate API call
     setTimeout(() => {
-      setProducts(mockProducts);
-      setFilteredProducts(mockProducts);
+      setProducts(mockUiProducts);
+      setFilteredProducts(mockUiProducts);
       setIsLoading(false);
     }, 1000);
   }, []);

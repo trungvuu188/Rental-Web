@@ -1,0 +1,267 @@
+.sales-analytics,
+.customer-analytics,
+.product-analytics {
+  .page-header {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-content {
+      h1 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #1976d2;
+        margin: 0 0 8px 0;
+        font-size: 28px;
+        font-weight: 600;
+
+        .material-icons {
+          font-size: 32px;
+        }
+      }
+
+      p {
+        color: #666;
+        margin: 0;
+        font-size: 16px;
+      }
+    }
+
+    .header-actions {
+      .time-range-select {
+        padding: 8px 16px;
+        border: 2px solid #e0e0e0;
+        border-radius: 6px;
+        background: white;
+        font-size: 14px;
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+          border-color: #1976d2;
+        }
+      }
+    }
+  }
+
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .stat-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+
+      .material-icons {
+        font-size: 32px;
+      }
+    }
+
+    .stat-content {
+      flex: 1;
+
+      h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 0 4px 0;
+        color: #333;
+      }
+
+      p {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+      }
+    }
+
+    .stat-trend {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+
+      .material-icons {
+        font-size: 16px;
+      }
+
+      &.positive {
+        background: #e8f5e8;
+        color: #2e7d32;
+      }
+
+      &.negative {
+        background: #ffebee;
+        color: #d32f2f;
+      }
+    }
+
+    &.revenue .stat-icon {
+      background: linear-gradient(135deg, #4caf50, #2e7d32);
+    }
+
+    &.orders .stat-icon {
+      background: linear-gradient(135deg, #2196f3, #1565c0);
+    }
+
+    &.avg-order .stat-icon {
+      background: linear-gradient(135deg, #ff9800, #f57c00);
+    }
+
+    &.customers .stat-icon {
+      background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+    }
+  }
+
+  .chart-container {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    .chart-header {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e0e0e0;
+
+      h3 {
+        color: #333;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .chart-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      color: #666;
+      text-align: center;
+
+      .material-icons {
+        font-size: 64px;
+        color: #ccc;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 16px;
+        margin: 0 0 8px 0;
+      }
+
+      small {
+        font-size: 12px;
+        color: #999;
+      }
+    }
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: #666;
+
+    .material-icons {
+      font-size: 48px;
+      color: #1976d2;
+
+      &.rotating {
+        animation: rotate 1s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .sales-analytics,
+  .customer-analytics,
+  .product-analytics {
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .analytics-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      padding: 16px;
+
+      .stat-icon {
+        width: 48px;
+        height: 48px;
+
+        .material-icons {
+          font-size: 24px;
+        }
+      }
+
+      .stat-content h3 {
+        font-size: 20px;
+      }
+    }
+
+    .chart-container {
+      padding: 16px;
+
+      .chart-placeholder {
+        min-height: 200px;
+
+        .material-icons {
+          font-size: 48px;
+        }
+      }
+    }
+  }
+} 

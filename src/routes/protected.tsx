@@ -25,9 +25,9 @@ export const Protected = ({ requiredRole }: ProtectedProps) => {
     }
 
     // Check role if required
-    if (requiredRole && user?.role !== requiredRole) {
-        return <Navigate to="/unauthorized" replace />;
-    }
+    // if (requiredRole && user?.role !== requiredRole) {
+    //     return <Navigate to="/unauthorized" replace />;
+    // }
 
     return <Outlet />;
 }

@@ -14,7 +14,7 @@ import "./style.scss";
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
-    const { isLoading, error, isAuthenticated } = useSelector((state: RootState) => state.auth);
+    const { isLoading, error, isAuthenticated, user } = useSelector((state: RootState) => state.auth);
 
     const [loginData, setLoginData] = useState<LoginRequest>({ 
         username: '', 
@@ -25,12 +25,13 @@ const Login = () => {
         password?: string;
     }>({});
 
-    // Redirect if already authenticated
+    // Redirect if already authenticated with role-based navigation
     useEffect(() => {
-        if (isAuthenticated) {
-            navigate('/');
+        if (isAuthenticated && user) {
+            const redirectTo = user.role === 'admin' ? '/admin' : '/';
+            navigate(redirectTo);
         }
-    }, [isAuthenticated, navigate]);
+    }, [isAuthenticated, user, navigate]);
 
     // Clear errors when component mounts
     useEffect(() => {
@@ -64,7 +65,8 @@ const Login = () => {
         try {
             const result = await dispatch(loginUser(loginData));
             if (loginUser.fulfilled.match(result)) {
-                navigate('/');
+                // Let the useEffect handle navigation based on user role
+                // No need to navigate here as useEffect will handle it
             }
         } catch (error) {
             console.error('Login error:', error);
