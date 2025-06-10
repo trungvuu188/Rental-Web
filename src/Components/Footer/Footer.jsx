@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import logo from "../../Assets/logo.png";
-import paymentIcon from "../../Assets/paymentIcon.png";
+import paymentIcon from "../../Assets/vnpay.jpg";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
@@ -34,11 +34,11 @@ const Footer = () => {
               <img src={logo} alt="" Z className="logo" />
             </div>
 
-            <p>1418 Ancient River, Hoi An Town, Viet Nam</p>
+            <p>Da Nang, Viet Nam</p>
 
             <div className="footer_address">
               <strong> Vunilla.com </strong>
-              <strong> +1 234-567-89 </strong>
+              <strong> +84 123-123-12 </strong>
             </div>
 
             <div className="social_links">
@@ -146,7 +146,7 @@ const Footer = () => {
               rel="noreferrer"
               style={{ color: "#C22928", textDecoration: "none" }}
             >
-              Vunilla
+              BirdCanSwim
             </a>{" "}
             with ❤️
           </p>
@@ -163,7 +163,7 @@ const Footer = () => {
             <div className="footerCurrency">
               <p>Currency</p>
               <select name="currency" id="currency">
-                <option value="USD">$ USD</option>
+                <option value="VND">$ VND</option>
               </select>
             </div>
           </div>

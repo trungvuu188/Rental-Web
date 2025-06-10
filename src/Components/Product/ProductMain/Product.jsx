@@ -5,10 +5,10 @@ import Zoom from "@mui/material/Zoom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../Features/Cart/cartSlice";
 
-import product1 from "../../../Assets/ProductDetail/productdetail-1.jpg";
-import product2 from "../../../Assets/ProductDetail/productdetail-2.jpg";
-import product3 from "../../../Assets/ProductDetail/productdetail-3.jpg";
-import product4 from "../../../Assets/ProductDetail/productdetail-4.jpg";
+import product1 from "../../../Assets/ProductDetail/IMG_1121.PNG";
+import product2 from "../../../Assets/ProductDetail/IMG_1122.PNG";
+import product3 from "../../../Assets/ProductDetail/IMG_1123.PNG";
+import product4 from "../../../Assets/ProductDetail/IMG_1124.PNG";
 
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
@@ -182,7 +182,7 @@ const Product = () => {
               <p>8k+ reviews</p>
             </div>
             <div className="productPrice">
-              <h3>$90</h3>
+              <h3>90 VND</h3>
             </div>
             <div className="productDescription">
               <p>

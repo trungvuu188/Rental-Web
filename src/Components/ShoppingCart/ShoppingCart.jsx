@@ -160,7 +160,7 @@ const ShoppingCart = () => {
                               data-label="Price"
                               style={{ textAlign: "center" }}
                             >
-                              ${item.productPrice}
+                              {item.productPrice}VND
                             </td>
                             <td data-label="Quantity">
                               <div className="ShoppingBagTableQuantity">
@@ -205,7 +205,7 @@ const ShoppingCart = () => {
                                   fontWeight: "500",
                                 }}
                               >
-                                ${item.quantity * item.productPrice}
+                                {item.quantity * item.productPrice}VND
                               </p>
                             </td>
                             <td data-label="">
@@ -321,7 +321,7 @@ const ShoppingCart = () => {
                                       +
                                     </button>
                                   </div>
-                                  <span>${item.productPrice}</span>
+                                  <span>{item.productPrice}VND</span>
                                 </div>
                                 <div className="shoppingBagTableMobileItemsDetailTotal">
                                   <MdOutlineClose
@@ -330,7 +330,7 @@ const ShoppingCart = () => {
                                       dispatch(removeFromCart(item.productID))
                                     }
                                   />
-                                  <p>${item.quantity * item.productPrice}</p>
+                                  <p>{item.quantity * item.productPrice}VND</p>
                                 </div>
                               </div>
                             </div>
@@ -378,13 +378,13 @@ const ShoppingCart = () => {
                     <tbody>
                       <tr>
                         <th>Subtotal</th>
-                        <td>${totalPrice.toFixed(2)}</td>
+                        <td>{totalPrice.toFixed(2)}VND</td>
                       </tr>
                       <tr>
                         <th>Shipping</th>
                         <td>
                           <div className="shoppingBagTotalTableCheck">
-                            <p>${(totalPrice === 0 ? 0 : 5).toFixed(2)}</p>
+                            <p>{(totalPrice === 0 ? 0 : 5).toFixed(2)}VND</p>
                             <p>Shipping to Al..</p>
                             <p
                               onClick={scrollToTop}
@@ -399,12 +399,12 @@ const ShoppingCart = () => {
                       </tr>
                       <tr>
                         <th>VAT</th>
-                        <td>${(totalPrice === 0 ? 0 : 11).toFixed(2)}</td>
+                        <td>{(totalPrice === 0 ? 0 : 11).toFixed(2)}VND</td>
                       </tr>
                       <tr>
                         <th>Total</th>
                         <td>
-                          ${(totalPrice === 0 ? 0 : totalPrice + 16).toFixed(2)}
+                          {(totalPrice === 0 ? 0 : totalPrice + 16).toFixed(2)}VND
                         </td>
                       </tr>
                     </tbody>
@@ -488,7 +488,7 @@ const ShoppingCart = () => {
                               <td>
                                 {items.productName} x {items.quantity}
                               </td>
-                              <td>${items.productPrice * items.quantity}</td>
+                              <td>{items.productPrice * items.quantity}VND</td>
                             </tr>
                           ))}
                         </tbody>
@@ -499,23 +499,24 @@ const ShoppingCart = () => {
                         <tbody>
                           <tr>
                             <th>Subtotal</th>
-                            <td>${totalPrice.toFixed(2)}</td>
+                            <td>{totalPrice.toFixed(2)}VND</td>
                           </tr>
                           <tr>
                             <th>Shipping</th>
-                            <td>$5</td>
+                            <td>50 VND</td>
                           </tr>
                           <tr>
                             <th>VAT</th>
-                            <td>$11</td>
+                            <td>11 VND</td>
                           </tr>
                           <tr>
                             <th>Total</th>
                             <td>
-                              $
+                              
                               {(totalPrice === 0 ? 0 : totalPrice + 16).toFixed(
                                 2
                               )}
+                              VND
                             </td>
                           </tr>
                         </tbody>
@@ -545,45 +546,11 @@ const ShoppingCart = () => {
                       <input
                         type="radio"
                         name="payment"
-                        value="Check Payments"
-                        onChange={handlePaymentChange}
-                      />
-                      <div className="checkoutPaymentMethod">
-                        <span>Check Payments</span>
-                        <p>
-                          Phasellus sed volutpat orci. Fusce eget lore mauris
-                          vehicula elementum gravida nec dui. Aenean aliquam
-                          varius ipsum, non ultricies tellus sodales eu. Donec
-                          dignissim viverra nunc, ut aliquet magna posuere eget.
-                        </p>
-                      </div>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name="payment"
                         value="Cash on delivery"
                         onChange={handlePaymentChange}
                       />
                       <div className="checkoutPaymentMethod">
                         <span>Cash on delivery</span>
-                        <p>
-                          Phasellus sed volutpat orci. Fusce eget lore mauris
-                          vehicula elementum gravida nec dui. Aenean aliquam
-                          varius ipsum, non ultricies tellus sodales eu. Donec
-                          dignissim viverra nunc, ut aliquet magna posuere eget.
-                        </p>
-                      </div>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name="payment"
-                        value="Paypal"
-                        onChange={handlePaymentChange}
-                      />
-                      <div className="checkoutPaymentMethod">
-                        <span>Paypal</span>
                         <p>
                           Phasellus sed volutpat orci. Fusce eget lore mauris
                           vehicula elementum gravida nec dui. Aenean aliquam
@@ -637,7 +604,7 @@ const ShoppingCart = () => {
                     </div>
                     <div className="orderInfoItem">
                       <p>Total</p>
-                      <h4>${totalPrice.toFixed(2)}</h4>
+                      <h4>{totalPrice.toFixed(2)}VND</h4>
                     </div>
                     <div className="orderInfoItem">
                       <p>Payment Method</p>
@@ -660,7 +627,7 @@ const ShoppingCart = () => {
                               <td>
                                 {items.productName} x {items.quantity}
                               </td>
-                              <td>${items.productPrice * items.quantity}</td>
+                              <td>{items.productPrice * items.quantity}VND</td>
                             </tr>
                           ))}
                         </tbody>
@@ -671,23 +638,23 @@ const ShoppingCart = () => {
                         <tbody>
                           <tr>
                             <th>Subtotal</th>
-                            <td>${totalPrice.toFixed(2)}</td>
+                            <td>{totalPrice.toFixed(2)}VND</td>
                           </tr>
                           <tr>
                             <th>Shipping</th>
-                            <td>$5</td>
+                            <td>5 VND</td>
                           </tr>
                           <tr>
                             <th>VAT</th>
-                            <td>$11</td>
+                            <td>11 VND</td>
                           </tr>
                           <tr>
                             <th>Total</th>
                             <td>
-                              $
                               {(totalPrice === 0 ? 0 : totalPrice + 16).toFixed(
                                 2
                               )}
+                              VND
                             </td>
                           </tr>
                         </tbody>

@@ -77,7 +77,7 @@ const AboutPage = () => {
         </div>
       </div>
       <Services />
-      <div className="companyPartners">
+      {/* <div className="companyPartners">
         <h5>Company Partners</h5>
         <Swiper
           slidesPerView={1}
@@ -141,7 +141,7 @@ const AboutPage = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-      </div>
+      </div> */}
     </>
   );
 };

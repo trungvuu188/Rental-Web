@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import "./LoginSignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginSignUp = () => {
   const [activeTab, setActiveTab] = useState("tabButton1");
+  const navigate = useNavigate();
 
   const handleTab = (tab) => {
     setActiveTab(tab);
   };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    return navigate('/'); 
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    return navigate('/');
+  }
 
   return (
     <>
@@ -32,7 +43,7 @@ const LoginSignUp = () => {
 
             {activeTab === "tabButton1" && (
               <div className="loginSignUpTabsContentLogin">
-                <form>
+                <form onSubmit={handleLogin}>
                   <input type="email" placeholder="Email address *" required />
                   <input type="password" placeholder="Password *" required />
                   <div className="loginSignUpForgetPass">
@@ -44,7 +55,7 @@ const LoginSignUp = () => {
                       <Link to="/resetPassword">Lost password?</Link>
                     </p>
                   </div>
-                  <button>Log In</button>
+                  <button type="submit">Log In</button>
                 </form>
                 <div className="loginSignUpTabsContentLoginText">
                   <p>
@@ -61,7 +72,7 @@ const LoginSignUp = () => {
 
             {activeTab === "tabButton2" && (
               <div className="loginSignUpTabsContentRegister">
-                <form>
+                <form onSubmit={handleRegister}>
                   <input type="text" placeholder="Username *" required />
                   <input type="email" placeholder="Email address *" required />
                   <input type="password" placeholder="Password *" required />
@@ -78,7 +89,7 @@ const LoginSignUp = () => {
                     </Link>
                     .
                   </p>
-                  <button>Register</button>
+                  <button type="submit">Register</button>
                 </form>
               </div>
             )}

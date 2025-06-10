@@ -29,6 +29,7 @@
 }
 
 .productFullImg img {
+  object-fit: cover;
   width: 520px;
   height: 520px;
   pointer-events: none;

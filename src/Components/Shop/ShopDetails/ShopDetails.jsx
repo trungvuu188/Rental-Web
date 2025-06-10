@@ -161,7 +161,7 @@ const ShopDetails = () => {
                           <h5>{product.productName}</h5>
                         </Link>
 
-                        <p>${product.productPrice}</p>
+                        <p>{product.productPrice}VND</p>
                         <div className="sdProductRatingReviews">
                           <div className="sdProductRatingStar">
                             <FaStar color="#FEC78A" size={10} />

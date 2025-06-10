@@ -167,6 +167,7 @@
 }
 
 .sdProductInfo {
+  width: 258px;
   display: flex;
   flex-direction: column;
   gap: 10px;
