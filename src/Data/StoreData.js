@@ -15,11 +15,11 @@ import Product_7_1 from "../Assets/Products/product_7-1.jpg";
 import Product_8 from "../Assets/Products/product_8.jpg";
 import Product_8_1 from "../Assets/Products/product_8-1.jpg";
 
-import limited1 from "../Assets/LimitedEdition/limited-1.jpg";
-import limited2 from "../Assets/LimitedEdition/limited-2.jpg";
-import limited3 from "../Assets/LimitedEdition/limited-3.jpg";
-import limited4 from "../Assets/LimitedEdition/limited-4.jpg";
-import limited5 from "../Assets/LimitedEdition/limited-5.jpg";
+import limited1 from "../Assets/LimitedEdition/IMG_8821.JPG";
+import limited2 from "../Assets/LimitedEdition/IMG_8821.JPG";
+import limited3 from "../Assets/LimitedEdition/IMG_8929.JPG";
+import limited4 from "../Assets/LimitedEdition/IMG_8984.JPG";
+import limited5 from "../Assets/LimitedEdition/IMG_8993.JPG";
 
 import coupleWares1 from "../Assets/CoupleWears/front1.JPG"
 import coupleWares1_1 from "../Assets/CoupleWears/back1.JPG"

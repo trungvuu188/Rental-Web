@@ -1,17 +1,17 @@
 import React from "react";
 import "./Instagram.css";
-import insta1 from "../../../Assets/Instagram/insta1.jpg";
-import insta2 from "../../../Assets/Instagram/insta2.jpg";
-import insta3 from "../../../Assets/Instagram/insta3.jpg";
-import insta4 from "../../../Assets/Instagram/insta4.jpg";
-import insta5 from "../../../Assets/Instagram/insta5.jpg";
-import insta6 from "../../../Assets/Instagram/insta6.jpg";
-import insta7 from "../../../Assets/Instagram/insta7.jpg";
-import insta8 from "../../../Assets/Instagram/insta8.jpg";
-import insta9 from "../../../Assets/Instagram/insta9.jpg";
-import insta10 from "../../../Assets/Instagram/insta10.jpg";
-import insta11 from "../../../Assets/Instagram/insta11.jpg";
-import insta12 from "../../../Assets/Instagram/insta12.jpg";
+import insta1 from "../../../Assets/Instagram/IMG_0172.JPG";
+import insta2 from "../../../Assets/Instagram/IMG_2179.JPG";
+import insta3 from "../../../Assets/Instagram/IMG_2358.JPG";
+import insta4 from "../../../Assets/Instagram/IMG_2374.JPG";
+import insta5 from "../../../Assets/Instagram/IMG_2735.JPG";
+import insta6 from "../../../Assets/Instagram/IMG_7973.JPG";
+import insta7 from "../../../Assets/Instagram/IMG_9477.JPG";
+import insta8 from "../../../Assets/Instagram/IMG_9521.JPG";
+import insta9 from "../../../Assets/Instagram/IMG_9590.JPG";
+import insta10 from "../../../Assets/Instagram/IMG_9612.JPG";
+import insta11 from "../../../Assets/Instagram/IMG_9616.JPG";
+import insta12 from "../../../Assets/Instagram/IMG_9788.JPG";
 
 const Instagram = () => {
   return (
