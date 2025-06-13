@@ -145,7 +145,7 @@ const ShopDetails = () => {
                     </div>
                     <div className="sdProductInfo">
                       <div className="sdProductCategoryWishlist">
-                        <p>Dresses</p>
+                        <p>Brand name</p>
                         <FiHeart
                           onClick={() => handleWishlistClick(product.productID)}
                           style={{

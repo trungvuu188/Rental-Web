@@ -3,6 +3,7 @@ import ScrollToTop from "./Components/ScrollButton/ScrollToTop";
 import Popup from "./Components/PopupBanner/Popup";
 import Routes from "./routes";
 import "./App.css";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Popup />
       <ScrollToTop />
       <Routes />
+      <Toaster />
     </>
   );
 };

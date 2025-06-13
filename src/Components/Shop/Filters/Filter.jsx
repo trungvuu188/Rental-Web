@@ -50,15 +50,16 @@ const Filter = () => {
 
   const filterCategories = [
     "Dresses",
-    "Shorts",
-    "Sweatshirts",
+    // "Shorts",
+    // "Sweatshirts",
+    "Couplewear",
     "Swimwear",
-    "Jackets",
-    "T-Shirts & Tops",
-    "Jeans",
-    "Trousers",
+    // "Jackets",
+    // "T-Shirts & Tops",
+    // "Jeans",
+    // "Trousers",
     "Men",
-    "Jumpers & Cardigans",
+    // "Jumpers & Cardigans",
   ];
 
   const filterColors = [

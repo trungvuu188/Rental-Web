@@ -12,6 +12,7 @@ import NotFound from "../Pages/NotFound";
 import About from "../Pages/About";
 import DefaultLayout from "../layouts/DefaultLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ContactPage from "../Components/Contact/ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path: "'BlogDetails'",
+        path: "BlogDetails",
         element: <BlogDetails />,
       },
       {
