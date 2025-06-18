@@ -1,12 +1,11 @@
-import React, { useState } from "react";
 import "./ShopDetails.css";
-
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../Features/Cart/cartSlice";
 
 import Filter from "../Filters/Filter";
 import { Link } from "react-router-dom";
-import StoreData from "../../../Data/StoreData";
+import StoreData, { categoryWears } from "../../../Data/StoreData";
 import { FiHeart } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { IoFilterSharp, IoClose } from "react-icons/io5";
@@ -16,9 +15,10 @@ import toast from "react-hot-toast";
 
 const ShopDetails = () => {
   const dispatch = useDispatch();
-
   const [wishList, setWishList] = useState({});
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(1);
+  const [productList, setProductList] = useState([]);
 
   const handleWishlistClick = (productID) => {
     setWishList((prevWishlist) => ({
@@ -26,6 +26,11 @@ const ShopDetails = () => {
       [productID]: !prevWishlist[productID],
     }));
   };
+
+  useEffect(() => {
+    const listData = categoryWears.filter(item => item.id === selectedCategoryId);
+    setProductList(listData[0].data)
+  }, [selectedCategoryId]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -82,7 +87,7 @@ const ShopDetails = () => {
       <div className="shopDetails">
         <div className="shopDetailMain">
           <div className="shopDetails__left">
-            <Filter />
+            <Filter handleChangeCategory={(id) => setSelectedCategoryId(id)} />
           </div>
           <div className="shopDetails__right">
             <div className="shopDetailsSorting">
@@ -118,7 +123,7 @@ const ShopDetails = () => {
             </div>
             <div className="shopDetailsProducts">
               <div className="shopDetailsProductsContainer">
-                {StoreData.slice(0, 6).map((product) => (
+                {productList?.slice(0, 6).map((product) => (
                   <div className="sdProductContainer">
                     <div className="sdProductImages">
                       <Link to="/Product" onClick={scrollToTop}>

@@ -8,21 +8,18 @@ import { IoIosArrowDown } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import Slider from "@mui/material/Slider";
 import { categoryWears } from "../../../Data/StoreData";
+import { useDispatch, useSelector } from "react-redux";
+import { updateCategory } from "../../../Features/Product/productSlice";
 
-const Filter = () => {
+const Filter = ({handleChangeCategory}) => {
+  const dispatch = useDispatch();
   const [value, setValue] = useState([20, 69]);
   const [selectedCategoryId, setSelectedCategoryId] = useState();
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [brandsData] = useState([
-    { name: "Adidas", count: 2 },
-    { name: "Balmain", count: 7 },
-    { name: "Balenciaga", count: 10 },
-    { name: "Burberry", count: 39 },
-    { name: "Kenzo", count: 95 },
-    { name: "Givenchy", count: 1092 },
-    { name: "Zara", count: 48 },
+    { name: "VietnamCustume", count: 20 },
   ]);
 
   const handleColorChange = (color) => {
@@ -40,10 +37,6 @@ const Filter = () => {
         : [...prevSizes, size]
     );
   };
-
-  const handleChangeCategory = (category) => {
-
-  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -118,7 +111,7 @@ const Filter = () => {
             </AccordionDetails>
           </Accordion>
         </div> */}
-        <div className="filterSizes">
+        {/* <div className="filterSizes">
           <Accordion defaultExpanded disableGutters elevation={0}>
             <AccordionSummary
               expandIcon={<IoIosArrowDown size={20} />}
@@ -144,7 +137,7 @@ const Filter = () => {
               </div>
             </AccordionDetails>
           </Accordion>
-        </div>
+        </div> */}
         <div className="filterBrands">
           <Accordion defaultExpanded disableGutters elevation={0}>
             <AccordionSummary

@@ -28,6 +28,31 @@ import coupleWares2_1 from "../Assets/CoupleWears/back2.JPG"
 import coupleWares3 from "../Assets/CoupleWears/front3.JPG"
 import coupleWares3_1 from "../Assets/CoupleWears/back3.JPG"
 
+// New regions
+// Men
+import menWear1 from "../Assets/CoupleWears/front3.JPG"
+import menWear1_1 from "../Assets/CoupleWears/back3.JPG"
+
+// Women
+import womenWear_1 from "../Assets/Products/hoian1-1.JPG";
+import womenWear_1_1 from "../Assets/Products/hoian1.JPG";
+import womenWear_2 from "../Assets/Products/IMG_5579.JPG";
+import womenWear_2_1 from "../Assets/Products/IMG_5580.JPG";
+import womenWear_3 from "../Assets/Products/IMG_5559.JPG";
+import womenWear_3_1 from "../Assets/Products/IMG_5561.JPG";
+import womenWear_4 from "../Assets/Products/IMG_4710.JPG";
+import womenWear_4_1 from "../Assets/Products/IMG_4712.JPG";
+import womenWear_5 from "../Assets/Products/IMG_4639.JPG";  
+import womenWear_5_1 from "../Assets/Products/IMG_4640.JPG";
+
+// Couple
+import coupleWear1 from "../Assets/Products/couple/IMG_7242.JPG";
+import coupleWear2 from "../Assets/Products/couple/371EDEB2-2B27-40C0-B34C-39FC174C1C11.jpeg";
+import coupleWear3 from "../Assets/Products/couple/18636732-5826-4399-9370-D3D31F2D25E6.jpeg";
+import coupleWear4 from "../Assets/Products/couple/B0F94959-2DCB-4852-8F0A-EDB352D2E090.jpeg";
+import coupleWear5 from "../Assets/Products/couple/C94FFBAD-9447-4352-8785-CD77F512EEA4.jpeg";
+import coupleWear6 from "../Assets/Products/couple/DB46F1A9-CF22-4352-B628-30BD0C1B7F15.jpeg";
+
 const StoreData = [
   {
     productID: 1,
@@ -130,32 +155,134 @@ const StoreData = [
   },
 ];
 
+const coupleWears = [
+  {
+    productID: 1,
+    frontImg: coupleWear1,
+    backImg: coupleWear1,
+    productName: "Set Váy Dài Áo Cúp Ngực và Áo Sơ Mi Nam Màu Hồng Pastel",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 2,
+    frontImg: coupleWear2,
+    backImg: coupleWear2,
+    productName: "Set Váy Dài Cúp Ngực và Áo Sơ Mi Nam Màu Xanh Pastel",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 3,
+    frontImg: coupleWear3,
+    backImg: coupleWear3,
+    productName: "Set Váy Dài và Áo Sơ Mi Nam Đi Biển Màu Hồng Pastel",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 4,
+    frontImg: coupleWear4,
+    backImg: coupleWear4,
+    productName: "Set Váy Ngắn Cúp Ngực và Áo Sơ Mi Nam Màu Hồng Pastel",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 5,
+    frontImg: coupleWear5,
+    backImg: coupleWear5,
+    productName: "Set Váy Dài và Áo Sơ Mi Nam Màu Xanh Navy",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 6,
+    frontImg: coupleWear6,
+    backImg: coupleWear6,
+    productName: "Set Váy Dài và Áo Sơ Mi Nam Họa Tiết Sọc Màu Trắng Sữa",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+];
 
-const womenWears = [];
-const menWears = [];
+const menWears = [
+  {
+    productID: 1,
+    frontImg: menWear1,
+    backImg: menWear1_1,
+    productName: "Áo Sơ Mi Nam Đi Biển Màu Nâu",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+];
+
+const womenWears = [
+  {
+    productID: 1,
+    frontImg: womenWear_1,
+    backImg: womenWear_1_1,
+    productName: "Váy trắng trễ vai tay bồng cổ điển",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 2,
+    frontImg: womenWear_2,
+    backImg: womenWear_2_1,
+    productName: "Váy trắng trễ vai ren xoè nhẹ",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 3,
+    frontImg: womenWear_3,
+    backImg: womenWear_3_1,
+    productName: "Váy kem lụa hai dây ôm dáng",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 4,
+    frontImg: womenWear_4,
+    backImg: womenWear_4_1,
+    productName: "Váy trắng ren bo eo xẻ tà",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 5,
+    frontImg: womenWear_5,
+    backImg: womenWear_5_1,
+    productName: "Váy trắng cúp ngực dáng dài basic",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
+];
+
 const swimWears = [];
-const coupleWears = [];
 
 export const categoryWears = [
   {
     id: 1,
-    title: 'Swim',
-    data: swimWears
+    title: 'Couple',
+    data: coupleWears
   },
   {
     id: 2,
-    title: 'Couple',
-    data: coupleWears
-  },{
-    id: 3,
     title: 'Men',
     data: menWears
   },
   {
-    id: 4,
+    id: 3,
     title: 'Women',
     data: womenWears
-  }
+  },
+  {
+    id: 4,
+    title: 'Swim',
+    data: swimWears
+  },
 ];
 
 export default StoreData;
