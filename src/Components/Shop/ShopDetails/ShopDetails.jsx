@@ -12,9 +12,11 @@ import { IoFilterSharp, IoClose } from "react-icons/io5";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import { FaCartPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { useViewProductDetail, viewProductDetailUtils } from "../../../utils/productDetail";
 
 const ShopDetails = () => {
   const dispatch = useDispatch();
+  const viewProductDetail = useViewProductDetail();
   const [wishList, setWishList] = useState({});
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(1);
@@ -46,6 +48,11 @@ const ShopDetails = () => {
   const closeDrawer = () => {
     setIsDrawerOpen(false);
   };
+
+  const viewDetailProduct = (productId) => {
+
+    viewProductDetail({categoryId: selectedCategoryId, productId: productId});
+  }
 
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -126,7 +133,7 @@ const ShopDetails = () => {
                 {productList?.slice(0, 6).map((product) => (
                   <div className="sdProductContainer">
                     <div className="sdProductImages">
-                      <Link to="/Product" onClick={scrollToTop}>
+                      <a onClick={() => viewDetailProduct(product.productID)}>
                         <img
                           src={product.frontImg}
                           alt=""
@@ -137,7 +144,7 @@ const ShopDetails = () => {
                           alt=""
                           className="sdProduct_back"
                         />
-                      </Link>
+                      </a>
                       <h4 onClick={() => handleAddToCart(product)}>
                         Add to Cart
                       </h4>

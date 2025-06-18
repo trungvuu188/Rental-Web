@@ -13,7 +13,7 @@ import { Autoplay } from "swiper/modules";
 
 import { Link } from "react-router-dom";
 
-import StoreData from "../../../Data/StoreData";
+import StoreData, { limiteds } from "../../../Data/StoreData";
 
 import { FiHeart } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
@@ -122,7 +122,7 @@ const LimitedEdition = () => {
               },
             }}
           >
-            {StoreData.slice(8, 13).map((product) => {
+            {limiteds.map((product) => {
               return (
                 <SwiperSlide key={product.productID}>
                   <div className="lpContainer">

@@ -15,11 +15,11 @@ import Product_7_1 from "../Assets/Products/product_7-1.jpg";
 import Product_8 from "../Assets/Products/product_8.jpg";
 import Product_8_1 from "../Assets/Products/product_8-1.jpg";
 
-import limited1 from "../Assets/LimitedEdition/IMG_8821.JPG";
-import limited2 from "../Assets/LimitedEdition/IMG_8821.JPG";
-import limited3 from "../Assets/LimitedEdition/IMG_8929.JPG";
-import limited4 from "../Assets/LimitedEdition/IMG_8984.JPG";
-import limited5 from "../Assets/LimitedEdition/IMG_8993.JPG";
+// import limited1 from "../Assets/LimitedEdition/IMG_8821.JPG";
+// import limited2 from "../Assets/LimitedEdition/IMG_8821.JPG";
+// import limited3 from "../Assets/LimitedEdition/IMG_8929.JPG";
+// import limited4 from "../Assets/LimitedEdition/IMG_8984.JPG";
+// import limited5 from "../Assets/LimitedEdition/IMG_8993.JPG";
 
 import coupleWares1 from "../Assets/CoupleWears/front1.JPG"
 import coupleWares1_1 from "../Assets/CoupleWears/back1.JPG"
@@ -52,6 +52,24 @@ import coupleWear3 from "../Assets/Products/couple/18636732-5826-4399-9370-D3D31
 import coupleWear4 from "../Assets/Products/couple/B0F94959-2DCB-4852-8F0A-EDB352D2E090.jpeg";
 import coupleWear5 from "../Assets/Products/couple/C94FFBAD-9447-4352-8785-CD77F512EEA4.jpeg";
 import coupleWear6 from "../Assets/Products/couple/DB46F1A9-CF22-4352-B628-30BD0C1B7F15.jpeg";
+
+// New Arrivals
+import new1 from "../Assets/Products/new-arrival/new1.JPG";
+import new2 from "../Assets/Products/new-arrival/new2.JPG";
+import new3 from "../Assets/Products/new-arrival/new3.JPG";
+import new4 from "../Assets/Products/new-arrival/new4.JPG";
+import new5 from "../Assets/Products/new-arrival/new5.JPG";
+import new6 from "../Assets/Products/new-arrival/new6.JPG";
+import new7 from "../Assets/Products/new-arrival/new7.JPG";
+import new8 from "../Assets/Products/new-arrival/new8.JPG";
+
+// Limited
+import limited1 from "../Assets/Products/limited/limited1.JPG";
+import limited2 from "../Assets/Products/limited/limited2.JPG";
+import limited3 from "../Assets/Products/limited/limited3.JPG";
+import limited4 from "../Assets/Products/limited/limited4.JPG";
+import limited5 from "../Assets/Products/limited/limited5.JPG";
+import limited6 from "../Assets/Products/limited/limited6.JPG";
 
 const StoreData = [
   {
@@ -162,6 +180,7 @@ const coupleWears = [
     backImg: coupleWear1,
     productName: "Set Váy Dài Áo Cúp Ngực và Áo Sơ Mi Nam Màu Hồng Pastel",
     productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài cúp ngực cho nữ và áo sơ mi nam màu hồng pastel mang phong cách nhẹ nhàng, thanh lịch, thích hợp cho những buổi dạo phố hay du lịch. Thiết kế đơn giản nhưng tinh tế, tạo cảm giác thoải mái và nổi bật khi diện cùng nhau.",
     productReviews: "0 review(s)",
   },
   {
@@ -170,6 +189,7 @@ const coupleWears = [
     backImg: coupleWear2,
     productName: "Set Váy Dài Cúp Ngực và Áo Sơ Mi Nam Màu Xanh Pastel",
     productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài cúp ngực và áo sơ mi nam màu xanh pastel mang đến vẻ ngoài tươi mát, trẻ trung và hiện đại. Chất liệu nhẹ nhàng cùng tông màu dịu mắt giúp cặp đôi nổi bật trong những buổi hẹn hò hay dạo phố cuối tuần.",
     productReviews: "0 review(s)",
   },
   {
@@ -261,6 +281,124 @@ const womenWears = [
 ];
 
 const swimWears = [];
+
+export const newArrivals = [
+  {
+    productID: 1,
+    frontImg: new1,
+    backImg: new1,
+    productName: "Váy Trắng Cổ Vuông & Nón Cói",
+    productPrice: 99000,
+    productReviews: "8k+ reviews",
+  },
+  {
+    productID: 2,
+    frontImg: new2,
+    backImg: new2,
+    productName: "Váy Ren Trắng Dài Thanh Lịch",
+    productPrice: 99000,
+    productReviews: "2k+ reviews",
+  },
+  {
+    productID: 3,
+    frontImg: new3,
+    backImg: new3,
+    productName: "Váy Đỏ Đậm Mang Phong Cách Cổ Trang",
+    productPrice: 99000,
+    productReviews: "7k+ reviews",
+  },
+  {
+    productID: 4,
+    frontImg: new4,
+    backImg: new4,
+    productName: "Áo Ren Trắng Phối Cùng Váy Đỏ Rực",
+    productPrice: 99000,
+    productReviews: "5k+ reviews",
+  },
+  {
+    productID: 5,
+    frontImg: new5,
+    backImg: new5,
+    productName: "Váy Dự Tiệc Kiểu Áo Choàng Ngắn",
+    productPrice: 99000,
+    productReviews: "9k+ reviews",
+  },
+  {
+    productID: 6,
+    frontImg: new6,
+    backImg: new6,
+    productName: "Váy Vàng Dễ Thương Dáng Dài",
+    productPrice: 69,
+    productReviews: "1k+ reviews",
+  },
+  {
+    productID: 7,
+    frontImg: new7,
+    backImg: new7,
+    productName: "Váy Phối Màu Đỏ – Trắng Phá Cách",
+    productPrice: 99,
+    productReviews: "3k+ reviews",
+  },
+  {
+    productID: 8,
+    frontImg: new8,
+    backImg: new8,
+    productName: "Váy Dây Vàng Cát Biển Lãng Mạn",
+    productPrice: 37,
+    productReviews: "4k+ reviews",
+  },
+];
+
+export const limiteds = [
+  {
+    productID: 1,
+    frontImg: limited1,
+    backImg: limited1,
+    productName: "Áo Yếm In Họa Tiết & Váy Lụa Xanh Hoàng Gia",
+    productPrice: 99000,
+    productReviews: "8k+ reviews",
+  },
+  {
+    productID: 2,
+    frontImg: limited2,
+    backImg: limited2,
+    productName: "Váy Corset Đen Quyến Rũ",
+    productPrice: 99000,
+    productReviews: "2k+ reviews",
+  },
+  {
+    productID: 3,
+    frontImg: limited3,
+    backImg: limited3,
+    productName: "Áo Dài Cách Tân Hoa Nhẹ & Nón Lá",
+    productPrice: 99000,
+    productReviews: "7k+ reviews",
+  },
+  {
+    productID: 4,
+    frontImg: limited4,
+    backImg: limited4,
+    productName: "Áo Ren Trễ Vai & Váy Trắng Dáng Dài",
+    productPrice: 99000,
+    productReviews: "5k+ reviews",
+  },
+  {
+    productID: 5,
+    frontImg: limited5,
+    backImg: limited5,
+    productName: "Áo Hai Dây Hồng Pastel & Váy Đỏ Rực",
+    productPrice: 99000,
+    productReviews: "9k+ reviews",
+  },
+  {
+    productID: 6,
+    frontImg: limited6,
+    backImg: limited6,
+    productName: "Váy Trắng Cúp Vai Công Chúa",
+    productPrice: 69,
+    productReviews: "1k+ reviews",
+  }
+];
 
 export const categoryWears = [
   {

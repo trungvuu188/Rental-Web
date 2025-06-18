@@ -3,7 +3,7 @@ import "./Trendy.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../Features/Cart/cartSlice";
 import { Link } from "react-router-dom";
-import StoreData from "../../../Data/StoreData";
+import StoreData, { limiteds, newArrivals } from "../../../Data/StoreData";
 import { FiHeart } from "react-icons/fi";
 import { FaStar, FaCartPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -92,30 +92,12 @@ const Trendy = () => {
             >
               All
             </p>
-            <p
-              onClick={() => handleTabClick("tab2")}
-              className={activeTab === "tab2" ? "active" : ""}
-            >
-              New Arrivals
-            </p>
-            <p
-              onClick={() => handleTabClick("tab3")}
-              className={activeTab === "tab3" ? "active" : ""}
-            >
-              Best Seller
-            </p>
-            <p
-              onClick={() => handleTabClick("tab4")}
-              className={activeTab === "tab4" ? "active" : ""}
-            >
-              Top Rated
-            </p>
           </div>
           <div className="trendyTabContent">
             {/* Tab 1 */}
             {activeTab === "tab1" && (
               <div className="trendyMainContainer">
-                {StoreData.slice(0, 8).map((product) => (
+                {newArrivals.slice(0, 8).map((product) => (
                   <div className="trendyProductContainer" key={product.id}>
                     <div className="trendyProductImages">
                       <Link to="/Product" onClick={scrollToTop}>

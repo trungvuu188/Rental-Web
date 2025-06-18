@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import Zoom from "@mui/material/Zoom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../Features/Cart/cartSlice";
-
-import product1 from "../../../Assets/ProductDetail/IMG_1121.PNG";
-import product2 from "../../../Assets/ProductDetail/IMG_1122.PNG";
-import product3 from "../../../Assets/ProductDetail/IMG_1123.PNG";
-import product4 from "../../../Assets/ProductDetail/IMG_1124.PNG";
 
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
@@ -16,17 +11,21 @@ import { FaStar } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { PiShareNetworkLight } from "react-icons/pi";
 
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import toast from "react-hot-toast";
 
 import "./Product.css";
+import { categoryWears } from "../../../Data/StoreData";
 
 const Product = () => {
-  // Product images Gallery
-
-  const productImg = [product1, product2, product3, product4];
+ 
   const [currentImg, setCurrentImg] = useState(0);
+  const [searchParams] = useSearchParams();
+  const [productDetail, setProductDetail] = useState();
+  const productImg = [productDetail?.frontImg, productDetail?.backImg];
+  const product1 = productDetail?.frontImg;
+  const product2 = productDetail?.backImg;
 
   const prevImg = () => {
     setCurrentImg(currentImg === 0 ? productImg.length - 1 : currentImg - 1);
@@ -49,6 +48,14 @@ const Product = () => {
       setQuantity(quantity - 1);
     }
   };
+
+  useEffect(() => {
+    const cateId = searchParams.get('cate');
+    const proId = searchParams.get('id');
+    const filteredCateArr = categoryWears.filter(category => category.id === Number.parseInt(cateId));
+    const productDetailArr = filteredCateArr[0].data.filter(pro => pro.productID === Number.parseInt(proId));
+    setProductDetail(productDetailArr[0]);
+  }, [])
 
   const handleInputChange = (event) => {
     const value = parseInt(event.target.value);
@@ -130,6 +137,8 @@ const Product = () => {
     }
   };
 
+  
+
   return (
     <>
       <div className="productSection">
@@ -138,8 +147,6 @@ const Product = () => {
             <div className="productThumb">
               <img src={product1} onClick={() => setCurrentImg(0)} alt="" />
               <img src={product2} onClick={() => setCurrentImg(1)} alt="" />
-              <img src={product3} onClick={() => setCurrentImg(2)} alt="" />
-              <img src={product4} onClick={() => setCurrentImg(3)} alt="" />
             </div>
             <div className="productFullImg">
               <img src={productImg[currentImg]} alt="" />
@@ -171,7 +178,7 @@ const Product = () => {
               </div>
             </div>
             <div className="productName">
-              <h1>Lightweight Puffer Jacket With a Hood</h1>
+              <h1>{productDetail?.productName}</h1>
             </div>
             <div className="productRating">
               <FaStar color="#FEC78A" size={10} />
@@ -179,17 +186,18 @@ const Product = () => {
               <FaStar color="#FEC78A" size={10} />
               <FaStar color="#FEC78A" size={10} />
               <FaStar color="#FEC78A" size={10} />
-              <p>8k+ reviews</p>
+              <p>{productDetail?.productReviews}</p>
             </div>
             <div className="productPrice">
-              <h3>90 VND</h3>
+              <h3>{productDetail?.productPrice}</h3>
             </div>
             <div className="productDescription">
               <p>
-                Phasellus sed volutpat orci. Fusce eget lore mauris vehicula
-                elementum gravida nec dui. Aenean aliquam varius ipsum, non
-                ultricies tellus sodales eu. Donec dignissim viverra nunc, ut
-                aliquet magna posuere eget.
+                {
+                  productDetail.productDesc ? 
+                  productDetail.productDesc :
+                  "Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, aliquet magna posuere eget."
+                }
               </p>
             </div>
             <div className="productSizeColor">

@@ -1,18 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cateId: 1,
+  category: '',  
+  productId: 1,
 };
 
 const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    updateCategory(state, action) {
-      return state = action.payload;
-    },
+    setProductDetail: (state, action) => {
+        state.category = action.type;
+        state.productId = action.payload;
+    }
   },
 });
 
-export const { updateCategory } = productSlice.actions;
+export const { setProductDetail } = productSlice.actions;
 export default productSlice.reducer;

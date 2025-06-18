@@ -19,7 +19,7 @@ const Filter = ({handleChangeCategory}) => {
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [brandsData] = useState([
-    { name: "VietnamCustume", count: 20 },
+    { name: "Tiem CoMin", count: 20 },
   ]);
 
   const handleColorChange = (color) => {
