@@ -224,6 +224,14 @@ const coupleWears = [
     productPrice: 99000,
     productReviews: "0 review(s)",
   },
+  {
+    productID: 7,
+    frontImg: coupleWear6,
+    backImg: coupleWear6,
+    productName: "Set Váy Dài và Áo Sơ Mi Nam Họa Tiết Sọc Màu Trắng Sữa",
+    productPrice: 99000,
+    productReviews: "0 review(s)",
+  },
 ];
 
 const menWears = [
@@ -328,7 +336,7 @@ export const newArrivals = [
     frontImg: new6,
     backImg: new6,
     productName: "Váy Vàng Dễ Thương Dáng Dài",
-    productPrice: 69,
+    productPrice: 99000,
     productReviews: "1k+ reviews",
   },
   {
@@ -336,7 +344,7 @@ export const newArrivals = [
     frontImg: new7,
     backImg: new7,
     productName: "Váy Phối Màu Đỏ – Trắng Phá Cách",
-    productPrice: 99,
+    productPrice: 99000,
     productReviews: "3k+ reviews",
   },
   {
@@ -344,7 +352,7 @@ export const newArrivals = [
     frontImg: new8,
     backImg: new8,
     productName: "Váy Dây Vàng Cát Biển Lãng Mạn",
-    productPrice: 37,
+    productPrice: 99000,
     productReviews: "4k+ reviews",
   },
 ];
@@ -395,7 +403,7 @@ export const limiteds = [
     frontImg: limited6,
     backImg: limited6,
     productName: "Váy Trắng Cúp Vai Công Chúa",
-    productPrice: 69,
+    productPrice: 99000,
     productReviews: "1k+ reviews",
   }
 ];
@@ -418,8 +426,16 @@ export const categoryWears = [
   },
   {
     id: 4,
-    title: 'Swim',
+    title: 'Swim Suit',
     data: swimWears
+  },
+  {
+    id: 5,
+    data: newArrivals
+  },
+  {
+    id: 6,
+    data: limiteds
   },
 ];
 

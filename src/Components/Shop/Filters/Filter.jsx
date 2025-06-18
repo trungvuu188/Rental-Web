@@ -9,11 +9,10 @@ import { BiSearch } from "react-icons/bi";
 import Slider from "@mui/material/Slider";
 import { categoryWears } from "../../../Data/StoreData";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCategory } from "../../../Features/Product/productSlice";
 
 const Filter = ({handleChangeCategory}) => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState([20, 69]);
+  const [value, setValue] = useState([99, 300]);
   const [selectedCategoryId, setSelectedCategoryId] = useState();
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
@@ -75,7 +74,7 @@ const Filter = ({handleChangeCategory}) => {
               <h5 className="filterHeading">Product Categories</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
-              {categoryWears.map((category, index) => (
+              {categoryWears.slice(0, 4).map((category, index) => (
                 <p onClick={() => handleChangeCategory(category.id)} key={index}>{category.title}</p>
               ))}
             </AccordionDetails>
@@ -146,7 +145,7 @@ const Filter = ({handleChangeCategory}) => {
               id="panel1-header"
               sx={{ padding: 0, marginBottom: 2 }}
             >
-              <h5 className="filterHeading">Brands</h5>
+              <h5 className="filterHeading">Shops</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
               {/* Search bar */}
@@ -187,7 +186,7 @@ const Filter = ({handleChangeCategory}) => {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div className="filterPrice">
+        {/* <div className="filterPrice">
           <Accordion defaultExpanded disableGutters elevation={0}>
             <AccordionSummary
               expandIcon={<IoIosArrowDown size={20} />}
@@ -218,7 +217,7 @@ const Filter = ({handleChangeCategory}) => {
               <div className="filterSliderPrice">
                 <div className="priceRange">
                   <p>
-                    Min Price: <span>${value[0]}</span>
+                    Min Price: <span>{value[0]}</span>
                   </p>
                   <p>
                     Max Price: <span>${value[1]}</span>
@@ -227,7 +226,7 @@ const Filter = ({handleChangeCategory}) => {
               </div>
             </AccordionDetails>
           </Accordion>
-        </div>
+        </div> */}
       </div>
     </div>
   );

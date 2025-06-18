@@ -21,6 +21,7 @@ const ShopDetails = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(1);
   const [productList, setProductList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const handleWishlistClick = (productID) => {
     setWishList((prevWishlist) => ({
@@ -31,7 +32,8 @@ const ShopDetails = () => {
 
   useEffect(() => {
     const listData = categoryWears.filter(item => item.id === selectedCategoryId);
-    setProductList(listData[0].data)
+    setProductList(listData[0].data);
+    setCurrentPage(0)
   }, [selectedCategoryId]);
 
   const scrollToTop = () => {
@@ -50,7 +52,6 @@ const ShopDetails = () => {
   };
 
   const viewDetailProduct = (productId) => {
-
     viewProductDetail({categoryId: selectedCategoryId, productId: productId});
   }
 
@@ -130,7 +131,7 @@ const ShopDetails = () => {
             </div>
             <div className="shopDetailsProducts">
               <div className="shopDetailsProductsContainer">
-                {productList?.slice(0, 6).map((product) => (
+                {productList?.slice(currentPage * 6, 6 + currentPage * 6).map((product) => (
                   <div className="sdProductContainer">
                     <div className="sdProductImages">
                       <a onClick={() => viewDetailProduct(product.productID)}>
@@ -157,7 +158,7 @@ const ShopDetails = () => {
                     </div>
                     <div className="sdProductInfo">
                       <div className="sdProductCategoryWishlist">
-                        <p>Brand name</p>
+                        <p>Tiem CoMin</p>
                         <FiHeart
                           onClick={() => handleWishlistClick(product.productID)}
                           style={{
@@ -199,10 +200,11 @@ const ShopDetails = () => {
               </div>
               <div className="sdPaginationNumber">
                 <div className="paginationNum">
-                  <p onClick={scrollToTop}>1</p>
-                  <p onClick={scrollToTop}>2</p>
-                  <p onClick={scrollToTop}>3</p>
-                  <p onClick={scrollToTop}>4</p>
+                {
+                  [...Array(Math.ceil(productList.length / 6)).keys()].map(number => 
+                      <p onClick={() => setCurrentPage(number)}>{number + 1}</p>
+                      )
+                }
                 </div>
               </div>
               <div className="sdPaginationNext">

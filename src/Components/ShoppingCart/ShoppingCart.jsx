@@ -378,13 +378,13 @@ const ShoppingCart = () => {
                     <tbody>
                       <tr>
                         <th>Subtotal</th>
-                        <td>{totalPrice.toFixed(2)}VND</td>
+                        <td>{totalPrice} VND</td>
                       </tr>
                       <tr>
                         <th>Shipping</th>
                         <td>
                           <div className="shoppingBagTotalTableCheck">
-                            <p>{(totalPrice === 0 ? 0 : 5).toFixed(2)}VND</p>
+                            <p>20000 VND</p>
                             <p>Shipping to Al..</p>
                             <p
                               onClick={scrollToTop}
@@ -397,14 +397,14 @@ const ShoppingCart = () => {
                           </div>
                         </td>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <th>VAT</th>
                         <td>{(totalPrice === 0 ? 0 : 11).toFixed(2)}VND</td>
-                      </tr>
+                      </tr> */}
                       <tr>
                         <th>Total</th>
                         <td>
-                          {(totalPrice === 0 ? 0 : totalPrice + 16).toFixed(2)}VND
+                          {(totalPrice === 0 ? 0 : totalPrice + 20000)} VND
                         </td>
                       </tr>
                     </tbody>
@@ -433,11 +433,11 @@ const ShoppingCart = () => {
                         <input type="text" placeholder="First Name" />
                         <input type="text" placeholder="Last Name" />
                       </div>
-                      <input
+                      {/* <input
                         type="text"
                         placeholder="Company Name (optional)"
-                      />
-                      <select name="country" id="country">
+                      /> */}
+                      {/* <select name="country" id="country">
                         <option value="Country / Region" selected disabled>
                           Country / Region
                         </option>
@@ -446,22 +446,22 @@ const ShoppingCart = () => {
                         <option value="United Kingdom">United Kingdom</option>
                         <option value="United States">United States</option>
                         <option value="Turkey">Turkey</option>
-                      </select>
+                      </select> */}
                       <input type="text" placeholder="Street Address*" />
                       <input type="text" placeholder="" />
                       <input type="text" placeholder="Town / City *" />
-                      <input type="text" placeholder="Postcode / ZIP *" />
+                      {/* <input type="text" placeholder="Postcode / ZIP *" /> */}
                       <input type="text" placeholder="Phone *" />
-                      <input type="mail" placeholder="Your Mail *" />
+                      {/* <input type="mail" placeholder="Your Mail *" /> */}
                       <div className="checkoutDetailsFormCheck">
-                        <label>
+                        {/* <label>
                           <input type="checkbox" />
                           <p>Create An Account?</p>
-                        </label>
-                        <label>
+                        </label> */}
+                        {/* <label>
                           <input type="checkbox" />
                           <p>Ship to a different Address</p>
-                        </label>
+                        </label> */}
                       </div>
                       <textarea
                         cols={30}
@@ -499,24 +499,21 @@ const ShoppingCart = () => {
                         <tbody>
                           <tr>
                             <th>Subtotal</th>
-                            <td>{totalPrice.toFixed(2)}VND</td>
+                            <td>{totalPrice} VND</td>
                           </tr>
                           <tr>
                             <th>Shipping</th>
-                            <td>50 VND</td>
+                            <td>20000 VND</td>
                           </tr>
-                          <tr>
+                          {/* <tr>
                             <th>VAT</th>
                             <td>11 VND</td>
-                          </tr>
+                          </tr> */}
                           <tr>
                             <th>Total</th>
                             <td>
                               
-                              {(totalPrice === 0 ? 0 : totalPrice + 16).toFixed(
-                                2
-                              )}
-                              VND
+                              {(totalPrice === 0 ? 0 : totalPrice + 20000)} VND
                             </td>
                           </tr>
                         </tbody>
@@ -534,12 +531,12 @@ const ShoppingCart = () => {
                       />
                       <div className="checkoutPaymentMethod">
                         <span>Direct Bank Transfer</span>
-                        <p>
+                        {/* <p>
                           Make your payment directly into our bank account.
                           Please use your Order ID as the payment reference.Your
                           order will not be shipped until the funds have cleared
                           in our account.
-                        </p>
+                        </p> */}
                       </div>
                     </label>
                     <label>
@@ -551,12 +548,12 @@ const ShoppingCart = () => {
                       />
                       <div className="checkoutPaymentMethod">
                         <span>Cash on delivery</span>
-                        <p>
+                        {/* <p>
                           Phasellus sed volutpat orci. Fusce eget lore mauris
                           vehicula elementum gravida nec dui. Aenean aliquam
                           varius ipsum, non ultricies tellus sodales eu. Donec
                           dignissim viverra nunc, ut aliquet magna posuere eget.
-                        </p>
+                        </p> */}
                       </div>
                     </label>
                     <div className="policyText">
@@ -638,23 +635,20 @@ const ShoppingCart = () => {
                         <tbody>
                           <tr>
                             <th>Subtotal</th>
-                            <td>{totalPrice.toFixed(2)}VND</td>
+                            <td>{totalPrice} VND</td>
                           </tr>
                           <tr>
                             <th>Shipping</th>
-                            <td>5 VND</td>
+                            <td>20000 VND</td>
                           </tr>
-                          <tr>
+                          {/* <tr>
                             <th>VAT</th>
                             <td>11 VND</td>
-                          </tr>
+                          </tr> */}
                           <tr>
                             <th>Total</th>
                             <td>
-                              {(totalPrice === 0 ? 0 : totalPrice + 16).toFixed(
-                                2
-                              )}
-                              VND
+                              {(totalPrice === 0 ? 0 : totalPrice + 20000)} VND
                             </td>
                           </tr>
                         </tbody>

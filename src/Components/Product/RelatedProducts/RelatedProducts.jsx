@@ -93,7 +93,7 @@ const RelatedProducts = () => {
 
                     <div className="relatedProductInfo">
                       <div className="rpCategoryWishlist">
-                        <p>Dresses</p>
+                        <p>Tiem CoMin</p>
                         <FiHeart
                           onClick={() => handleWishlistClick(product.productID)}
                           style={{

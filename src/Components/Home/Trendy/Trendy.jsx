@@ -7,8 +7,10 @@ import StoreData, { limiteds, newArrivals } from "../../../Data/StoreData";
 import { FiHeart } from "react-icons/fi";
 import { FaStar, FaCartPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { useViewProductDetail } from "../../../utils/productDetail";
 
 const Trendy = () => {
+  const viewProductDetail = useViewProductDetail();
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("tab1");
   const [wishList, setWishList] = useState({});
@@ -100,7 +102,7 @@ const Trendy = () => {
                 {newArrivals.slice(0, 8).map((product) => (
                   <div className="trendyProductContainer" key={product.id}>
                     <div className="trendyProductImages">
-                      <Link to="/Product" onClick={scrollToTop}>
+                      <a to="/Product" onClick={() => viewProductDetail({categoryId: 5, productId: product.productID})}>
                         <img
                           src={product.frontImg}
                           alt=""
@@ -111,7 +113,7 @@ const Trendy = () => {
                           alt=""
                           className="trendyProduct_back"
                         />
-                      </Link>
+                      </a>
                       <h4 onClick={() => handleAddToCart(product)}>
                         Add to Cart
                       </h4>
@@ -124,7 +126,7 @@ const Trendy = () => {
                     </div>
                     <div className="trendyProductInfo">
                       <div className="trendyProductCategoryWishlist">
-                        <p>Dresses</p>
+                        <p>Tiem CoMin</p>
                         <FiHeart
                           onClick={() => handleWishlistClick(product.productID)}
                           style={{

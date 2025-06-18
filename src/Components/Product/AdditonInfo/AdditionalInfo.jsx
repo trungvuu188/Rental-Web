@@ -45,7 +45,7 @@ const AdditionalInfo = () => {
 
             {activeTab === "aiTab1" && (
               <div className="aiTabDescription">
-                <div className="descriptionPara">
+                {/* <div className="descriptionPara">
                   <h3>Sed do eiusmod tempor incididunt ut labore</h3>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -61,7 +61,7 @@ const AdditionalInfo = () => {
                     illo inventore veritatis et quasi architecto beatae vitae
                     dicta sunt explicabo.
                   </p>
-                </div>
+                </div> */}
                 <div className="descriptionParaGrid">
                   <div className="descriptionPara">
                     <h3>Why choose product?</h3>
@@ -71,11 +71,10 @@ const AdditionalInfo = () => {
                         <li>
                           Simple, Configurable (e.g. size, color, etc.), bundled
                         </li>
-                        <li>Downloadable/Digital Products, Virtual Products</li>
                       </ul>
                     </p>
                   </div>
-                  <div className="descriptionPara">
+                  {/* <div className="descriptionPara">
                     <h3>Sample Number List</h3>
                     <p>
                       <ol>
@@ -83,16 +82,15 @@ const AdditionalInfo = () => {
                         <li>
                           Simple, Configurable (e.g. size, color, etc.), bundled
                         </li>
-                        <li>Downloadable/Digital Products, Virtual Products</li>
                       </ol>
                     </p>
-                  </div>
-                </div>
+                  </div> */}
                 <div className="descriptionPara">
                   <h3>Lining</h3>
                   <p style={{ marginTop: "-10px" }}>
                     100% Polyester, Main: 100% Polyester.
                   </p>
+                </div>
                 </div>
               </div>
             )}

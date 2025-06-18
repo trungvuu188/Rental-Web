@@ -189,7 +189,7 @@ const Product = () => {
               <p>{productDetail?.productReviews}</p>
             </div>
             <div className="productPrice">
-              <h3>{productDetail?.productPrice}</h3>
+              <h3>{productDetail?.productPrice} VND</h3>
             </div>
             <div className="productDescription">
               <p>
@@ -284,7 +284,7 @@ const Product = () => {
                 <p>Share</p>
               </div>
             </div>
-            <div className="productTags">
+            {/* <div className="productTags">
               <p>
                 <span>SKU: </span>N/A
               </p>
@@ -294,7 +294,7 @@ const Product = () => {
               <p>
                 <span>TAGS: </span>biker, black, bomber, leather
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

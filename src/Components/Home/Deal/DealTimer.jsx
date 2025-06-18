@@ -65,16 +65,16 @@ const DealTimer = () => {
         <div className="dealTimer">
           <div className="dealTimerMainContent">
             <div className="dealTimeContent">
-              <p>Deal of the Week</p>
+              {/* <p>Deal of the Week</p> */}
               <h3>
                 Spring
                 <span> Collection</span>
               </h3>
-              <div className="dealTimeLink">
+              {/* <div className="dealTimeLink">
                 <Link to="/shop" onClick={scrollToTop}>
                   Rent Now
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div className="dealTimeCounter">
               <div className="dealTimeDigit">

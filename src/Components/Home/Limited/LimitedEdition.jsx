@@ -21,8 +21,10 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaCartPlus } from "react-icons/fa";
 
 import toast from "react-hot-toast";
+import { useViewProductDetail } from "../../../utils/productDetail";
 
 const LimitedEdition = () => {
+  const viewProductDetail = useViewProductDetail();
   const dispatch = useDispatch();
 
   const [wishList, setWishList] = useState({});
@@ -127,13 +129,13 @@ const LimitedEdition = () => {
                 <SwiperSlide key={product.productID}>
                   <div className="lpContainer">
                     <div className="lpImageContainer">
-                      <Link to="/Product" onClick={scrollToTop}>
+                      <a to="/Product" onClick={() => viewProductDetail({categoryId: 6, productId: product.productID})}>
                         <img
                           src={product.frontImg}
                           alt={product.productName}
                           className="lpImage"
                         />
-                      </Link>
+                      </a>
                       <h4 onClick={() => handleAddToCart(product)}>
                         Add to Cart
                       </h4>
@@ -146,7 +148,7 @@ const LimitedEdition = () => {
                     </div>
                     <div className="limitedProductInfo">
                       <div className="lpCategoryWishlist">
-                        <p>Dresses</p>
+                        <p>Tiem CoMin</p>
                         <FiHeart
                           onClick={() => handleWishlistClick(product.productID)}
                           style={{
