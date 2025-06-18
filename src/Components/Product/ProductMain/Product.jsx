@@ -194,7 +194,7 @@ const Product = () => {
             <div className="productDescription">
               <p>
                 {
-                  productDetail.productDesc ? 
+                  productDetail?.productDesc ? 
                   productDetail.productDesc :
                   "Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, aliquet magna posuere eget."
                 }
