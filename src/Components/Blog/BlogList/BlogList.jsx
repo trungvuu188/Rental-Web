@@ -20,12 +20,12 @@ const BlogList = () => {
           <div className="blogListHeader">
             <h2>The Blog</h2>
             <div className="blogListHeaderCategories">
-              <p>ALL</p>
-              <p>COMPANY</p>
+              {/* <p>ALL</p>
+              <p>COMPANY</p> */}
               <p className="activeCategory">FASHION</p>
-              <p>STYLE</p>
+              {/* <p>STYLE</p>
               <p>TRENDS</p>
-              <p>BEAUTY</p>
+              <p>BEAUTY</p> */}
             </div>
           </div>
         </div>

@@ -28,7 +28,7 @@ import coupleWares2_1 from "../Assets/CoupleWears/back2.JPG"
 import coupleWares3 from "../Assets/CoupleWears/front3.JPG"
 import coupleWares3_1 from "../Assets/CoupleWears/back3.JPG"
 
-let StoreData = [
+const StoreData = [
   {
     productID: 1,
     frontImg: Product_1,
@@ -128,6 +128,34 @@ let StoreData = [
     productPrice: 39,
     productReviews: "71+ reviews",
   },
+];
+
+
+const womenWears = [];
+const menWears = [];
+const swimWears = [];
+const coupleWears = [];
+
+export const categoryWears = [
+  {
+    id: 1,
+    title: 'Swim',
+    data: swimWears
+  },
+  {
+    id: 2,
+    title: 'Couple',
+    data: coupleWears
+  },{
+    id: 3,
+    title: 'Men',
+    data: menWears
+  },
+  {
+    id: 4,
+    title: 'Women',
+    data: womenWears
+  }
 ];
 
 export default StoreData;

@@ -7,10 +7,11 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import Slider from "@mui/material/Slider";
+import { categoryWears } from "../../../Data/StoreData";
 
 const Filter = () => {
   const [value, setValue] = useState([20, 69]);
-
+  const [selectedCategoryId, setSelectedCategoryId] = useState();
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,6 +41,10 @@ const Filter = () => {
     );
   };
 
+  const handleChangeCategory = (category) => {
+
+  }
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -47,20 +52,6 @@ const Filter = () => {
   const filteredBrands = brandsData.filter((brand) =>
     brand.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const filterCategories = [
-    "Dresses",
-    // "Shorts",
-    // "Sweatshirts",
-    "Couplewear",
-    "Swimwear",
-    // "Jackets",
-    // "T-Shirts & Tops",
-    // "Jeans",
-    // "Trousers",
-    "Men",
-    // "Jumpers & Cardigans",
-  ];
 
   const filterColors = [
     "#0B2472",
@@ -91,13 +82,13 @@ const Filter = () => {
               <h5 className="filterHeading">Product Categories</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
-              {filterCategories.map((category, index) => (
-                <p key={index}>{category}</p>
+              {categoryWears.map((category, index) => (
+                <p onClick={() => handleChangeCategory(category.id)} key={index}>{category.title}</p>
               ))}
             </AccordionDetails>
           </Accordion>
         </div>
-        <div className="filterColors">
+        {/* <div className="filterColors">
           <Accordion defaultExpanded disableGutters elevation={0}>
             <AccordionSummary
               expandIcon={<IoIosArrowDown size={20} />}
@@ -126,7 +117,7 @@ const Filter = () => {
               }
             </AccordionDetails>
           </Accordion>
-        </div>
+        </div> */}
         <div className="filterSizes">
           <Accordion defaultExpanded disableGutters elevation={0}>
             <AccordionSummary
