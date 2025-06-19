@@ -65,7 +65,7 @@ const UserManagement: React.FC = () => {
       setLoading(true);
       // Mock data - replace with actual API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       const mockUsers: User[] = [
         {
           id: "1",
@@ -230,7 +230,7 @@ const UserManagement: React.FC = () => {
           setUsers(users.filter(u => !userIds.includes(u.id)));
         } else {
           const newStatus = action === 'activate' ? 'active' : action === 'deactivate' ? 'inactive' : 'banned';
-          setUsers(users.map(u => 
+          setUsers(users.map(u =>
             userIds.includes(u.id) ? { ...u, status: newStatus as any } : u
           ));
         }
@@ -243,7 +243,7 @@ const UserManagement: React.FC = () => {
 
   const handleStatusChange = async (userId: string, newStatus: string) => {
     try {
-      setUsers(users.map(u => 
+      setUsers(users.map(u =>
         u.id === userId ? { ...u, status: newStatus as any } : u
       ));
     } catch (error) {
@@ -401,7 +401,7 @@ const UserManagement: React.FC = () => {
       width: 120,
       render: (value: any, user: User) => (
         <div className="action-buttons">
-          <button 
+          <button
             className="action-btn view"
             title="Xem chi tiết"
             onClick={() => {
@@ -411,14 +411,14 @@ const UserManagement: React.FC = () => {
           >
             <span className="material-icons">visibility</span>
           </button>
-          <button 
+          <button
             className="action-btn edit"
             title="Chỉnh sửa"
             onClick={() => handleEdit(user)}
           >
             <span className="material-icons">edit</span>
           </button>
-          <button 
+          <button
             className="action-btn delete"
             title="Xóa"
             onClick={() => handleDelete(user.id)}
@@ -441,7 +441,7 @@ const UserManagement: React.FC = () => {
           <p>Quản lý thông tin và quyền hạn người dùng trong hệ thống</p>
         </div>
         <div className="header-actions">
-          <button 
+          <button
             className="btn btn-outline"
             onClick={() => {
               resetForm();

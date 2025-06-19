@@ -10,11 +10,21 @@ import UserManagement from "../pages/admin/UserManagement";
 import Login from "../pages/auth/login";
 import SignUp from "../pages/auth/sign-up";
 import Unauthorized from "../pages/auth/unauthorized";
-import Home from "../pages/home";
 import ProductPage from "../pages/product";
 import ProductsPage from "../pages/products";
-import StaffDashboard from "../pages/staff";
 import { Protected } from "./protected";
+import Home from "../pages/Home";
+import Authentication from "../pages/Authentication";
+import ResetPass from "../components/Authentication/Reset/ResetPass";
+import About from "../pages/About";
+import Shop from "../pages/Shop";
+import Contact from "../pages/Contact";
+import Blog from "../pages/Blog";
+import ProductDetails from "../pages/ProductDetails";
+import BlogDetails from "../components/Blog/BlogDetails/BlogDetails";
+import TermsConditions from "../pages/TermsConditions";
+import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -24,37 +34,52 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home />
+                element: <Home />,
             },
             {
-                path: 'products',
-                element: <ProductsPage />
+                path: "loginSignUp",
+                element: <Authentication />,
             },
             {
-                path: 'products/ao-dai',
-                element: <ProductsPage />
+                path: "resetPassword",
+                element: <ResetPass />,
             },
             {
-                path: 'product/:id',
-                element: <ProductPage />
+                path: "about",
+                element: <About />,
             },
             {
-                path: 'unauthorized',
-                element: <Unauthorized />
+                path: "shop",
+                element: <Shop />,
             },
             {
-                element: <Protected requiredRole="staff" />,
-                children: [
-                    {
-                        path: 'staff',
-                        element: <StaffDashboard />
-                    }
-                ]
+                path: "contact",
+                element: <Contact />,
             },
             {
-                path: '*',
-                element: <PageNotFound />
-            }
+                path: "blog",
+                element: <Blog />,
+            },
+            {
+                path: "product",
+                element: <ProductDetails />,
+            },
+            {
+                path: "BlogDetails",
+                element: <BlogDetails />,
+            },
+            {
+                path: "terms",
+                element: <TermsConditions />,
+            },
+            {
+                path: "cart",
+                element: <ShoppingCart />,
+            },
+            {
+                path: "*",
+                element: <NotFound />,
+            },
         ]
     },
     {

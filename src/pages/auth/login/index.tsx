@@ -16,9 +16,9 @@ const Login = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { isLoading, error, isAuthenticated, user } = useSelector((state: RootState) => state.auth);
 
-    const [loginData, setLoginData] = useState<LoginRequest>({ 
-        username: '', 
-        password: '' 
+    const [loginData, setLoginData] = useState<LoginRequest>({
+        username: '',
+        password: ''
     });
     const [validationErrors, setValidationErrors] = useState<{
         username?: string;
@@ -57,7 +57,7 @@ const Login = () => {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (!validateForm()) {
             return;
         }
@@ -78,7 +78,7 @@ const Login = () => {
             ...prev,
             [field]: value
         }));
-        
+
         // Clear validation error when user starts typing
         if (validationErrors[field]) {
             setValidationErrors(prev => ({
@@ -103,8 +103,8 @@ const Login = () => {
                             {error}
                         </div>
                     )}
-                    
-                    <FormInput 
+
+                    <FormInput
                         name="username"
                         placeholder="Username"
                         type="text"
@@ -115,8 +115,8 @@ const Login = () => {
                         required
                         disabled={isLoading}
                     />
-                    
-                    <FormInput 
+
+                    <FormInput
                         name="password"
                         placeholder="Password"
                         type="password"
@@ -127,22 +127,22 @@ const Login = () => {
                         required
                         disabled={isLoading}
                     />
-                    
+
                     <div className="form__group form__group--inline">
                         <Link to="/forgot-password" className="login__link form__pull-right">
                             Forgot password?
                         </Link>
                     </div>
-                    
+
                     <div className="form__group form__login--cta">
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             className="btn btn--primary login__btn"
                             disabled={isLoading}
                         >
                             {isLoading ? 'Signing In...' : 'Sign In'}
                         </button>
-                        
+
                         <button type="button" className="btn btn--outline login__btn" disabled={isLoading}>
                             <img src={googleIcon} alt="" className="btn__icon icon" />
                             Sign in with Gmail

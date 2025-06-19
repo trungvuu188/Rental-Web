@@ -34,7 +34,7 @@ const ProductsPage: React.FC = () => {
     }
 
     if (selectedColors.length > 0) {
-      filtered = filtered.filter(product => 
+      filtered = filtered.filter(product =>
         product.colors.some(color => selectedColors.includes(color))
       );
     }
@@ -48,24 +48,24 @@ const ProductsPage: React.FC = () => {
   }, [selectedBrands, selectedColors, selectedCategories, products]);
 
   const handleBrandFilter = (brand: string) => {
-    setSelectedBrands(prev => 
-      prev.includes(brand) 
+    setSelectedBrands(prev =>
+      prev.includes(brand)
         ? prev.filter(b => b !== brand)
         : [...prev, brand]
     );
   };
 
   const handleColorFilter = (color: string) => {
-    setSelectedColors(prev => 
-      prev.includes(color) 
+    setSelectedColors(prev =>
+      prev.includes(color)
         ? prev.filter(c => c !== color)
         : [...prev, color]
     );
   };
 
   const handleCategoryFilter = (category: string) => {
-    setSelectedCategories(prev => 
-      prev.includes(category) 
+    setSelectedCategories(prev =>
+      prev.includes(category)
         ? prev.filter(c => c !== category)
         : [...prev, category]
     );
@@ -106,11 +106,11 @@ const ProductsPage: React.FC = () => {
     <div className="products-page">
       <div className="container">
         <Breadcrumb items={breadcrumbItems} />
-        
+
         <div className="products-header">
           <h1>Áo dài</h1>
           <p className="products-count">
-            Hiển thị {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, filteredProducts.length)} 
+            Hiển thị {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, filteredProducts.length)}
             của {filteredProducts.length} sản phẩm
           </p>
         </div>
@@ -202,7 +202,7 @@ const ProductsPage: React.FC = () => {
                     >
                       Trước
                     </button>
-                    
+
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
                       <button
                         key={page}
@@ -212,7 +212,7 @@ const ProductsPage: React.FC = () => {
                         {page}
                       </button>
                     ))}
-                    
+
                     <button
                       className="pagination-btn"
                       disabled={currentPage === totalPages}

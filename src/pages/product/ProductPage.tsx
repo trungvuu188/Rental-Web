@@ -48,14 +48,14 @@ const ProductPage: React.FC = () => {
 
   const handleAddToCart = (type: 'rental') => {
     if (!selectedVariant) return;
-    
+
     console.log('Add to cart:', {
       productId: product?.id,
       variantId: selectedVariant.id,
       quantity,
       type
     });
-    
+
     // Implement add to cart logic
     alert(`Đã thêm ${quantity} sản phẩm vào giỏ hàng để thuê`);
   };
@@ -101,15 +101,15 @@ const ProductPage: React.FC = () => {
         {/* Main Product Section */}
         <div className="product-page__main">
           <div className="product-page__gallery">
-            <ProductGallery 
-              images={product.images} 
+            <ProductGallery
+              images={product.images}
               productName={product.name}
             />
           </div>
 
           <div className="product-page__info">
-            <ProductInfo 
-              product={product} 
+            <ProductInfo
+              product={product}
               selectedVariant={selectedVariant}
             />
           </div>
@@ -122,14 +122,14 @@ const ProductPage: React.FC = () => {
               onQuantityChange={handleQuantityChange}
               onAddToCart={handleAddToCart}
             />
-            
+
             <PromotionSection />
           </div>
         </div>
 
         {/* Product Details Section */}
         <div className="product-page__details">
-          <ProductTabs 
+          <ProductTabs
             tabs={product.tabs}
             activeTab="description"
             onTabChange={(tabId) => console.log('Tab changed:', tabId)}

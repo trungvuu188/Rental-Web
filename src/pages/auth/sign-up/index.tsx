@@ -86,7 +86,7 @@ const SignUp = () => {
 
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (!validateForm()) {
             return;
         }
@@ -114,7 +114,7 @@ const SignUp = () => {
             ...prev,
             [field]: value
         }));
-        
+
         // Clear validation error when user starts typing
         if (validationErrors[field as keyof typeof validationErrors]) {
             setValidationErrors(prev => ({
@@ -182,8 +182,8 @@ const SignUp = () => {
                         onChange={handleInputChange('lastName')}
                         disabled={isLoading}
                     />
-                    
-                    <FormInput 
+
+                    <FormInput
                         name="password"
                         placeholder="Password"
                         type="password"
@@ -194,8 +194,8 @@ const SignUp = () => {
                         required
                         disabled={isLoading}
                     />
-                    
-                    <FormInput 
+
+                    <FormInput
                         name="confirmPassword"
                         placeholder="Confirm password"
                         type="password"
@@ -206,16 +206,16 @@ const SignUp = () => {
                         required
                         disabled={isLoading}
                     />
-                    
+
                     <div className="form__group form__login--cta">
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             className="btn btn--primary login__btn"
                             disabled={isLoading}
                         >
                             {isLoading ? 'Creating Account...' : 'Sign Up'}
                         </button>
-                        
+
                         <button type="button" className="btn btn--outline login__btn" disabled={isLoading}>
                             <img src={googleIcon} alt="" className="btn__icon icon" />
                             Sign up with Gmail

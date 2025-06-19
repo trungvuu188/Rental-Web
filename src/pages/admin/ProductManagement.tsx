@@ -35,7 +35,7 @@ const ProductManagement: React.FC = () => {
     try {
       // Mock API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       const mockProducts: Product[] = [
         {
           id: '1',
@@ -98,7 +98,7 @@ const ProductManagement: React.FC = () => {
           updated_at: '2024-01-25'
         }
       ];
-      
+
       setProducts(mockProducts);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -120,9 +120,9 @@ const ProductManagement: React.FC = () => {
       inactive: { label: 'Tạm dừng', class: 'warning' },
       out_of_stock: { label: 'Hết hàng', class: 'error' }
     };
-    
+
     const statusInfo = statusMap[status as keyof typeof statusMap] || { label: status, class: 'default' };
-    
+
     return (
       <span className={`status-badge ${statusInfo.class}`}>
         {statusInfo.label}
@@ -143,7 +143,7 @@ const ProductManagement: React.FC = () => {
 
   const handleBulkDelete = () => {
     if (selectedRows.length === 0) return;
-    
+
     if (window.confirm(`Bạn có chắc chắn muốn xóa ${selectedRows.length} sản phẩm đã chọn?`)) {
       setProducts(prev => prev.filter((_, index) => !selectedRows.includes(index)));
       setSelectedRows([]);
@@ -152,7 +152,7 @@ const ProductManagement: React.FC = () => {
 
   const handleBulkStatusChange = (status: string) => {
     if (selectedRows.length === 0) return;
-    
+
     setProducts(prev => prev.map((product, index) => {
       if (selectedRows.includes(index)) {
         return { ...product, status: status as any };
@@ -170,12 +170,12 @@ const ProductManagement: React.FC = () => {
       align: 'center',
       render: (value, record) => (
         <div className="product-image">
-          <img 
-            src={record.image} 
+          <img
+            src={record.image}
             alt={record.name}
-            // onError={(e) => {
-            //   (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
-            // }}
+          // onError={(e) => {
+          //   (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
+          // }}
           />
         </div>
       )
@@ -256,21 +256,21 @@ const ProductManagement: React.FC = () => {
       width: 120,
       render: (_, record) => (
         <div className="action-buttons">
-          <button 
+          <button
             className="action-btn view"
             title="Xem chi tiết"
             onClick={() => console.log('View', record)}
           >
             <span className="material-icons">visibility</span>
           </button>
-          <button 
+          <button
             className="action-btn edit"
             title="Chỉnh sửa"
             onClick={() => handleEdit(record)}
           >
             <span className="material-icons">edit</span>
           </button>
-          <button 
+          <button
             className="action-btn delete"
             title="Xóa"
             onClick={() => handleDelete(record.id)}
@@ -293,7 +293,7 @@ const ProductManagement: React.FC = () => {
           <p>Quản lý danh sách sản phẩm trong hệ thống</p>
         </div>
         <div className="header-actions">
-          <button 
+          <button
             className="btn btn-primary"
             onClick={() => setShowAddModal(true)}
           >
@@ -312,19 +312,19 @@ const ProductManagement: React.FC = () => {
                   <span className="selected-info">
                     Đã chọn {selectedRows.length} sản phẩm
                   </span>
-                  <button 
+                  <button
                     className="btn btn-outline btn-sm"
                     onClick={() => handleBulkStatusChange('active')}
                   >
                     Kích hoạt
                   </button>
-                  <button 
+                  <button
                     className="btn btn-outline btn-sm"
                     onClick={() => handleBulkStatusChange('inactive')}
                   >
                     Tạm dừng
                   </button>
-                  <button 
+                  <button
                     className="btn btn-danger btn-sm"
                     onClick={handleBulkDelete}
                   >
@@ -397,7 +397,7 @@ const ProductManagement: React.FC = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Thêm sản phẩm mới</h3>
-              <button 
+              <button
                 className="modal-close"
                 onClick={() => setShowAddModal(false)}
               >
@@ -417,7 +417,7 @@ const ProductManagement: React.FC = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Chỉnh sửa sản phẩm</h3>
-              <button 
+              <button
                 className="modal-close"
                 onClick={() => setShowEditModal(false)}
               >

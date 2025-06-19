@@ -42,7 +42,7 @@ const OrderManagement: React.FC = () => {
     try {
       // Mock API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       const mockOrders: Order[] = [
         {
           id: 'ORD001',
@@ -129,7 +129,7 @@ const OrderManagement: React.FC = () => {
           notes: 'Khách hàng hủy do thay đổi kế hoạch'
         }
       ];
-      
+
       setOrders(mockOrders);
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -155,9 +155,9 @@ const OrderManagement: React.FC = () => {
       cancelled: { label: 'Đã hủy', class: 'error' },
       refunded: { label: 'Đã hoàn tiền', class: 'default' }
     };
-    
+
     const statusInfo = statusMap[status as keyof typeof statusMap] || { label: status, class: 'default' };
-    
+
     return (
       <span className={`status-badge ${statusInfo.class}`}>
         {statusInfo.label}
@@ -172,9 +172,9 @@ const OrderManagement: React.FC = () => {
       failed: { label: 'Thất bại', class: 'error' },
       refunded: { label: 'Đã hoàn tiền', class: 'default' }
     };
-    
+
     const statusInfo = statusMap[status as keyof typeof statusMap] || { label: status, class: 'default' };
-    
+
     return (
       <span className={`status-badge ${statusInfo.class}`}>
         {statusInfo.label}
@@ -190,7 +190,7 @@ const OrderManagement: React.FC = () => {
       momo: 'Ví MoMo',
       zalopay: 'ZaloPay'
     };
-    
+
     return methodMap[method as keyof typeof methodMap] || method;
   };
 
@@ -200,8 +200,8 @@ const OrderManagement: React.FC = () => {
   };
 
   const handleStatusChange = (orderId: string, newStatus: string) => {
-    setOrders(prev => prev.map(order => 
-      order.id === orderId 
+    setOrders(prev => prev.map(order =>
+      order.id === orderId
         ? { ...order, status: newStatus as any, updated_at: new Date().toISOString() }
         : order
     ));
@@ -209,7 +209,7 @@ const OrderManagement: React.FC = () => {
 
   const handleBulkStatusChange = (status: string) => {
     if (selectedRows.length === 0) return;
-    
+
     setOrders(prev => prev.map((order, index) => {
       if (selectedRows.includes(index)) {
         return { ...order, status: status as any, updated_at: new Date().toISOString() };
@@ -227,7 +227,7 @@ const OrderManagement: React.FC = () => {
 
   const handleBulkDelete = () => {
     if (selectedRows.length === 0) return;
-    
+
     if (window.confirm(`Bạn có chắc chắn muốn xóa ${selectedRows.length} đơn hàng đã chọn?`)) {
       setOrders(prev => prev.filter((_, index) => !selectedRows.includes(index)));
       setSelectedRows([]);
@@ -347,7 +347,7 @@ const OrderManagement: React.FC = () => {
       width: 150,
       render: (_, record) => (
         <div className="action-buttons">
-          <button 
+          <button
             className="action-btn view"
             title="Xem chi tiết"
             onClick={() => handleViewDetail(record)}
@@ -370,7 +370,7 @@ const OrderManagement: React.FC = () => {
               <option value="refunded">Đã hoàn tiền</option>
             </select>
           </div>
-          <button 
+          <button
             className="action-btn delete"
             title="Xóa"
             onClick={() => handleDelete(record.id)}
@@ -409,25 +409,25 @@ const OrderManagement: React.FC = () => {
                   <span className="selected-info">
                     Đã chọn {selectedRows.length} đơn hàng
                   </span>
-                  <button 
+                  <button
                     className="btn btn-outline btn-sm"
                     onClick={() => handleBulkStatusChange('confirmed')}
                   >
                     Xác nhận
                   </button>
-                  <button 
+                  <button
                     className="btn btn-outline btn-sm"
                     onClick={() => handleBulkStatusChange('processing')}
                   >
                     Xử lý
                   </button>
-                  <button 
+                  <button
                     className="btn btn-outline btn-sm"
                     onClick={() => handleBulkStatusChange('shipping')}
                   >
                     Giao hàng
                   </button>
-                  <button 
+                  <button
                     className="btn btn-danger btn-sm"
                     onClick={handleBulkDelete}
                   >
@@ -517,7 +517,7 @@ const OrderManagement: React.FC = () => {
           <div className="modal-content large" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Chi tiết đơn hàng #{selectedOrder.id}</h3>
-              <button 
+              <button
                 className="modal-close"
                 onClick={() => setShowDetailModal(false)}
               >
@@ -547,7 +547,7 @@ const OrderManagement: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="products-section">
                   <h4>Sản phẩm đã đặt</h4>
                   <div className="products-table">

@@ -8,8 +8,8 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
 }) => {
   return (
     <div className="product-gallery">
-      <ImageGallery 
-        images={images} 
+      <ImageGallery
+        images={images}
         productName={productName}
         className="product-gallery__gallery"
       />

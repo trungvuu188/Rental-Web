@@ -12,7 +12,7 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
     label: tab.title,
     content: (
       <div className="product-tabs__content">
-        <div 
+        <div
           className="product-tabs__text"
           dangerouslySetInnerHTML={{ __html: tab.content }}
         />

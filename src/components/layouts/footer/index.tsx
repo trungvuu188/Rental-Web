@@ -72,13 +72,13 @@ const Footer = () => {
                         <ul className="footer__list">
                             <li className="footer__list--item">
                                 <img src={paypalIcon} alt="Paypal" />
-                            </li> 
+                            </li>
                             <li className="footer__list--item">
                                 <img src={visaIcon} alt="Visa" />
-                            </li> 
+                            </li>
                             <li className="footer__list--item">
                                 <img src={masterCardIcon} alt="Master Card" />
-                            </li> 
+                            </li>
                         </ul>
                         <span className="footer__text">Copyright © 2022 UIHUT All Rights Reserved</span>
                     </div>
