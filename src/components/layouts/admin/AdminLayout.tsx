@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import './AdminLayout.scss';
 
 interface MenuItem {
+  isAdmin?: boolean,
   path: string;
   label: string;
   icon: string;
@@ -15,6 +16,11 @@ const AdminLayout: React.FC = () => {
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
   const navigate = useNavigate();
   const location = useLocation();
+  const [userRole, setUserRole] = useState<string>(''); 
+
+  useEffect(() => {
+    setUserRole(localStorage.getItem('userRole') || '');
+  }, [])
 
   const menuItems: MenuItem[] = [
     { 
@@ -45,6 +51,7 @@ const AdminLayout: React.FC = () => {
       ]
     },
     { 
+      isAdmin: true,
       path: '/admin/users', 
       label: 'Quản lý người dùng', 
       icon: 'people',
@@ -102,6 +109,7 @@ const AdminLayout: React.FC = () => {
     const hasSubmenu = item.submenu && item.submenu.length > 0;
     const isActive = isMenuActive(item);
     const isExpanded = isSubmenuExpanded(item.path);
+    if(item.isAdmin && userRole !== 'admin') return;
 
     return (
       <div key={item.path} className={`nav-item-wrapper level-${level}`}>

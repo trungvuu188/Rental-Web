@@ -200,10 +200,10 @@ const ProductManagement: React.FC = () => {
       filterable: true,
       filterType: 'select',
       filterOptions: [
-        { label: 'Máy khoan', value: 'Máy khoan' },
-        { label: 'Máy cưa', value: 'Máy cưa' },
-        { label: 'Máy mài', value: 'Máy mài' },
-        { label: 'Máy bào', value: 'Máy bào' }
+        { label: 'Couple', value: 'Couple' },
+        { label: 'Men', value: 'Men' },
+        { label: 'Women', value: 'Women' },
+        { label: 'Swim Suit', value: 'Swim Suit' }
       ]
     },
     {

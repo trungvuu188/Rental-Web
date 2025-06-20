@@ -40,6 +40,7 @@ class AuthService {
 
       return data;
     } catch (error) {
+      
       // Mock response for development when API is not available
       console.warn('Login API call failed, using mock response:', error);
       
@@ -79,7 +80,7 @@ class AuthService {
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
-                     role: user.role as any,
+          role: user.role as any,
           createdAt: user.createdAt,
         },
         token,

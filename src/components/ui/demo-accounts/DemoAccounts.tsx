@@ -43,13 +43,13 @@ const DemoAccounts: React.FC = () => {
     },
     {
       id: 'demo-admin',
-      username: 'demo.admin',
-      email: 'demo.admin@toolrental.com',
+      username: 'provider',
+      email: 'provider@toolrental.com',
       password: 'demo123',
-      firstName: 'Demo',
-      lastName: 'Admin',
-      role: 'admin',
-      description: 'Tài khoản demo admin'
+      firstName: 'Provider',
+      lastName: 'Staff',
+      role: 'provider',
+      description: 'Tài khoản provider'
     },
     {
       id: 'demo-user',
@@ -78,7 +78,12 @@ const DemoAccounts: React.FC = () => {
         setIsVisible(false);
         
         // Navigate based on role
-        const redirectTo = account.role === 'admin' ? '/admin' : '/';
+        let redirectTo;
+        if(account.role === 'admin' || account.role === 'provider') {
+          redirectTo = '/admin'
+        } else {
+          redirectTo = '/'
+        }
         window.location.href = redirectTo;
       } else {
         alert('Đăng nhập thất bại: ' + (result.payload || 'Unknown error'));

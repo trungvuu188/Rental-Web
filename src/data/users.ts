@@ -53,12 +53,12 @@ export const mockAuthUsers = [
   // Demo accounts
   {
     id: 'demo-admin',
-    username: 'demo.admin',
-    email: 'demo.admin@toolrental.com',
+    username: 'provider',
+    email: 'provider@toolrental.com',
     password: 'demo123',
-    firstName: 'Demo',
-    lastName: 'Admin',
-    role: 'admin',
+    firstName: 'Provider',
+    lastName: 'Staff',
+    role: 'provider',
     permissions: ['all'],
     phoneNumber: '0900000099',
     status: 'active',
@@ -173,6 +173,11 @@ export const mockManagementUsers: ManagementUser[] = [
 
 // Role-based access definitions
 export const roleAccess = {
+  provider: {
+    canAccess: ['admin', 'all'],
+    redirectTo: '/admin',
+    displayName: 'Quản Trị Viên'
+  },
   admin: {
     canAccess: ['admin', 'all'],
     redirectTo: '/admin',

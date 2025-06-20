@@ -30,32 +30,32 @@ export const CategoryManagement: React.FC = () => {
       setCategories([
         {
           id: '1',
-          name: 'Máy khoan',
-          description: 'Các loại máy khoan điện và pin',
+          name: 'Couple',
+          description: 'Các loại áo quần đôi dành cho cặp đôi',
           productCount: 25,
           status: 'active',
           createdAt: '2024-01-15'
         },
         {
           id: '2',
-          name: 'Máy cưa',
-          description: 'Máy cưa gỗ, sắt và các vật liệu khác',
+          name: 'Men',
+          description: 'Các loại áo quần dành cho nam',
           productCount: 18,
           status: 'active',
           createdAt: '2024-01-10'
         },
         {
           id: '3',
-          name: 'Máy mài',
-          description: 'Máy mài góc và máy mài thẳng',
+          name: 'Women',
+          description: 'Các loại áo quần dành cho nữ',
           productCount: 12,
           status: 'active',
           createdAt: '2024-01-08'
         },
         {
           id: '4',
-          name: 'Dụng cụ cầm tay',
-          description: 'Búa, kìm, tua vít và các dụng cụ cầm tay',
+          name: 'Swim Suit',
+          description: 'Đồ bơi các loại',
           productCount: 45,
           status: 'active',
           createdAt: '2024-01-05'
