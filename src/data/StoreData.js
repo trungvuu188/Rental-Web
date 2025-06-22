@@ -198,6 +198,7 @@ const coupleWears = [
     backImg: coupleWear3,
     productName: "Set Váy Dài và Áo Sơ Mi Nam Đi Biển Màu Hồng Pastel",
     productPrice: 99000,
+    productDesc: "Thiết kế dành riêng cho những chuyến đi biển, set đồ đôi gồm váy dài nhẹ nhàng và áo sơ mi nam màu hồng pastel tạo cảm giác thư giãn, lãng mạn. Chất liệu thoáng mát và kiểu dáng trẻ trung giúp các cặp đôi ghi lại những khoảnh khắc tuyệt đẹp bên bờ biển.",
     productReviews: "0 review(s)",
   },
   {
@@ -206,6 +207,7 @@ const coupleWears = [
     backImg: coupleWear4,
     productName: "Set Váy Ngắn Cúp Ngực và Áo Sơ Mi Nam Màu Hồng Pastel",
     productPrice: 99000,
+    productDesc: "Set đồ gồm váy ngắn cúp ngực đầy nữ tính kết hợp cùng áo sơ mi nam màu hồng pastel lịch lãm, mang đến phong cách năng động, trẻ trung và đầy thu hút cho cặp đôi. Thích hợp cho các buổi hẹn hò, chụp ảnh hay đi chơi cuối tuần.",
     productReviews: "0 review(s)",
   },
   {
@@ -214,6 +216,7 @@ const coupleWears = [
     backImg: coupleWear5,
     productName: "Set Váy Dài và Áo Sơ Mi Nam Màu Xanh Navy",
     productPrice: 99000,
+    productDesc: "Sự kết hợp tinh tế giữa váy dài duyên dáng và áo sơ mi nam màu xanh navy mạnh mẽ tạo nên bộ đôi hoàn hảo cho những buổi tối hẹn hò hoặc dạo phố. Gam màu trầm giúp cặp đôi trông chững chạc và nổi bật giữa đám đông.",
     productReviews: "0 review(s)",
   },
   {
@@ -222,6 +225,7 @@ const coupleWears = [
     backImg: coupleWear6,
     productName: "Set Váy Dài và Áo Sơ Mi Nam Họa Tiết Sọc Màu Trắng Sữa",
     productPrice: 99000,
+    productDesc: "Set đồ đôi mang hơi hướng vintage với váy dài nữ tính và áo sơ mi nam họa tiết sọc trắng sữa nhã nhặn. Thiết kế nhẹ nhàng nhưng vẫn thu hút ánh nhìn, phù hợp cho các cặp đôi yêu thích phong cách thanh lịch và cổ điển.",
     productReviews: "0 review(s)",
   },
   {
@@ -230,9 +234,11 @@ const coupleWears = [
     backImg: coupleWear6,
     productName: "Set Váy Dài và Áo Sơ Mi Nam Họa Tiết Sọc Màu Trắng Sữa",
     productPrice: 99000,
+    productDesc: "Sở hữu thiết kế tương tự nhưng mang lại cảm giác hoàn toàn mới mỗi lần diện, set váy dài và áo sơ mi nam họa tiết sọc màu trắng sữa giúp bạn và người thương đồng điệu trong từng chi tiết, thích hợp cho chụp ảnh đôi hay dạo phố cuối tuần.",
     productReviews: "0 review(s)",
   },
 ];
+
 
 const menWears = [
   {
@@ -241,9 +247,11 @@ const menWears = [
     backImg: menWear1_1,
     productName: "Áo Sơ Mi Nam Đi Biển Màu Nâu",
     productPrice: 99000,
+    productDesc: "Áo sơ mi nam màu nâu thiết kế rộng rãi, thoải mái, phù hợp cho những chuyến đi biển. Chất vải nhẹ, thoáng mát cùng tông màu trung tính giúp chàng dễ dàng phối với nhiều phong cách khác nhau.",
     productReviews: "0 review(s)",
   },
 ];
+
 
 const womenWears = [
   {
@@ -252,6 +260,7 @@ const womenWears = [
     backImg: womenWear_1_1,
     productName: "Váy trắng trễ vai tay bồng cổ điển",
     productPrice: 99000,
+    productDesc: "Thiết kế trễ vai tay bồng mang đậm phong cách cổ điển, chiếc váy trắng này tôn lên vẻ nữ tính, dịu dàng và đầy quyến rũ. Thích hợp cho các buổi tiệc ngoài trời hoặc chụp ảnh thời trang.",
     productReviews: "0 review(s)",
   },
   {
@@ -260,6 +269,7 @@ const womenWears = [
     backImg: womenWear_2_1,
     productName: "Váy trắng trễ vai ren xoè nhẹ",
     productPrice: 99000,
+    productDesc: "Chiếc váy trắng với phần trễ vai và lớp ren xoè nhẹ tạo nên vẻ đẹp nhẹ nhàng, nữ tính. Phù hợp cho những buổi dạo phố, picnic hoặc hẹn hò cuối tuần.",
     productReviews: "0 review(s)",
   },
   {
@@ -268,6 +278,7 @@ const womenWears = [
     backImg: womenWear_3_1,
     productName: "Váy kem lụa hai dây ôm dáng",
     productPrice: 99000,
+    productDesc: "Chiếc váy lụa màu kem hai dây ôm sát cơ thể giúp tôn lên đường cong gợi cảm của phái đẹp. Phù hợp với phong cách sang trọng, nhẹ nhàng trong các buổi tiệc tối.",
     productReviews: "0 review(s)",
   },
   {
@@ -276,6 +287,7 @@ const womenWears = [
     backImg: womenWear_4_1,
     productName: "Váy trắng ren bo eo xẻ tà",
     productPrice: 99000,
+    productDesc: "Thiết kế bo eo kết hợp xẻ tà tạo cảm giác thanh thoát và cuốn hút. Váy trắng ren này lý tưởng cho những buổi chụp hình nghệ thuật hoặc tham dự tiệc ngoài trời.",
     productReviews: "0 review(s)",
   },
   {
@@ -284,9 +296,11 @@ const womenWears = [
     backImg: womenWear_5_1,
     productName: "Váy trắng cúp ngực dáng dài basic",
     productPrice: 99000,
+    productDesc: "Váy trắng dáng dài với thiết kế cúp ngực đơn giản, tôn lên vẻ đẹp tinh tế và nữ tính. Lý tưởng cho phong cách nhẹ nhàng, thanh lịch trong các dịp dạo phố hoặc dự tiệc nhẹ.",
     productReviews: "0 review(s)",
   },
 ];
+
 
 const swimWears = [];
 
@@ -297,6 +311,7 @@ export const newArrivals = [
     backImg: new1,
     productName: "Váy Trắng Cổ Vuông & Nón Cói",
     productPrice: 99000,
+    productDesc: "Set váy trắng cổ vuông kết hợp cùng nón cói tạo nên vẻ ngoài vừa cổ điển vừa dịu dàng. Phù hợp cho phong cách dã ngoại hoặc chụp ảnh ngoại cảnh lãng mạn.",
     productReviews: "8k+ reviews",
   },
   {
@@ -305,6 +320,7 @@ export const newArrivals = [
     backImg: new2,
     productName: "Váy Ren Trắng Dài Thanh Lịch",
     productPrice: 99000,
+    productDesc: "Váy dài trắng phối ren tinh tế mang đến vẻ ngoài thanh lịch và nữ tính. Thiết kế phù hợp với các buổi tiệc hoặc chụp hình thời trang.",
     productReviews: "2k+ reviews",
   },
   {
@@ -313,6 +329,7 @@ export const newArrivals = [
     backImg: new3,
     productName: "Váy Đỏ Đậm Mang Phong Cách Cổ Trang",
     productPrice: 99000,
+    productDesc: "Lấy cảm hứng từ trang phục cổ trang, chiếc váy đỏ đậm mang lại vẻ ngoài độc đáo, quyến rũ. Phù hợp cho những dịp lễ hội hoặc chụp ảnh nghệ thuật.",
     productReviews: "7k+ reviews",
   },
   {
@@ -321,6 +338,7 @@ export const newArrivals = [
     backImg: new4,
     productName: "Áo Ren Trắng Phối Cùng Váy Đỏ Rực",
     productPrice: 99000,
+    productDesc: "Sự kết hợp giữa áo ren trắng dịu dàng và váy đỏ rực rỡ tạo nên một set đồ nổi bật, thu hút ánh nhìn trong mọi hoàn cảnh.",
     productReviews: "5k+ reviews",
   },
   {
@@ -329,6 +347,7 @@ export const newArrivals = [
     backImg: new5,
     productName: "Váy Dự Tiệc Kiểu Áo Choàng Ngắn",
     productPrice: 99000,
+    productDesc: "Váy dự tiệc thiết kế như áo choàng ngắn mang đến vẻ đẹp sang trọng, quyến rũ. Thích hợp cho các buổi tiệc đêm hoặc sự kiện đặc biệt.",
     productReviews: "9k+ reviews",
   },
   {
@@ -337,6 +356,7 @@ export const newArrivals = [
     backImg: new6,
     productName: "Váy Vàng Dễ Thương Dáng Dài",
     productPrice: 99000,
+    productDesc: "Váy dáng dài màu vàng nổi bật, trẻ trung và dễ thương. Lý tưởng cho các buổi đi chơi, picnic hoặc hẹn hò nhẹ nhàng.",
     productReviews: "1k+ reviews",
   },
   {
@@ -345,6 +365,7 @@ export const newArrivals = [
     backImg: new7,
     productName: "Váy Phối Màu Đỏ – Trắng Phá Cách",
     productPrice: 99000,
+    productDesc: "Thiết kế phối màu đỏ – trắng độc đáo giúp người mặc trở nên cá tính và hiện đại. Thích hợp cho các bạn yêu thích phong cách thời trang sáng tạo.",
     productReviews: "3k+ reviews",
   },
   {
@@ -353,6 +374,7 @@ export const newArrivals = [
     backImg: new8,
     productName: "Váy Dây Vàng Cát Biển Lãng Mạn",
     productPrice: 99000,
+    productDesc: "Váy dây màu vàng nhẹ nhàng, mềm mại, mang phong cách du lịch biển đầy lãng mạn. Phù hợp cho các chuyến đi biển hoặc chụp ảnh ngoài trời.",
     productReviews: "4k+ reviews",
   },
 ];
@@ -364,6 +386,7 @@ export const limiteds = [
     backImg: limited1,
     productName: "Áo Yếm In Họa Tiết & Váy Lụa Xanh Hoàng Gia",
     productPrice: 99000,
+    productDesc: "Bộ đồ gồm áo yếm họa tiết độc đáo phối cùng váy lụa xanh hoàng gia giúp bạn tỏa sáng trong mọi ánh nhìn. Thích hợp cho phong cách Á Đông pha hiện đại.",
     productReviews: "8k+ reviews",
   },
   {
@@ -372,6 +395,7 @@ export const limiteds = [
     backImg: limited2,
     productName: "Váy Corset Đen Quyến Rũ",
     productPrice: 99000,
+    productDesc: "Váy corset màu đen ôm sát, tôn dáng giúp phái đẹp thể hiện sự quyến rũ và cá tính. Lý tưởng cho tiệc đêm hoặc sự kiện đặc biệt.",
     productReviews: "2k+ reviews",
   },
   {
@@ -380,6 +404,7 @@ export const limiteds = [
     backImg: limited3,
     productName: "Áo Dài Cách Tân Hoa Nhẹ & Nón Lá",
     productPrice: 99000,
+    productDesc: "Áo dài cách tân kết hợp hoa nhẹ và nón lá tạo nên sự hài hòa giữa truyền thống và hiện đại. Phù hợp với các dịp lễ tết hoặc chụp ảnh kỷ niệm.",
     productReviews: "7k+ reviews",
   },
   {
@@ -388,6 +413,7 @@ export const limiteds = [
     backImg: limited4,
     productName: "Áo Ren Trễ Vai & Váy Trắng Dáng Dài",
     productPrice: 99000,
+    productDesc: "Bộ trang phục với áo ren trễ vai quyến rũ cùng váy trắng dài thướt tha mang lại vẻ ngoài nữ tính, thanh lịch. Thích hợp cho các dịp đặc biệt hoặc tiệc ngoài trời.",
     productReviews: "5k+ reviews",
   },
   {
@@ -396,6 +422,7 @@ export const limiteds = [
     backImg: limited5,
     productName: "Áo Hai Dây Hồng Pastel & Váy Đỏ Rực",
     productPrice: 99000,
+    productDesc: "Sự kết hợp đầy sáng tạo giữa áo hai dây hồng pastel ngọt ngào và váy đỏ rực nổi bật, tạo nên điểm nhấn phá cách cho trang phục dự tiệc hoặc chụp ảnh thời trang.",
     productReviews: "9k+ reviews",
   },
   {
@@ -404,9 +431,11 @@ export const limiteds = [
     backImg: limited6,
     productName: "Váy Trắng Cúp Vai Công Chúa",
     productPrice: 99000,
+    productDesc: "Chiếc váy trắng cúp vai mang phong cách công chúa nhẹ nhàng, thích hợp cho những buổi tiệc cưới, lễ hội hoặc những dịp cần sự nổi bật và lộng lẫy.",
     productReviews: "1k+ reviews",
-  }
+  },
 ];
+
 
 export const categoryWears = [
   {

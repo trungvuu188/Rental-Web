@@ -160,7 +160,7 @@ const ShoppingCart = () => {
                               data-label='Price'
                               style={{ textAlign: 'center' }}
                             >
-                              {item.productPrice}VND
+                              {item.productPrice} VND
                             </td>
                             <td data-label='Quantity'>
                               <div className='ShoppingBagTableQuantity'>

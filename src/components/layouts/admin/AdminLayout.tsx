@@ -85,7 +85,7 @@ const AdminLayout: React.FC = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken');
-    navigate('/auth/login');
+    navigate('/loginSignUp');
   };
 
   const toggleSubmenu = (path: string) => {

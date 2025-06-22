@@ -47,9 +47,7 @@ const BlogList = () => {
                 </div>
                 <div className='blogPostContentDescription'>
                   <p>
-                    Midst one brought greater also morning green saying had
-                    good. Open stars day let over gathered, grass face one every
-                    light of under.
+                    {blogPost.blogDesc}
                   </p>
                 </div>
                 <div className='blogPostContentReadMore'>
@@ -61,9 +59,6 @@ const BlogList = () => {
             </div>
           ))}
         </div>
-        <p className='blogListShowMore' onClick={scrollToTop}>
-          Show More
-        </p>
       </div>
     </>
   );

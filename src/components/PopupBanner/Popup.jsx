@@ -5,10 +5,11 @@ import popupImg from '../../assets/newsletter-popup.jpg';
 import insta7 from '../../assets/Instagram/IMG_9477.JPG';
 
 const Popup = () => {
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(localStorage.getItem('userRole') === 'user' || false);
   const [fadeOut, setFadeOut] = useState(false);
 
-  const handleClose = () => {
+  const handleClose = (e) => {
+    e.preventDefault();
     setFadeOut(true);
     setTimeout(() => {
       setShowPopup(false);
@@ -31,7 +32,7 @@ const Popup = () => {
               Be the first to get the latest news about trends, promotions, and
               much more!
             </p>
-            <form>
+            <form onSubmit={handleClose}>
               <input type='email' placeholder='Your email address' required />
               <button type='submit'>JOIN</button>
             </form>

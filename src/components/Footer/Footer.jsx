@@ -37,16 +37,16 @@ const Footer = () => {
             <p>Da Nang, Viet Nam</p>
 
             <div className='footer_address'>
-              <strong> Vunilla.com </strong>
-              <strong> +84 123-123-12 </strong>
+              <strong> ShareIt.com </strong>
+              <strong> +84 123-123-123 </strong>
             </div>
 
             <div className='social_links'>
               <FaFacebookF />
-              <FaXTwitter />
+              {/* <FaXTwitter />
               <FaInstagram />
               <FaYoutube />
-              <FaPinterest />
+              <FaPinterest /> */}
             </div>
           </div>
 
