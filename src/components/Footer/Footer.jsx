@@ -154,16 +154,13 @@ const Footer = () => {
             <div className='footerLang'>
               <p>Language</p>
               <select name='language' id='language'>
-                <option value='english'>United States | English</option>
-                <option value='Hindi'>Hindi</option>
-                <option value='Germany'>Germany</option>
-                <option value='French'>French</option>
+                <option value='english'>Vietnamese | English</option>
               </select>
             </div>
             <div className='footerCurrency'>
               <p>Currency</p>
               <select name='currency' id='currency'>
-                <option value='VND'>$ VND</option>
+                <option value='VND'>VND</option>
               </select>
             </div>
           </div>

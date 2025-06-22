@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './RelatedProducts.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,14 +7,28 @@ import 'swiper/css/navigation';
 
 import { Navigation } from 'swiper/modules';
 
-import StoreData from '../../../data/StoreData';
+import StoreData, { categoryWears } from '../../../data/StoreData';
 
 import { FiHeart } from 'react-icons/fi';
 import { FaStar } from 'react-icons/fa';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useSearchParams } from 'react-router-dom';
+import { useViewProductDetail } from '../../../utils/productDetail';
 
 const RelatedProducts = () => {
   const [wishList, setWishList] = useState({});
+  const [searchParams] = useSearchParams();
+  const [productList, setProductList] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+  const viewProductDetail = useViewProductDetail();
+
+  useEffect(() => {
+    const cateId = searchParams.get('cate');
+    const filteredCateArr = categoryWears.filter(
+      (category) => category.id === Number.parseInt(cateId)
+    );
+    setProductList(filteredCateArr[0].data);
+  }, []);
 
   const handleWishlistClick = (productID) => {
     setWishList((prevWishlist) => ({
@@ -29,6 +43,10 @@ const RelatedProducts = () => {
       behavior: 'smooth',
     });
   };
+;
+  const handleViewProductDetail = (productId) => {
+    viewProductDetail({ categoryId: searchParams.get('cate'), productId})
+  }
 
   return (
     <>
@@ -73,11 +91,11 @@ const RelatedProducts = () => {
               },
             }}
           >
-            {StoreData.slice(0, 8).map((product) => {
+            {productList?.slice(0, 8).map((product) => {
               return (
                 <SwiperSlide key={product.productID}>
                   <div className='rpContainer'>
-                    <div className='rpImages' onClick={scrollToTop}>
+                    <div className='rpImages' onClick={() => handleViewProductDetail(product.productID)}>
                       <img
                         src={product.frontImg}
                         alt={product.productName}

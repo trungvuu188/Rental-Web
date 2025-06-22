@@ -58,7 +58,7 @@ const Product = () => {
       (pro) => pro.productID === Number.parseInt(proId)
     );
     setProductDetail(productDetailArr[0]);
-  }, []);
+  }, [searchParams.get('id')]);
 
   const handleInputChange = (event) => {
     const value = parseInt(event.target.value);
@@ -77,21 +77,22 @@ const Product = () => {
 
   // Product Sizes
 
-  const sizes = ['XS', 'S', 'M', 'L', 'XL'];
+  // const sizes = ['XS', 'S', 'M', 'L', 'XL'];
+  const sizes = ['L'];
   const sizesFullName = [
-    'Extra Small',
-    'Small',
+    // 'Extra Small',
+    // 'Small',
     'Medium',
-    'Large',
-    'Extra Large',
+    // 'Large',
+    // 'Extra Large',
   ];
-  const [selectSize, setSelectSize] = useState('S');
+  const [selectSize, setSelectSize] = useState('L');
 
   // Product Colors
 
-  const [highlightedColor, setHighlightedColor] = useState('#C8393D');
-  const colors = ['#222222', '#C8393D', '#E4E4E4'];
-  const colorsName = ['Black', 'Red', 'Grey'];
+  const [highlightedColor, setHighlightedColor] = useState('#E4E4E4');
+  const colors = ['#E4E4E4'];
+  const colorsName = ['Grey'];
 
   // Product Detail to Redux
 

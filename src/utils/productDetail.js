@@ -8,7 +8,7 @@ export const useViewProductDetail = () => {
         pathname: "/product",
         search: createSearchParams({
           cate: categoryId,
-          id: productId
+          id: productId,
         }).toString()
       });
     };
