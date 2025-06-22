@@ -1,3 +1,14 @@
+import { ApiProduct } from '../types/api';
+import CPL001_img from '../assets/Products/couple/IMG_7242.JPG';
+import CPL002_img from '../assets/Products/couple/371EDEB2-2B27-40C0-B34C-39FC174C1C11.jpeg';
+import MEN001_img from '../assets/CoupleWears/front3.JPG';
+import WMN001_img from '../assets/Products/hoian1-1.JPG';
+import WMN002_img from '../assets/Products/IMG_5579.JPG';
+import NEW001_img from '../assets/Products/new-arrival/new1.JPG';
+import NEW002_img from '../assets/Products/new-arrival/new2.JPG';
+import LTD001_img from '../assets/Products/limited/limited1.JPG';
+import LTD002_img from '../assets/Products/limited/limited2.JPG';
+
 // Interface cho Admin Product
 export interface AdminProduct {
   id: string;
@@ -10,6 +21,7 @@ export interface AdminProduct {
   description: string;
   created_at: string;
   updated_at: string;
+  sortOrder?: 'asc' | 'desc';
 }
 
 // Interface cho Order
@@ -72,66 +84,119 @@ export interface RecentActivity {
 
 // Mock data cho Admin Products
 export const mockAdminProducts: AdminProduct[] = [
+  // Couple Wears
   {
-    id: '1',
-    name: 'Máy khoan Bosch GSB 120-LI',
-    category: 'Máy khoan',
-    price: 2500000,
-    stock: 25,
+    id: 'CPL001',
+    name: 'Set Váy Dài Áo Cúp Ngực và Áo Sơ Mi Nam Màu Hồng Pastel',
+    category: 'Couple',
+    price: 99000,
+    stock: 10,
     status: 'active',
-    image: '/images/products/drill-1.jpg',
-    description: 'Máy khoan pin 12V chuyên nghiệp',
+    image: CPL001_img,
+    description: "Set đồ đôi gồm váy dài cúp ngực cho nữ và áo sơ mi nam màu hồng pastel.",
+    created_at: '2024-01-20',
+    updated_at: '2024-01-25'
+  },
+  {
+    id: 'CPL002',
+    name: 'Set Váy Dài Cúp Ngực và Áo Sơ Mi Nam Màu Xanh Pastel',
+    category: 'Couple',
+    price: 99000,
+    stock: 8,
+    status: 'active',
+    image: CPL002_img,
+    description: "Set đồ đôi gồm váy dài cúp ngực và áo sơ mi nam màu xanh pastel.",
+    created_at: '2024-01-18',
+    updated_at: '2024-01-24'
+  },
+  // Men Wears
+  {
+    id: 'MEN001',
+    name: 'Áo Sơ Mi Nam Đi Biển Màu Nâu',
+    category: 'Men',
+    price: 99000,
+    stock: 15,
+    status: 'active',
+    image: MEN001_img,
+    description: "Áo sơ mi nam đi biển màu nâu, chất liệu thoáng mát.",
     created_at: '2024-01-15',
+    updated_at: '2024-01-22'
+  },
+  // Women Wears
+  {
+    id: 'WMN001',
+    name: 'Váy trắng trễ vai tay bồng cổ điển',
+    category: 'Women',
+    price: 99000,
+    stock: 20,
+    status: 'active',
+    image: WMN001_img,
+    description: "Váy trắng trễ vai tay bồng theo phong cách cổ điển.",
+    created_at: '2024-01-12',
     updated_at: '2024-01-20'
   },
   {
-    id: '2',
-    name: 'Máy cưa lọng Makita JV0600K',
-    category: 'Máy cưa',
-    price: 3200000,
-    stock: 0,
-    status: 'out_of_stock',
-    image: '/images/products/saw-1.jpg',
-    description: 'Máy cưa lọng 650W công suất cao',
+    id: 'WMN002',
+    name: 'Váy trắng trễ vai ren xoè nhẹ',
+    category: 'Women',
+    price: 99000,
+    stock: 18,
+    status: 'active',
+    image: WMN002_img,
+    description: "Váy trắng trễ vai phối ren, dáng xòe nhẹ nhàng.",
     created_at: '2024-01-10',
+    updated_at: '2024-01-19'
+  },
+  // New Arrivals
+  {
+    id: 'NEW001',
+    name: 'Váy Trắng Cổ Vuông & Nón Cói',
+    category: 'Women',
+    price: 99000,
+    stock: 25,
+    status: 'active',
+    image: NEW001_img,
+    description: "Váy trắng cổ vuông kết hợp nón cói, phong cách vintage.",
+    created_at: '2024-01-08',
     updated_at: '2024-01-18'
   },
   {
-    id: '3',
-    name: 'Máy mài góc DeWalt DWE4157',
-    category: 'Máy mài',
-    price: 1800000,
-    stock: 15,
-    status: 'active',
-    image: '/images/products/grinder-1.jpg',
-    description: 'Máy mài góc 125mm 900W',
-    created_at: '2024-01-08',
-    updated_at: '2024-01-22'
-  },
-  {
-    id: '4',
-    name: 'Máy bào Stanley SB90',
-    category: 'Máy bào',
-    price: 1200000,
-    stock: 8,
-    status: 'inactive',
-    image: '/images/products/planer-1.jpg',
-    description: 'Máy bào gỗ điện 900W',
+    id: 'NEW002',
+    name: 'Váy Ren Trắng Dài Thanh Lịch',
+    category: 'Women',
+    price: 99000,
+    stock: 0,
+    status: 'out_of_stock',
+    image: NEW002_img,
+    description: "Váy ren trắng dáng dài, mang lại vẻ thanh lịch.",
     created_at: '2024-01-05',
     updated_at: '2024-01-15'
   },
+  // Limiteds
   {
-    id: '5',
-    name: 'Máy khoan búa Hilti TE 2-A22',
-    category: 'Máy khoan',
-    price: 4500000,
-    stock: 12,
+    id: 'LTD001',
+    name: 'Áo Yếm In Họa Tiết & Váy Lụa Xanh Hoàng Gia',
+    category: 'Women',
+    price: 99000,
+    stock: 5,
     status: 'active',
-    image: '/images/products/hammer-drill-1.jpg',
-    description: 'Máy khoan búa pin 22V SDS-plus',
+    image: LTD001_img,
+    description: "Áo yếm in họa tiết kết hợp cùng váy lụa màu xanh hoàng gia.",
     created_at: '2024-01-02',
-    updated_at: '2024-01-25'
-  }
+    updated_at: '2024-01-10'
+  },
+    {
+    id: 'LTD002',
+    name: 'Váy Corset Đen Quyến Rũ',
+    category: 'Women',
+    price: 99000,
+    stock: 7,
+    status: 'active',
+    image: LTD002_img,
+    description: "Váy corset đen quyến rũ, phù hợp cho các buổi tiệc tối.",
+    created_at: '2024-01-01',
+    updated_at: '2024-01-09'
+  },
 ];
 
 // Mock data cho Orders
@@ -142,10 +207,10 @@ export const mockOrders: Order[] = [
     customer_email: 'nva@email.com',
     customer_phone: '0901234567',
     products: [
-      { id: '1', name: 'Máy khoan Bosch GSB 120-LI', quantity: 1, price: 2500000 },
-      { id: '2', name: 'Máy cưa lọng Makita JV0600K', quantity: 1, price: 3200000 }
+      { id: '1', name: 'Cropped Faux Leather Jacket', quantity: 1, price: 99000 },
+      { id: '2', name: 'Calvin Shorts', quantity: 1, price: 99000 }
     ],
-    total_amount: 5700000,
+    total_amount: 198000,
     status: 'processing',
     payment_status: 'paid',
     payment_method: 'bank_transfer',
@@ -160,15 +225,16 @@ export const mockOrders: Order[] = [
     customer_email: 'ttb@email.com',
     customer_phone: '0912345678',
     products: [
-      { id: '3', name: 'Máy mài góc DeWalt DWE4157', quantity: 2, price: 1800000 }
+      { id: '9', name: 'Set Váy Dài Áo Cúp Ngực và Áo Sơ Mi Nam Màu Hồng Pastel', quantity: 1, price: 99000 }
     ],
-    total_amount: 3600000,
-    status: 'pending',
-    payment_status: 'pending',
-    payment_method: 'cod',
+    total_amount: 99000,
+    status: 'completed',
+    payment_status: 'paid',
+    payment_method: 'credit_card',
     shipping_address: '456 Đường XYZ, Quận 3, TP.HCM',
-    order_date: '2024-01-25T09:15:00Z',
-    updated_at: '2024-01-25T09:15:00Z'
+    order_date: '2024-01-24T09:15:00Z',
+    updated_at: '2024-01-24T16:45:00Z',
+    notes: 'Đóng gói cẩn thận'
   },
   {
     id: 'ORD003',
@@ -176,16 +242,18 @@ export const mockOrders: Order[] = [
     customer_email: 'lvc@email.com',
     customer_phone: '0923456789',
     products: [
-      { id: '4', name: 'Máy bào Stanley SB90', quantity: 1, price: 1200000 },
-      { id: '5', name: 'Máy khoan búa Hilti TE 2-A22', quantity: 1, price: 4500000 }
+      { id: '10', name: 'Váy Trắng Cổ Vuông & Nón Cói', quantity: 1, price: 99000 },
+      { id: '11', name: 'Áo Dài Cách Tân Hoa Nhẹ & Nón Lá', quantity: 1, price: 99000 },
+      { id: '8', name: 'Kirby T-Shirt', quantity: 2, price: 37000 }
     ],
-    total_amount: 5700000,
-    status: 'completed',
+    total_amount: 272000,
+    status: 'shipping',
     payment_status: 'paid',
-    payment_method: 'credit_card',
+    payment_method: 'momo',
     shipping_address: '789 Đường DEF, Quận 7, TP.HCM',
-    order_date: '2024-01-24T15:45:00Z',
-    updated_at: '2024-01-25T10:30:00Z'
+    order_date: '2024-01-23T14:20:00Z',
+    updated_at: '2024-01-24T11:30:00Z',
+    notes: 'Giao hàng vào buổi chiều'
   },
   {
     id: 'ORD004',
@@ -193,32 +261,34 @@ export const mockOrders: Order[] = [
     customer_email: 'ptd@email.com',
     customer_phone: '0934567890',
     products: [
-      { id: '1', name: 'Máy khoan Bosch GSB 120-LI', quantity: 3, price: 2500000 }
+      { id: '12', name: 'Váy Corset Đen Quyến Rũ', quantity: 1, price: 99000 }
     ],
-    total_amount: 7500000,
-    status: 'shipping',
-    payment_status: 'paid',
-    payment_method: 'momo',
-    shipping_address: '321 Đường GHI, Quận 5, TP.HCM',
-    order_date: '2024-01-24T11:20:00Z',
-    updated_at: '2024-01-25T08:15:00Z'
+    total_amount: 99000,
+    status: 'pending',
+    payment_status: 'pending',
+    payment_method: 'bank_transfer',
+    shipping_address: '321 Đường GHI, Quận 2, TP.HCM',
+    order_date: '2024-01-25T16:45:00Z',
+    updated_at: '2024-01-25T16:45:00Z',
+    notes: 'Chờ thanh toán'
   },
   {
     id: 'ORD005',
-    customer_name: 'Hoàng Văn Minh',
-    customer_email: 'hvm@email.com',
+    customer_name: 'Hoàng Văn Em',
+    customer_email: 'hve@email.com',
     customer_phone: '0945678901',
     products: [
-      { id: '2', name: 'Máy cưa lọng Makita JV0600K', quantity: 1, price: 3200000 },
-      { id: '3', name: 'Máy mài góc DeWalt DWE4157', quantity: 1, price: 1800000 }
+      { id: '3', name: 'Shirt In Botanical Cheetah Print', quantity: 1, price: 99000 },
+      { id: '4', name: 'Cotton Jersey T-Shirt', quantity: 1, price: 99000 },
+      { id: '5', name: 'Cableknit Shawl', quantity: 1, price: 99000 }
     ],
-    total_amount: 5000000,
+    total_amount: 297000,
     status: 'cancelled',
     payment_status: 'refunded',
-    payment_method: 'bank_transfer',
-    shipping_address: '567 Đường JKL, Quận 9, TP.HCM',
-    order_date: '2024-01-23T14:30:00Z',
-    updated_at: '2024-01-24T16:45:00Z',
+    payment_method: 'credit_card',
+    shipping_address: '654 Đường JKL, Quận 5, TP.HCM',
+    order_date: '2024-01-22T11:00:00Z',
+    updated_at: '2024-01-23T09:30:00Z',
     notes: 'Khách hàng hủy đơn'
   }
 ];
@@ -227,43 +297,35 @@ export const mockOrders: Order[] = [
 export const mockCategories: Category[] = [
   {
     id: '1',
-    name: 'Máy khoan',
-    description: 'Các loại máy khoan điện và pin',
-    productCount: 25,
+    name: 'Couple',
+    description: 'Set đồ đôi cho các cặp đôi, bao gồm váy và áo phối hợp',
+    productCount: 7,
     status: 'active',
     createdAt: '2024-01-15'
   },
   {
     id: '2',
-    name: 'Máy cưa',
-    description: 'Máy cưa gỗ, sắt và các vật liệu khác',
-    productCount: 18,
+    name: 'Women',
+    description: 'Trang phục nữ đa dạng từ váy, áo đến phụ kiện',
+    productCount: 5,
     status: 'active',
     createdAt: '2024-01-10'
   },
   {
     id: '3',
-    name: 'Máy mài',
-    description: 'Máy mài góc và máy mài thẳng',
-    productCount: 12,
+    name: 'Men',
+    description: 'Trang phục nam với nhiều kiểu dáng và phong cách',
+    productCount: 1,
     status: 'active',
     createdAt: '2024-01-08'
   },
   {
     id: '4',
-    name: 'Dụng cụ cầm tay',
-    description: 'Búa, kìm, tua vít và các dụng cụ cầm tay',
-    productCount: 45,
+    name: 'Swimsuit',
+    description: 'Đồ bơi và trang phục đi biển',
+    productCount: 0,
     status: 'active',
     createdAt: '2024-01-05'
-  },
-  {
-    id: '5',
-    name: 'Máy bào',
-    description: 'Máy bào gỗ và các vật liệu khác',
-    productCount: 8,
-    status: 'inactive',
-    createdAt: '2024-01-03'
   }
 ];
 

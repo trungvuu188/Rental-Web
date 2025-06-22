@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DataTable, Column } from '../../components/ui/data-table';
+import { mockAdminProducts } from '../../data/admin';
 import './ProductManagement.scss';
 
 interface Product {
@@ -36,68 +37,18 @@ const ProductManagement: React.FC = () => {
       // Mock API call
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const mockProducts: Product[] = [
-        {
-          id: '1',
-          name: 'Máy khoan Bosch GSB 120-LI',
-          category: 'Máy khoan',
-          price: 2500000,
-          stock: 25,
-          status: 'active',
-          image: '/images/products/drill-1.jpg',
-          description: 'Máy khoan pin 12V chuyên nghiệp',
-          created_at: '2024-01-15',
-          updated_at: '2024-01-20'
-        },
-        {
-          id: '2',
-          name: 'Máy cưa lọng Makita JV0600K',
-          category: 'Máy cưa',
-          price: 3200000,
-          stock: 0,
-          status: 'out_of_stock',
-          image: '/images/products/saw-1.jpg',
-          description: 'Máy cưa lọng 650W công suất cao',
-          created_at: '2024-01-10',
-          updated_at: '2024-01-18'
-        },
-        {
-          id: '3',
-          name: 'Máy mài góc DeWalt DWE4157',
-          category: 'Máy mài',
-          price: 1800000,
-          stock: 15,
-          status: 'active',
-          image: '/images/products/grinder-1.jpg',
-          description: 'Máy mài góc 125mm 900W',
-          created_at: '2024-01-08',
-          updated_at: '2024-01-22'
-        },
-        {
-          id: '4',
-          name: 'Máy bào Stanley SB90',
-          category: 'Máy bào',
-          price: 1200000,
-          stock: 8,
-          status: 'inactive',
-          image: '/images/products/planer-1.jpg',
-          description: 'Máy bào gỗ điện 900W',
-          created_at: '2024-01-05',
-          updated_at: '2024-01-15'
-        },
-        {
-          id: '5',
-          name: 'Máy khoan búa Hilti TE 2-A22',
-          category: 'Máy khoan',
-          price: 4500000,
-          stock: 12,
-          status: 'active',
-          image: '/images/products/hammer-drill-1.jpg',
-          description: 'Máy khoan búa pin 22V SDS-plus',
-          created_at: '2024-01-02',
-          updated_at: '2024-01-25'
-        }
-      ];
+      const mockProducts: Product[] = mockAdminProducts.map(p => ({
+        id: p.id,
+        name: p.name,
+        category: p.category,
+        price: p.price,
+        stock: p.stock,
+        status: p.status,
+        image: p.image,
+        description: p.description,
+        created_at: p.created_at,
+        updated_at: p.updated_at,
+      }));
 
       setProducts(mockProducts);
     } catch (error) {
@@ -201,9 +152,9 @@ const ProductManagement: React.FC = () => {
       filterType: 'select',
       filterOptions: [
         { label: 'Couple', value: 'Couple' },
-        { label: 'Men', value: 'Men' },
         { label: 'Women', value: 'Women' },
-        { label: 'Swim Suit', value: 'Swim Suit' }
+        { label: 'Men', value: 'Men' },
+        { label: 'Swimsuit', value: 'Swimsuit' }
       ]
     },
     {

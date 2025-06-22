@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
         {
           id: '1',
           type: 'order',
-          message: 'Đơn hàng mới #12345 từ Nguyễn Văn A',
+          message: 'Đơn hàng mới #CPL001 từ Nguyễn Văn An',
           timestamp: '5 phút trước',
           status: 'success'
         },
@@ -85,21 +85,21 @@ const Dashboard: React.FC = () => {
         {
           id: '3',
           type: 'product',
-          message: 'Sản phẩm "Máy khoan Bosch" được cập nhật',
+          message: 'Sản phẩm "Váy Trắng Cổ Vuông & Nón Cói" đã được thêm',
           timestamp: '30 phút trước',
           status: 'info'
         },
         {
           id: '4',
           type: 'order',
-          message: 'Đơn hàng #12344 đã được giao thành công',
+          message: 'Đơn hàng #WMN001 đã được giao thành công',
           timestamp: '1 giờ trước',
           status: 'success'
         },
         {
           id: '5',
           type: 'product',
-          message: 'Cảnh báo: Sản phẩm "Máy cưa" sắp hết hàng',
+          message: 'Cảnh báo: Sản phẩm "Váy Ren Trắng Dài Thanh Lịch" sắp hết hàng',
           timestamp: '2 giờ trước',
           status: 'warning'
         },
