@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const handleSubscribe = (e) => {
     e.preventDefault();
-    alert('Subscribed Successfully');
+    alert('Đăng ký thành công');
   };
 
   const scrollToTop = () => {
@@ -34,7 +34,7 @@ const Footer = () => {
               <img src={logo} alt='' Z className='logo' />
             </div>
 
-            <p>Da Nang, Viet Nam</p>
+            <p>Đà Nẵng, Việt Nam</p>
 
             <div className='footer_address'>
               <strong> ShareIt.com </strong>
@@ -51,87 +51,86 @@ const Footer = () => {
           </div>
 
           <div className='footer_content'>
-            <h5>Company</h5>
+            <h5>Công ty</h5>
             <div className='links_container'>
               <ul onClick={scrollToTop}>
                 <li>
-                  <Link to='/about'>About Us</Link>
+                  <Link to='/about'>Về chúng tôi</Link>
                 </li>
                 <li>
-                  <Link to='/about'>Career</Link>
+                  <Link to='/about'>Tuyển dụng</Link>
                 </li>
                 <li>
-                  <Link to='*'>Affilates</Link>
+                  <Link to='*'>Đối tác</Link>
                 </li>
                 <li>
                   <Link to='/blog'>Blog</Link>
                 </li>
                 <li>
-                  <Link to='/contact'>Contact Us</Link>
+                  <Link to='/contact'>Liên hệ</Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className='footer_content'>
-            <h5>Shop</h5>
+            <h5>Cửa hàng</h5>
             <div className='links_container'>
               <ul onClick={scrollToTop}>
                 <li>
-                  <Link to='/shop'>New Arrivals</Link>
+                  <Link to='/shop'>Hàng mới</Link>
                 </li>
                 <li>
-                  <Link to='/shop'>Accessories</Link>
+                  <Link to='/shop'>Phụ kiện</Link>
                 </li>
                 <li>
-                  <Link to='/shop'>Men</Link>
+                  <Link to='/shop'>Nam</Link>
                 </li>
                 <li>
-                  <Link to='/shop'>Women</Link>
+                  <Link to='/shop'>Nữ</Link>
                 </li>
                 <li>
-                  <Link to='/shop'>Rent All</Link>
+                  <Link to='/shop'>Thuê tất cả</Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className='footer_content'>
-            <h5>Help</h5>
+            <h5>Hỗ trợ</h5>
             <div className='links_container'>
               <ul onClick={scrollToTop}>
                 <li>
-                  <Link to='/contact'>Customer Service</Link>
+                  <Link to='/contact'>Dịch vụ khách hàng</Link>
                 </li>
                 <li>
-                  <Link to='/loginSignUp'>My Account</Link>
+                  <Link to='/loginSignUp'>Tài khoản của tôi</Link>
                 </li>
                 <li>
-                  <Link to='/contact'>Find a Store</Link>
+                  <Link to='/contact'>Tìm cửa hàng</Link>
                 </li>
                 <li>
-                  <Link to='/terms'>Legal & Privacy</Link>
+                  <Link to='/terms'>Pháp lý & Bảo mật</Link>
                 </li>
                 <li>
-                  <Link to='/contact'>Contact</Link>
+                  <Link to='/contact'>Liên hệ</Link>
                 </li>
                 <li>
-                  <Link to='/'>Gift Card</Link>
+                  <Link to='/'>Thẻ quà tặng</Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className='footer_right'>
-            <h5>Subscribe</h5>
+            <h5>Đăng ký</h5>
             <p>
-              Be the first to get the latest news about trends, promotions, and
-              much more!
+              Hãy là người đầu tiên nhận được tin tức mới nhất về xu hướng, khuyến mãi và nhiều hơn nữa!
             </p>
 
             <form onSubmit={handleSubscribe}>
-              <input type='email' placeholder='Your email address' required />
-              <button type='submit'>Join</button>
+              <input type='email' placeholder='Địa chỉ email của bạn' required />
+              <button type='submit'>Tham gia</button>
             </form>
 
-            <h6>Secure Payments</h6>
+            <h6>Thanh toán an toàn</h6>
             <div className='paymentIconContainer'>
               <img src={paymentIcon} alt='' />
             </div>
@@ -139,7 +138,7 @@ const Footer = () => {
         </div>
         <div className='footer_bottom'>
           <p>
-            © {getCurrentYear()} ShareIt. All Rights Reserved | Made By{' '}
+            © {getCurrentYear()} ShareIt. Tất cả quyền được bảo lưu | Được tạo bởi{' '}
             <a
               href='https://github.com/trungvuu188'
               target='_blank'
@@ -148,17 +147,17 @@ const Footer = () => {
             >
               BirdCanSwim
             </a>{' '}
-            with ❤️
+            với ❤️
           </p>
           <div className='footerLangCurrency'>
             <div className='footerLang'>
-              <p>Language</p>
+              <p>Ngôn ngữ</p>
               <select name='language' id='language'>
-                <option value='english'>Vietnamese | English</option>
+                <option value='vietnamese'>Tiếng Việt</option>
               </select>
             </div>
             <div className='footerCurrency'>
-              <p>Currency</p>
+              <p>Tiền tệ</p>
               <select name='currency' id='currency'>
                 <option value='VND'>VND</option>
               </select>

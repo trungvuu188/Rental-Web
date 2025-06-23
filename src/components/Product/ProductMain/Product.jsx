@@ -225,38 +225,6 @@ const Product = () => {
                   ))}
                 </div>
               </div>
-              <div className='productColor'>
-                <p>Color</p>
-                <div className='colorBtn'>
-                  {colors.map((color, index) => (
-                    <Tooltip
-                      key={color}
-                      title={colorsName[index]}
-                      placement='top'
-                      enterTouchDelay={0}
-                      TransitionComponent={Zoom}
-                      arrow
-                    >
-                      <button
-                        className={
-                          highlightedColor === color ? 'highlighted' : ''
-                        }
-                        style={{
-                          backgroundColor: color.toLowerCase(),
-                          border:
-                            highlightedColor === color
-                              ? '0px solid #000'
-                              : '0px solid white',
-                          padding: '8px',
-                          margin: '5px',
-                          cursor: 'pointer',
-                        }}
-                        onClick={() => setHighlightedColor(color)}
-                      />
-                    </Tooltip>
-                  ))}
-                </div>
-              </div>
             </div>
             <div className='productCartQuantity'>
               <div className='productQuantity'>

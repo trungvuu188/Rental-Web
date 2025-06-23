@@ -255,50 +255,7 @@ const ProductManagement: React.FC = () => {
       </div>
 
       <div className="page-content">
-        <div className="table-toolbar">
-          <div className="toolbar-left">
-            <div className="bulk-actions">
-              {selectedRows.length > 0 && (
-                <>
-                  <span className="selected-info">
-                    Đã chọn {selectedRows.length} sản phẩm
-                  </span>
-                  <button
-                    className="btn btn-outline btn-sm"
-                    onClick={() => handleBulkStatusChange('active')}
-                  >
-                    Kích hoạt
-                  </button>
-                  <button
-                    className="btn btn-outline btn-sm"
-                    onClick={() => handleBulkStatusChange('inactive')}
-                  >
-                    Tạm dừng
-                  </button>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={handleBulkDelete}
-                  >
-                    <span className="material-icons">delete</span>
-                    Xóa
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-          <div className="toolbar-right">
-            <div className="view-options">
-              <button className="btn btn-ghost btn-sm">
-                <span className="material-icons">import_export</span>
-                Xuất Excel
-              </button>
-              <button className="btn btn-ghost btn-sm">
-                <span className="material-icons">refresh</span>
-                Làm mới
-              </button>
-            </div>
-          </div>
-        </div>
+        
 
         <DataTable
           data={products}

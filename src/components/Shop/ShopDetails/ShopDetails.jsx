@@ -68,7 +68,7 @@ const ShopDetails = () => {
     );
 
     if (productInCart && productInCart.quantity >= 20) {
-      toast.error('Product limit reached', {
+      toast.error('Đã đạt giới hạn sản phẩm', {
         duration: 2000,
         style: {
           backgroundColor: '#ff4b4b',
@@ -81,7 +81,7 @@ const ShopDetails = () => {
       });
     } else {
       dispatch(addToCart(product));
-      toast.success(`Added to cart!`, {
+      toast.success(`Đã thêm vào giỏ hàng!`, {
         duration: 2000,
         style: {
           backgroundColor: '#07bc0c',
@@ -106,31 +106,31 @@ const ShopDetails = () => {
             <div className='shopDetailsSorting'>
               <div className='shopDetailsBreadcrumbLink'>
                 <Link to='/' onClick={scrollToTop}>
-                  Home
+                  Trang chủ
                 </Link>
                 &nbsp;/&nbsp;
-                <Link to='/shop'>The Shop</Link>
+                <Link to='/shop'>Cửa hàng</Link>
               </div>
               <div className='filterLeft' onClick={toggleDrawer}>
                 <IoFilterSharp />
-                <p>Filter</p>
+                <p>Lọc</p>
               </div>
               <div className='shopDetailsSort'>
                 <select name='sort' id='sort'>
-                  <option value='default'>Default Sorting</option>
-                  <option value='Featured'>Featured</option>
-                  <option value='bestSelling'>Best Selling</option>
-                  <option value='a-z'>Alphabetically, A-Z</option>
-                  <option value='z-a'>Alphabetically, Z-A</option>
-                  <option value='lowToHigh'>Price, Low to high</option>
-                  <option value='highToLow'>Price, high to low</option>
-                  <option value='oldToNew'>Date, old to new</option>
-                  <option value='newToOld'>Date, new to old</option>
+                  <option value='default'>Sắp xếp mặc định</option>
+                  <option value='Featured'>Nổi bật</option>
+                  <option value='bestSelling'>Bán chạy nhất</option>
+                  <option value='a-z'>Theo bảng chữ cái, A-Z</option>
+                  <option value='z-a'>Theo bảng chữ cái, Z-A</option>
+                  <option value='lowToHigh'>Giá, thấp đến cao</option>
+                  <option value='highToLow'>Giá, cao đến thấp</option>
+                  <option value='oldToNew'>Ngày, cũ đến mới</option>
+                  <option value='newToOld'>Ngày, mới đến cũ</option>
                 </select>
                 <div className='filterRight' onClick={toggleDrawer}>
                   <div className='filterSeprator'></div>
                   <IoFilterSharp />
-                  <p>Filter</p>
+                  <p>Lọc</p>
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ const ShopDetails = () => {
                           />
                         </a>
                         <h4 onClick={() => handleAddToCart(product)}>
-                          Add to Cart
+                          Thêm vào giỏ
                         </h4>
                       </div>
                       <div
@@ -165,7 +165,7 @@ const ShopDetails = () => {
                       </div>
                       <div className='sdProductInfo'>
                         <div className='sdProductCategoryWishlist'>
-                          <p>Tiem CoMin</p>
+                          <p>Tiệm CoMin</p>
                           <FiHeart
                             onClick={() =>
                               handleWishlistClick(product.productID)
@@ -204,7 +204,7 @@ const ShopDetails = () => {
               <div className='sdPaginationPrev'>
                 <p onClick={scrollToTop}>
                   <FaAngleLeft />
-                  Prev
+                  Trước
                 </p>
               </div>
               <div className='sdPaginationNumber'>
@@ -218,7 +218,7 @@ const ShopDetails = () => {
               </div>
               <div className='sdPaginationNext'>
                 <p onClick={scrollToTop}>
-                  Next
+                  Tiếp
                   <FaAngleRight />
                 </p>
               </div>
@@ -229,7 +229,7 @@ const ShopDetails = () => {
       {/* Drawer */}
       <div className={`filterDrawer ${isDrawerOpen ? 'open' : ''}`}>
         <div className='drawerHeader'>
-          <p>Filter By</p>
+          <p>Lọc theo</p>
           <IoClose onClick={closeDrawer} className='closeButton' size={26} />
         </div>
         <div className='drawerContent'>

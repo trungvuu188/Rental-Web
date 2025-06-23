@@ -69,7 +69,7 @@ const ShoppingCart = () => {
   return (
     <>
       <div className='shoppingCartSection'>
-        <h2>Cart</h2>
+        <h2>Giỏ hàng</h2>
 
         <div className='shoppingCartTabsContainer'>
           <div className={`shoppingCartTabs ${activeTab}`}>
@@ -83,8 +83,8 @@ const ShoppingCart = () => {
               <div className='shoppingCartTabsNumber'>
                 <h3>01</h3>
                 <div className='shoppingCartTabsHeading'>
-                  <h3>Shopping Bag</h3>
-                  <p>Manage Your Items List</p>
+                  <h3>Giỏ hàng</h3>
+                  <p>Quản lý danh sách sản phẩm</p>
                 </div>
               </div>
             </button>
@@ -99,8 +99,8 @@ const ShoppingCart = () => {
               <div className='shoppingCartTabsNumber'>
                 <h3>02</h3>
                 <div className='shoppingCartTabsHeading'>
-                  <h3>Shipping and Checkout</h3>
-                  <p>Checkout Your Items List</p>
+                  <h3>Vận chuyển và thanh toán</h3>
+                  <p>Thanh toán danh sách sản phẩm</p>
                 </div>
               </div>
             </button>
@@ -114,8 +114,8 @@ const ShoppingCart = () => {
               <div className='shoppingCartTabsNumber'>
                 <h3>03</h3>
                 <div className='shoppingCartTabsHeading'>
-                  <h3>Confirmation</h3>
-                  <p>Review And Submit Your Order</p>
+                  <h3>Xác nhận</h3>
+                  <p>Xem lại và gửi đơn hàng</p>
                 </div>
               </div>
             </button>
@@ -129,11 +129,11 @@ const ShoppingCart = () => {
                   <table className='shoppingBagTable'>
                     <thead>
                       <tr>
-                        <th>Product</th>
+                        <th>Sản phẩm</th>
                         <th></th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Subtotal</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng phụ</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -141,7 +141,7 @@ const ShoppingCart = () => {
                       {cartItems.length > 0 ? (
                         cartItems.map((item) => (
                           <tr key={item.productID}>
-                            <td data-label='Product'>
+                            <td data-label='Sản phẩm'>
                               <div className='shoppingBagTableImg'>
                                 <Link to='/product' onClick={scrollToTop}>
                                   <img src={item.frontImg} alt='' />
@@ -157,12 +157,12 @@ const ShoppingCart = () => {
                               </div>
                             </td>
                             <td
-                              data-label='Price'
+                              data-label='Giá'
                               style={{ textAlign: 'center' }}
                             >
                               {item.productPrice} VND
                             </td>
-                            <td data-label='Quantity'>
+                            <td data-label='Số lượng'>
                               <div className='ShoppingBagTableQuantity'>
                                 <button
                                   onClick={() =>
@@ -198,7 +198,7 @@ const ShoppingCart = () => {
                                 </button>
                               </div>
                             </td>
-                            <td data-label='Subtotal'>
+                            <td data-label='Tổng phụ'>
                               <p
                                 style={{
                                   textAlign: 'center',
@@ -221,9 +221,9 @@ const ShoppingCart = () => {
                         <tr>
                           <td colSpan='6'>
                             <div className='shoppingCartEmpty'>
-                              <span>Your cart is empty!</span>
+                              <span>Giỏ hàng của bạn trống!</span>
                               <Link to='/shop' onClick={scrollToTop}>
-                                <button>Shop Now</button>
+                                <button>Mua sắm ngay</button>
                               </Link>
                             </div>
                           </td>
@@ -244,14 +244,14 @@ const ShoppingCart = () => {
                             <form>
                               <input
                                 type='text'
-                                placeholder='Coupon Code'
+                                placeholder='Mã giảm giá'
                               ></input>
                               <button
                                 onClick={(e) => {
                                   e.preventDefault();
                                 }}
                               >
-                                Apply Coupon
+                                Áp dụng mã
                               </button>
                             </form>
                             <button
@@ -260,7 +260,7 @@ const ShoppingCart = () => {
                               }}
                               className='shopCartFooterbutton'
                             >
-                              Update Cart
+                              Cập nhật giỏ hàng
                             </button>
                           </div>
                         )}
@@ -341,14 +341,14 @@ const ShoppingCart = () => {
                             <form>
                               <input
                                 type='text'
-                                placeholder='Coupon Code'
+                                placeholder='Mã giảm giá'
                               ></input>
                               <button
                                 onClick={(e) => {
                                   e.preventDefault();
                                 }}
                               >
-                                Apply Coupon
+                                Áp dụng mã
                               </button>
                             </form>
                             <button
@@ -357,42 +357,42 @@ const ShoppingCart = () => {
                               }}
                               className='shopCartFooterbutton'
                             >
-                              Update Cart
+                              Cập nhật giỏ hàng
                             </button>
                           </div>
                         </div>
                       </>
                     ) : (
                       <div className='shoppingCartEmpty'>
-                        <span>Your cart is empty!</span>
+                        <span>Giỏ hàng của bạn trống!</span>
                         <Link to='/shop' onClick={scrollToTop}>
-                          <button>Shop Now</button>
+                          <button>Mua sắm ngay</button>
                         </Link>
                       </div>
                     )}
                   </div>
                 </div>
                 <div className='shoppingBagTotal'>
-                  <h3>Cart Totals</h3>
+                  <h3>Tổng giỏ hàng</h3>
                   <table className='shoppingBagTotalTable'>
                     <tbody>
                       <tr>
-                        <th>Subtotal</th>
+                        <th>Tổng phụ</th>
                         <td>{totalPrice} VND</td>
                       </tr>
                       <tr>
-                        <th>Shipping</th>
+                        <th>Vận chuyển</th>
                         <td>
                           <div className='shoppingBagTotalTableCheck'>
                             <p>20000 VND</p>
-                            <p>Shipping to Al..</p>
+                            <p>Vận chuyển đến Al..</p>
                             <p
                               onClick={scrollToTop}
                               style={{
                                 cursor: 'pointer',
                               }}
                             >
-                              CHANGE ADDRESS
+                              THAY ĐỔI ĐỊA CHỈ
                             </p>
                           </div>
                         </td>
@@ -402,7 +402,7 @@ const ShoppingCart = () => {
                         <td>{(totalPrice === 0 ? 0 : 11).toFixed(2)}VND</td>
                       </tr> */}
                       <tr>
-                        <th>Total</th>
+                        <th>Tổng cộng</th>
                         <td>{totalPrice === 0 ? 0 : totalPrice + 20000} VND</td>
                       </tr>
                     </tbody>
@@ -414,7 +414,7 @@ const ShoppingCart = () => {
                     }}
                     disabled={cartItems.length === 0}
                   >
-                    Proceed to Checkout
+                    Tiến hành thanh toán
                   </button>
                 </div>
               </div>
@@ -424,60 +424,59 @@ const ShoppingCart = () => {
             {activeTab === 'cartTab2' && (
               <div className='checkoutSection'>
                 <div className='checkoutDetailsSection'>
-                  <h4>Billing Details</h4>
+                  <h4>Thông tin thanh toán</h4>
                   <div className='checkoutDetailsForm'>
                     <form>
                       <div className='checkoutDetailsFormRow'>
-                        <input type='text' placeholder='First Name' />
-                        <input type='text' placeholder='Last Name' />
+                        <input type='text' placeholder='Tên' />
+                        <input type='text' placeholder='Họ' />
                       </div>
                       {/* <input
                         type="text"
-                        placeholder="Company Name (optional)"
+                        placeholder="Tên công ty (tùy chọn)"
                       /> */}
                       {/* <select name="country" id="country">
                         <option value="Country / Region" selected disabled>
-                          Country / Region
+                          Quốc gia / Khu vực
                         </option>
-                        <option value="India">India</option>
+                        <option value="India">Ấn Độ</option>
                         <option value="Canada">Canada</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United States">United States</option>
-                        <option value="Turkey">Turkey</option>
+                        <option value="United Kingdom">Vương quốc Anh</option>
+                        <option value="United States">Hoa Kỳ</option>
+                        <option value="Turkey">Thổ Nhĩ Kỳ</option>
                       </select> */}
-                      <input type='text' placeholder='Street Address*' />
-                      <input type='text' placeholder='' />
-                      <input type='text' placeholder='Town / City *' />
-                      {/* <input type="text" placeholder="Postcode / ZIP *" /> */}
-                      <input type='text' placeholder='Phone *' />
-                      {/* <input type="mail" placeholder="Your Mail *" /> */}
+                      <input type='text' placeholder='Địa chỉ đường*' />
+                      <input type='text' placeholder='Thành phố / Tỉnh *' />
+                      {/* <input type="text" placeholder="Mã bưu điện / ZIP *" /> */}
+                      <input type='text' placeholder='Số điện thoại *' />
+                      {/* <input type="mail" placeholder="Email của bạn *" /> */}
                       <div className='checkoutDetailsFormCheck'>
                         {/* <label>
                           <input type="checkbox" />
-                          <p>Create An Account?</p>
+                          <p>Tạo tài khoản?</p>
                         </label> */}
                         {/* <label>
                           <input type="checkbox" />
-                          <p>Ship to a different Address</p>
+                          <p>Giao hàng đến địa chỉ khác</p>
                         </label> */}
                       </div>
                       <textarea
                         cols={30}
                         rows={8}
-                        placeholder='Order Notes (Optional)'
+                        placeholder='Ghi chú đơn hàng (Tùy chọn)'
                       />
                     </form>
                   </div>
                 </div>
                 <div className='checkoutPaymentSection'>
                   <div className='checkoutTotalContainer'>
-                    <h3>Your Order</h3>
+                    <h3>Đơn hàng của bạn</h3>
                     <div className='checkoutItems'>
                       <table>
                         <thead>
                           <tr>
-                            <th>PRODUCTS</th>
-                            <th>SUBTOTALS</th>
+                            <th>SẢN PHẨM</th>
+                            <th>TỔNG PHỤ</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -496,11 +495,11 @@ const ShoppingCart = () => {
                       <table>
                         <tbody>
                           <tr>
-                            <th>Subtotal</th>
+                            <th>Tổng phụ</th>
                             <td>{totalPrice} VND</td>
                           </tr>
                           <tr>
-                            <th>Shipping</th>
+                            <th>Vận chuyển</th>
                             <td>20000 VND</td>
                           </tr>
                           {/* <tr>
@@ -508,7 +507,7 @@ const ShoppingCart = () => {
                             <td>11 VND</td>
                           </tr> */}
                           <tr>
-                            <th>Total</th>
+                            <th>Tổng cộng</th>
                             <td>
                               {totalPrice === 0 ? 0 : totalPrice + 20000} VND
                             </td>
@@ -527,12 +526,11 @@ const ShoppingCart = () => {
                         onChange={handlePaymentChange}
                       />
                       <div className='checkoutPaymentMethod'>
-                        <span>Direct Bank Transfer</span>
+                        <span>Chuyển khoản ngân hàng</span>
                         {/* <p>
-                          Make your payment directly into our bank account.
-                          Please use your Order ID as the payment reference.Your
-                          order will not be shipped until the funds have cleared
-                          in our account.
+                          Thực hiện thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi.
+                          Vui lòng sử dụng ID đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng
+                          của bạn sẽ không được giao cho đến khi tiền đã được thanh toán trong tài khoản của chúng tôi.
                         </p> */}
                       </div>
                     </label>
@@ -544,7 +542,7 @@ const ShoppingCart = () => {
                         onChange={handlePaymentChange}
                       />
                       <div className='checkoutPaymentMethod'>
-                        <span>Cash on delivery</span>
+                        <span>Thanh toán khi nhận hàng</span>
                         {/* <p>
                           Phasellus sed volutpat orci. Fusce eget lore mauris
                           vehicula elementum gravida nec dui. Aenean aliquam
@@ -554,13 +552,13 @@ const ShoppingCart = () => {
                       </div>
                     </label>
                     <div className='policyText'>
-                      Your personal data will be used to process your order,
-                      support your experience throughout this website, and for
-                      other purposes described in our{' '}
+                      Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng,
+                      hỗ trợ trải nghiệm của bạn trên trang web này và cho
+                      các mục đích khác được mô tả trong{' '}
                       <Link to='/terms' onClick={scrollToTop}>
-                        Privacy Policy
+                        Chính sách bảo mật
                       </Link>
-                      .
+                      của chúng tôi.
                     </div>
                   </div>
                   <button
@@ -570,7 +568,7 @@ const ShoppingCart = () => {
                       setPayments(true);
                     }}
                   >
-                    Place Order
+                    Đặt hàng
                   </button>
                 </div>
               </div>
@@ -584,35 +582,35 @@ const ShoppingCart = () => {
                     <div className='orderCompleteMessageImg'>
                       <img src={success} alt='' />
                     </div>
-                    <h3>Your order is completed!</h3>
-                    <p>Thank you. Your order has been received.</p>
+                    <h3>Đơn hàng của bạn đã hoàn thành!</h3>
+                    <p>Cảm ơn bạn. Đơn hàng của bạn đã được nhận.</p>
                   </div>
                   <div className='orderInfo'>
                     <div className='orderInfoItem'>
-                      <p>Order Number</p>
+                      <p>Số đơn hàng</p>
                       <h4>{orderNumber}</h4>
                     </div>
                     <div className='orderInfoItem'>
-                      <p>Date</p>
+                      <p>Ngày</p>
                       <h4>{formatDate(currentDate)}</h4>
                     </div>
                     <div className='orderInfoItem'>
-                      <p>Total</p>
+                      <p>Tổng cộng</p>
                       <h4>{totalPrice.toFixed(2)}VND</h4>
                     </div>
                     <div className='orderInfoItem'>
-                      <p>Payment Method</p>
+                      <p>Phương thức thanh toán</p>
                       <h4>{selectedPayment}</h4>
                     </div>
                   </div>
                   <div className='orderTotalContainer'>
-                    <h3>Order Details</h3>
+                    <h3>Chi tiết đơn hàng</h3>
                     <div className='orderItems'>
                       <table>
                         <thead>
                           <tr>
-                            <th>PRODUCTS</th>
-                            <th>SUBTOTALS</th>
+                            <th>SẢN PHẨM</th>
+                            <th>TỔNG PHỤ</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -631,11 +629,11 @@ const ShoppingCart = () => {
                       <table>
                         <tbody>
                           <tr>
-                            <th>Subtotal</th>
+                            <th>Tổng phụ</th>
                             <td>{totalPrice} VND</td>
                           </tr>
                           <tr>
-                            <th>Shipping</th>
+                            <th>Vận chuyển</th>
                             <td>20000 VND</td>
                           </tr>
                           {/* <tr>
@@ -643,7 +641,7 @@ const ShoppingCart = () => {
                             <td>11 VND</td>
                           </tr> */}
                           <tr>
-                            <th>Total</th>
+                            <th>Tổng cộng</th>
                             <td>
                               {totalPrice === 0 ? 0 : totalPrice + 20000} VND
                             </td>

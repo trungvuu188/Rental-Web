@@ -17,7 +17,7 @@ const Filter = ({ handleChangeCategory }) => {
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [brandsData] = useState([{ name: 'Tiem CoMin', count: 20 }]);
+  const [brandsData] = useState([{ name: 'Tiệm CoMin', count: 20 }]);
 
   const handleColorChange = (color) => {
     setSelectedColors((prevColors) =>
@@ -69,7 +69,7 @@ const Filter = ({ handleChangeCategory }) => {
               id='panel1-header'
               sx={{ padding: 0, marginBottom: 2 }}
             >
-              <h5 className='filterHeading'>Product Categories</h5>
+              <h5 className='filterHeading'>Danh mục sản phẩm</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
               {categoryWears.slice(0, 4).map((category, index) => (
@@ -91,7 +91,7 @@ const Filter = ({ handleChangeCategory }) => {
               id="panel1-header"
               sx={{ padding: 0, marginBottom: 2 }}
             >
-              <h5 className="filterHeading">Color</h5>
+              <h5 className="filterHeading">Màu sắc</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
               {
@@ -121,7 +121,7 @@ const Filter = ({ handleChangeCategory }) => {
               id="panel1-header"
               sx={{ padding: 0, marginBottom: 2 }}
             >
-              <h5 className="filterHeading">Sizes</h5>
+              <h5 className="filterHeading">Kích thước</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
               <div className="sizeButtons">
@@ -148,7 +148,7 @@ const Filter = ({ handleChangeCategory }) => {
               id='panel1-header'
               sx={{ padding: 0, marginBottom: 2 }}
             >
-              <h5 className='filterHeading'>Shops</h5>
+              <h5 className='filterHeading'>Cửa hàng</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
               {/* Search bar */}
@@ -156,7 +156,7 @@ const Filter = ({ handleChangeCategory }) => {
                 <BiSearch className='searchIcon' size={20} color={'#767676'} />
                 <input
                   type='text'
-                  placeholder='Search'
+                  placeholder='Tìm kiếm'
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -183,7 +183,7 @@ const Filter = ({ handleChangeCategory }) => {
                     </div>
                   ))
                 ) : (
-                  <div className='notFoundMessage'>Not found</div>
+                  <div className='notFoundMessage'>Không tìm thấy</div>
                 )}
               </div>
             </AccordionDetails>
@@ -197,11 +197,11 @@ const Filter = ({ handleChangeCategory }) => {
               id="panel1-header"
               sx={{ padding: 0, marginBottom: 2 }}
             >
-              <h5 className="filterHeading">Price</h5>
+              <h5 className="filterHeading">Giá</h5>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: 0 }}>
               <Slider
-                getAriaLabel={() => "Temperature range"}
+                getAriaLabel={() => "Khoảng giá"}
                 value={value}
                 onChange={handleChange}
                 valueLabelDisplay="auto"
@@ -220,10 +220,10 @@ const Filter = ({ handleChangeCategory }) => {
               <div className="filterSliderPrice">
                 <div className="priceRange">
                   <p>
-                    Min Price: <span>{value[0]}</span>
+                    Giá tối thiểu: <span>{value[0]}</span>
                   </p>
                   <p>
-                    Max Price: <span>${value[1]}</span>
+                    Giá tối đa: <span>${value[1]}</span>
                   </p>
                 </div>
               </div>

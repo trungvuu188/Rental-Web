@@ -867,6 +867,9 @@
                 border-radius: 8px;
                 font-weight: 500;
                 font-size: 13px;
+                white-space: nowrap;
+                overflow: visible;
+                text-overflow: ellipsis;
               }
 
               &.amount {
@@ -882,6 +885,9 @@
                 border-radius: 8px;
                 font-weight: 500;
                 font-size: 12px;
+                white-space: nowrap;
+                overflow: visible;
+                text-overflow: ellipsis;
               }
 
               .customer-phone {

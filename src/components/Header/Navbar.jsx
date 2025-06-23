@@ -51,12 +51,12 @@ const Navbar = () => {
             <ul>
               <li>
                 <Link to='/' onClick={scrollToTop}>
-                  HOME
+                  TRANG CHỦ
                 </Link>
               </li>
               <li>
                 <Link to='/shop' onClick={scrollToTop}>
-                  SHOP
+                  CỬA HÀNG
                 </Link>
               </li>
               <li>
@@ -66,12 +66,12 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to='/about' onClick={scrollToTop}>
-                  ABOUT
+                  GIỚI THIỆU
                 </Link>
               </li>
               <li>
                 <Link to='/contact' onClick={scrollToTop}>
-                  CONTACT
+                  LIÊN HỆ
                 </Link>
               </li>
             </ul>
@@ -129,7 +129,7 @@ const Navbar = () => {
           <div className='mobile-menuTop'>
             <div className='mobile-menuSearchBar'>
               <div className='mobile-menuSearchBarContainer'>
-                <input type='text' placeholder='Search products' />
+                <input type='text' placeholder='Tìm kiếm sản phẩm' />
                 <Link to='/shop'>
                   <FiSearch size={22} onClick={toggleMobileMenu} />
                 </Link>
@@ -139,12 +139,12 @@ const Navbar = () => {
               <ul>
                 <li>
                   <Link to='/' onClick={toggleMobileMenu}>
-                    HOME
+                    TRANG CHỦ
                   </Link>
                 </li>
                 <li>
                   <Link to='/shop' onClick={toggleMobileMenu}>
-                    SHOP
+                    CỬA HÀNG
                   </Link>
                 </li>
                 <li>
@@ -154,12 +154,12 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link to='/about' onClick={toggleMobileMenu}>
-                    ABOUT
+                    GIỚI THIỆU
                   </Link>
                 </li>
                 <li>
                   <Link to='/contact' onClick={toggleMobileMenu}>
-                    CONTACT
+                    LIÊN HỆ
                   </Link>
                 </li>
               </ul>
@@ -170,13 +170,14 @@ const Navbar = () => {
             <div className='mobile-menuFooterLogin'>
               <Link to='/loginSignUp' onClick={toggleMobileMenu}>
                 <FaRegUser />
-                <p>My Account</p>
+                <p>Tài khoản của tôi</p>
               </Link>
             </div>
             <div className='mobile-menuFooterLangCurrency'>
               <div className='mobile-menuFooterLang'>
-                <p>Language</p>
+                <p>Ngôn ngữ</p>
                 <select name='language' id='language'>
+                  <option value='vietnamese'>Việt Nam | Tiếng Việt</option>
                   <option value='english'>United States | English</option>
                   <option value='Hindi'>Hindi</option>
                   <option value='Germany'>Germany</option>
@@ -184,8 +185,9 @@ const Navbar = () => {
                 </select>
               </div>
               <div className='mobile-menuFooterCurrency'>
-                <p>Currency</p>
+                <p>Tiền tệ</p>
                 <select name='currency' id='currency'>
+                  <option value='VND'>₫ VND</option>
                   <option value='USD'>$ USD</option>
                   <option value='INR'>₹ INR</option>
                   <option value='EUR'>€ EUR</option>

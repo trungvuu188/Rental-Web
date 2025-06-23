@@ -24,12 +24,12 @@ const HeroSection = () => {
     <>
       <div className="heroMain">
         <div className="sectionleft">
-          <p>New Trend</p>
-          <h1>Summer Sale Stylish</h1>
-          {/* <span>Limited Time Offer - Up to 60% off & Free Shipping</span> */}
+          <p>Xu hướng mới</p>
+          <h1>Giảm giá mùa hè thời trang</h1>
+          {/* <span>Ưu đãi có hạn - Giảm đến 60% & Miễn phí vận chuyển</span> */}
           <div className="heroLink">
             <Link to="/shop" onClick={scrollToTop}>
-              <h5>Discover More</h5>
+              <h5>Khám phá thêm</h5>
             </Link>
           </div>
         </div>

@@ -52,6 +52,18 @@ import coupleWear3 from "../assets/Products/couple/18636732-5826-4399-9370-D3D31
 import coupleWear4 from "../assets/Products/couple/B0F94959-2DCB-4852-8F0A-EDB352D2E090.jpeg";
 import coupleWear5 from "../assets/Products/couple/C94FFBAD-9447-4352-8785-CD77F512EEA4.jpeg";
 import coupleWear6 from "../assets/Products/couple/DB46F1A9-CF22-4352-B628-30BD0C1B7F15.jpeg";
+import coupleWear7 from "../assets/Products/couple/F99F5F2F-7B19-4444-91AD-7303CA91F892.jpeg";
+import coupleWear8 from "../assets/Products/couple/F5304F48-C7F7-4DDB-B874-FFD0C7D8289C.jpeg";
+import coupleWear9 from "../assets/Products/couple/IMG_2899.jpg";
+import coupleWear10 from "../assets/Products/couple/IMG_3146.jpg";
+import coupleWear11 from "../assets/Products/couple/IMG_3151.jpg";
+import coupleWear12 from "../assets/Products/couple/IMG_3158.jpg";
+import coupleWear13 from "../assets/Products/couple/IMG_3160.jpg";
+import coupleWear14 from "../assets/Products/couple/IMG_4324.jpg";
+import coupleWear15 from "../assets/Products/couple/IMG_4326.jpg";
+import coupleWear16 from "../assets/Products/couple/IMG_6566.jpg";
+import coupleWear17 from "../assets/Products/couple/IMG_6568.jpg";
+import coupleWear18 from "../assets/Products/couple/IMG_7226.JPG";
 
 // New Arrivals
 import new1 from "../assets/Products/new-arrival/new1.JPG";
@@ -78,7 +90,12 @@ const StoreData = [
     backImg: Product_1_1,
     productName: "Cropped Faux Leather Jacket",
     productPrice: 99000,
-    productReviews: "8k+ reviews",
+    rating: 4.7,
+    productReviews: "2 reviews",
+    reviewDetails: [
+      "Áo khoác da mềm, mặc lên rất cá tính.",
+      "Chất lượng tuyệt vời, sẽ mua lại lần nữa!"
+    ],
   },
   {
     productID: 2,
@@ -86,7 +103,11 @@ const StoreData = [
     backImg: coupleWares2_1,
     productName: "Calvin Shorts",
     productPrice: 99000,
-    productReviews: "2k+ reviews",
+    rating: 4.2,
+    productReviews: "1 review",
+    reviewDetails: [
+      "Quần short Calvin mặc rất mát, vải co giãn tốt."
+    ],
   },
   {
     productID: 3,
@@ -94,7 +115,13 @@ const StoreData = [
     backImg: coupleWares3_1,
     productName: "Shirt In Botanical Cheetah Print",
     productPrice: 99000,
-    productReviews: "7k+ reviews",
+    rating: 4.9,
+    productReviews: "3 reviews",
+    reviewDetails: [
+      "Áo sơ mi họa tiết độc đáo, màu sắc tươi sáng.",
+      "Chất vải mịn và không bị nhăn.",
+      "Đóng gói cẩn thận, giao hàng nhanh."
+    ],
   },
   {
     productID: 4,
@@ -102,7 +129,11 @@ const StoreData = [
     backImg: Product_2_1,
     productName: "Cotton Jersey T-Shirt",
     productPrice: 99000,
-    productReviews: "5k+ reviews",
+    rating: 4.0,
+    productReviews: "1 review",
+    reviewDetails: [
+      "Áo thun cotton mặc rất dễ chịu, thấm hút mồ hôi tốt."
+    ],
   },
   {
     productID: 5,
@@ -110,7 +141,12 @@ const StoreData = [
     backImg: Product_5_1,
     productName: "Cableknit Shawl",
     productPrice: 99000,
-    productReviews: "9k+ reviews",
+    rating: 4.5,
+    productReviews: "2 reviews",
+    reviewDetails: [
+      "Khăn choàng len dày dặn, giữ ấm tốt.",
+      "Màu sắc nhã nhặn dễ phối đồ. Rất đáng tiền!"
+    ],
   },
   {
     productID: 6,
@@ -118,7 +154,11 @@ const StoreData = [
     backImg: Product_3_1,
     productName: "Colorful Jacket",
     productPrice: 69,
-    productReviews: "1k+ reviews",
+    rating: 4.3,
+    productReviews: "1 review",
+    reviewDetails: [
+      "Áo khoác màu sắc trẻ trung, nổi bật."
+    ],
   },
   {
     productID: 7,
@@ -126,7 +166,13 @@ const StoreData = [
     backImg: Product_4_1,
     productName: "Zessi Dresses",
     productPrice: 99,
-    productReviews: "3k+ reviews",
+    rating: 4.8,
+    productReviews: "3 reviews",
+    reviewDetails: [
+      "Đầm Zessi thiết kế thanh lịch, chất vải mát.",
+      "Mặc lên rất tôn dáng.",
+      "Đóng gói đẹp, giao hàng nhanh."
+    ],
   },
   {
     productID: 8,
@@ -134,7 +180,12 @@ const StoreData = [
     backImg: coupleWares1_1,
     productName: "Kirby T-Shirt",
     productPrice: 37,
-    productReviews: "4k+ reviews",
+    rating: 4.1,
+    productReviews: "2 reviews",
+    reviewDetails: [
+      "Áo thun Kirby in hình dễ thương, chất vải co giãn tốt.",
+      "Mặc đi chơi hay ở nhà đều thoải mái."
+    ],
   },
   {
     productID: 9,
@@ -230,11 +281,110 @@ const coupleWears = [
   },
   {
     productID: 7,
-    frontImg: coupleWear6,
-    backImg: coupleWear6,
-    productName: "Set Váy Dài và Áo Sơ Mi Nam Họa Tiết Sọc Màu Trắng Sữa",
+    frontImg: coupleWear7,
+    backImg: coupleWear7,
+    productName: "Set Váy Đi Biển Cổ Yếm và Áo Sơ Mi Nam Lụa Xanh",
     productPrice: 99000,
-    productDesc: "Sở hữu thiết kế tương tự nhưng mang lại cảm giác hoàn toàn mới mỗi lần diện, set váy dài và áo sơ mi nam họa tiết sọc màu trắng sữa giúp bạn và người thương đồng điệu trong từng chi tiết, thích hợp cho chụp ảnh đôi hay dạo phố cuối tuần.",
+    productDesc: "Set đồ đôi gồm váy đi biển cổ yếm cho nữ và áo sơ mi nam lụa xanh thiết kế phù hợp cho những chuyến đi biển. Chất vải lụa mềm mại, thoáng mát cùng tông màu xanh dịu mắt.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 8,
+    frontImg: coupleWear8,
+    backImg: coupleWear8,
+    productName: "Set Váy Dài Áo Kiểu và Áo Sơ Mi Nam Màu Trắng",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài áo kiểu cho nữ và áo sơ mi nam màu trắng mang phong cách thanh lịch, tinh tế. Thiết kế đơn giản nhưng sang trọng, thích hợp cho những dịp đặc biệt.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 9,
+    frontImg: coupleWear9,
+    backImg: coupleWear9,
+    productName: "Set Váy Tầng Cổ Yếm và Áo Sơ Mi Nam Màu Be",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy tầng cổ yếm cho nữ và áo sơ mi nam màu be mang phong cách nhẹ nhàng, nữ tính. Thiết kế tầng tạo cảm giác mềm mại và nổi bật khi diện cùng nhau.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 10,
+    frontImg: coupleWear10,
+    backImg: coupleWear10,
+    productName: "Set Váy Dài Ren và Áo Sơ Mi Nam Màu Trắng",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài ren cho nữ và áo sơ mi nam màu trắng mang phong cách nữ tính, lãng mạn. Chất ren tinh tế cùng tông màu trắng tạo cảm giác thanh khiết và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 11,
+    frontImg: coupleWear11,
+    backImg: coupleWear11,
+    productName: "Set Váy Dài Ren Áo Cổ Yếm Xếp Li và Áo Sơ Mi Nam Màu Trắng",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài ren áo cổ yếm xếp li cho nữ và áo sơ mi nam màu trắng mang phong cách nữ tính, tinh tế. Thiết kế xếp li tạo cảm giác mềm mại và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 12,
+    frontImg: coupleWear12,
+    backImg: coupleWear12,
+    productName: "Set Váy Dài Hai Dây Bản To và Áo Sơ Mi Nam Màu Trắng",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài hai dây bản to cho nữ và áo sơ mi nam màu trắng mang phong cách trẻ trung, năng động. Thiết kế hai dây tạo cảm giác thoải mái và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 13,
+    frontImg: coupleWear13,
+    backImg: coupleWear13,
+    productName: "Set Váy Dài Hai Dây Mảnh và Áo Sơ Mi Nam Màu Trắng",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài hai dây mảnh cho nữ và áo sơ mi nam màu trắng mang phong cách nữ tính, tinh tế. Thiết kế hai dây mảnh tạo cảm giác thanh lịch và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 14,
+    frontImg: coupleWear14,
+    backImg: coupleWear14,
+    productName: "Set Váy Dài Ren Áo Trễ Vai và Áo Sơ Mi Nam Màu Vàng Pastel",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài ren áo trễ vai cho nữ và áo sơ mi nam màu vàng pastel mang phong cách nữ tính, lãng mạn. Tông màu vàng pastel tạo cảm giác ấm áp và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 15,
+    frontImg: coupleWear15,
+    backImg: coupleWear15,
+    productName: "Set Váy Dài Chéo Vai và Áo Sơ Mi Nam Màu Xanh Pastel",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài chéo vai cho nữ và áo sơ mi nam màu xanh pastel mang phong cách nữ tính, tinh tế. Thiết kế chéo vai tạo cảm giác độc đáo và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 16,
+    frontImg: coupleWear16,
+    backImg: coupleWear16,
+    productName: "Set Váy Ngắn Hai Dây Mảnh và Áo Sơ Mi Nam Màu Vàng",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy ngắn hai dây mảnh cho nữ và áo sơ mi nam màu vàng mang phong cách trẻ trung, năng động. Tông màu vàng tạo cảm giác tươi sáng và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 17,
+    frontImg: coupleWear17,
+    backImg: coupleWear17,
+    productName: "Set Váy Dài Ren Áo Sơ Mi Nữ và Áo Sơ Mi Nam Màu Vàng Pastel",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm váy dài ren áo sơ mi nữ và áo sơ mi nam màu vàng pastel mang phong cách thanh lịch, tinh tế. Thiết kế sơ mi tạo cảm giác chuyên nghiệp và nổi bật.",
+    productReviews: "0 review(s)",
+  },
+  {
+    productID: 18,
+    frontImg: coupleWear18,
+    backImg: coupleWear18,
+    productName: "Set Chân Váy Ngắn Áo Trễ Vai và Áo Sơ Mi Nam Màu Xanh Sọc",
+    productPrice: 99000,
+    productDesc: "Set đồ đôi gồm chân váy ngắn áo trễ vai cho nữ và áo sơ mi nam màu xanh sọc mang phong cách trẻ trung, năng động. Thiết kế sọc tạo cảm giác thanh lịch và nổi bật.",
     productReviews: "0 review(s)",
   },
 ];
@@ -312,7 +462,12 @@ export const newArrivals = [
     productName: "Váy Trắng Cổ Vuông & Nón Cói",
     productPrice: 99000,
     productDesc: "Set váy trắng cổ vuông kết hợp cùng nón cói tạo nên vẻ ngoài vừa cổ điển vừa dịu dàng. Phù hợp cho phong cách dã ngoại hoặc chụp ảnh ngoại cảnh lãng mạn.",
-    productReviews: "8k+ reviews",
+    rating: 4.8,
+    productReviews: "2 reviews",
+    reviewDetails: [
+      "Váy trắng cổ vuông mặc lên rất xinh, chất vải mát và nhẹ.",
+      "Nón cói đi kèm rất hợp, lên hình cực đẹp!"
+    ],
   },
   {
     productID: 2,
@@ -321,7 +476,11 @@ export const newArrivals = [
     productName: "Váy Ren Trắng Dài Thanh Lịch",
     productPrice: 99000,
     productDesc: "Váy dài trắng phối ren tinh tế mang đến vẻ ngoài thanh lịch và nữ tính. Thiết kế phù hợp với các buổi tiệc hoặc chụp hình thời trang.",
-    productReviews: "2k+ reviews",
+    rating: 4.5,
+    productReviews: "1 review",
+    reviewDetails: [
+      "Váy ren dài mặc rất sang, phù hợp đi tiệc hoặc chụp ảnh."
+    ],
   },
   {
     productID: 3,
@@ -330,7 +489,13 @@ export const newArrivals = [
     productName: "Váy Đỏ Đậm Mang Phong Cách Cổ Trang",
     productPrice: 99000,
     productDesc: "Lấy cảm hứng từ trang phục cổ trang, chiếc váy đỏ đậm mang lại vẻ ngoài độc đáo, quyến rũ. Phù hợp cho những dịp lễ hội hoặc chụp ảnh nghệ thuật.",
-    productReviews: "7k+ reviews",
+    rating: 4.9,
+    productReviews: "3 reviews",
+    reviewDetails: [
+      "Váy đỏ cổ trang mặc lên rất nổi bật, chất vải dày dặn.",
+      "Phong cách độc đáo, ai cũng khen đẹp!",
+      "Mặc đi sự kiện rất hợp, lên hình lung linh."
+    ],
   },
   {
     productID: 4,
@@ -339,7 +504,12 @@ export const newArrivals = [
     productName: "Áo Ren Trắng Phối Cùng Váy Đỏ Rực",
     productPrice: 99000,
     productDesc: "Sự kết hợp giữa áo ren trắng dịu dàng và váy đỏ rực rỡ tạo nên một set đồ nổi bật, thu hút ánh nhìn trong mọi hoàn cảnh.",
-    productReviews: "5k+ reviews",
+    rating: 4.2,
+    productReviews: "2 reviews",
+    reviewDetails: [
+      "Set áo ren trắng và váy đỏ rất hợp, mặc đi sự kiện ai cũng hỏi mua ở đâu.",
+      "Chất liệu mát, màu sắc tươi sáng."
+    ],
   },
   {
     productID: 5,
@@ -348,7 +518,11 @@ export const newArrivals = [
     productName: "Váy Dự Tiệc Kiểu Áo Choàng Ngắn",
     productPrice: 99000,
     productDesc: "Váy dự tiệc thiết kế như áo choàng ngắn mang đến vẻ đẹp sang trọng, quyến rũ. Thích hợp cho các buổi tiệc đêm hoặc sự kiện đặc biệt.",
-    productReviews: "9k+ reviews",
+    rating: 4.7,
+    productReviews: "1 review",
+    reviewDetails: [
+      "Váy dự tiệc thiết kế lạ mắt, mặc lên rất sang trọng."
+    ],
   },
   {
     productID: 6,
@@ -357,7 +531,12 @@ export const newArrivals = [
     productName: "Váy Vàng Dễ Thương Dáng Dài",
     productPrice: 99000,
     productDesc: "Váy dáng dài màu vàng nổi bật, trẻ trung và dễ thương. Lý tưởng cho các buổi đi chơi, picnic hoặc hẹn hò nhẹ nhàng.",
-    productReviews: "1k+ reviews",
+    rating: 4.3,
+    productReviews: "2 reviews",
+    reviewDetails: [
+      "Váy vàng dáng dài trẻ trung, mặc đi chơi rất hợp.",
+      "Màu sắc tươi sáng, chất vải mịn."
+    ],
   },
   {
     productID: 7,
@@ -366,7 +545,11 @@ export const newArrivals = [
     productName: "Váy Phối Màu Đỏ – Trắng Phá Cách",
     productPrice: 99000,
     productDesc: "Thiết kế phối màu đỏ – trắng độc đáo giúp người mặc trở nên cá tính và hiện đại. Thích hợp cho các bạn yêu thích phong cách thời trang sáng tạo.",
-    productReviews: "3k+ reviews",
+    rating: 4.0,
+    productReviews: "1 review",
+    reviewDetails: [
+      "Váy phối màu đỏ trắng rất cá tính, mặc lên nổi bật."
+    ],
   },
   {
     productID: 8,
@@ -375,7 +558,13 @@ export const newArrivals = [
     productName: "Váy Dây Vàng Cát Biển Lãng Mạn",
     productPrice: 99000,
     productDesc: "Váy dây màu vàng nhẹ nhàng, mềm mại, mang phong cách du lịch biển đầy lãng mạn. Phù hợp cho các chuyến đi biển hoặc chụp ảnh ngoài trời.",
-    productReviews: "4k+ reviews",
+    rating: 4.6,
+    productReviews: "3 reviews",
+    reviewDetails: [
+      "Váy dây vàng mặc đi biển rất hợp, lên hình lung linh.",
+      "Chất vải mát, mặc cả ngày không bị nóng.",
+      "Form váy chuẩn, giao hàng nhanh."
+    ],
   },
 ];
 
@@ -469,3 +658,4 @@ export const categoryWears = [
 ];
 
 export default StoreData;
+  

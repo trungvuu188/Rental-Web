@@ -67,8 +67,8 @@ const DealTimer = () => {
             <div className="dealTimeContent">
               {/* <p>Deal of the Week</p> */}
               <h3>
-                Spring
-                <span> Collection</span>
+                
+                <span> Bộ sưu tập mùa hè</span>
               </h3>
               {/* <div className="dealTimeLink">
                 <Link to="/shop" onClick={scrollToTop}>

@@ -65,12 +65,12 @@ export const EditProduct: React.FC = () => {
   };
 
   const fetchCategories = async () => {
-    // Mock data - replace with actual API call
+    // Only show the four allowed categories
     setCategories([
-      { id: '1', name: 'Máy khoan' },
-      { id: '2', name: 'Máy cưa' },
-      { id: '3', name: 'Máy mài' },
-      { id: '4', name: 'Dụng cụ cầm tay' }
+      { id: '1', name: 'Couple' },
+      { id: '2', name: 'Women' },
+      { id: '3', name: 'Men' },
+      { id: '4', name: 'Swimsuit' }
     ]);
   };
 

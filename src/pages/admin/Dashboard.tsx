@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Dashboard.scss';
+import useAuth from '../../hooks/useAuth';
 
 interface DashboardStats {
   totalProducts: number;
@@ -25,6 +26,7 @@ interface RecentActivity {
 }
 
 const Dashboard: React.FC = () => {
+  const { user } = useAuth();
   const [stats, setStats] = useState<DashboardStats>({
     totalProducts: 0,
     totalUsers: 0,
@@ -144,6 +146,17 @@ const Dashboard: React.FC = () => {
     return rate >= 0 ? 'growth-positive' : 'growth-negative';
   };
 
+  // Dynamic title and description based on role
+  const getDashboardTitle = () => {
+    if (user?.role === 'provider') return 'Bảng điều khiển Nhà cung cấp';
+    return 'Bảng điều khiển Quản trị viên';
+  };
+
+  const getDashboardDesc = () => {
+    if (user?.role === 'provider') return 'Tổng quan hoạt động và sản phẩm của bạn trên hệ thống';
+    return 'Tổng quan hệ thống quản lý và thống kê hoạt động';
+  };
+
   if (loading) {
     return (
       <div className="dashboard-loading">
@@ -161,20 +174,11 @@ const Dashboard: React.FC = () => {
         <div className="header-content">
           <h1>
             <span className="material-icons">dashboard</span>
-            Dashboard
+            {getDashboardTitle()}
           </h1>
-          <p>Tổng quan hệ thống quản lý và thống kê hoạt động</p>
+          <p>{getDashboardDesc()}</p>
         </div>
-        <div className="header-actions">
-          <button className="btn btn-outline" onClick={fetchDashboardData}>
-            <span className="material-icons">refresh</span>
-            Làm mới
-          </button>
-          <button className="btn btn-outline">
-            <span className="material-icons">download</span>
-            Xuất báo cáo
-          </button>
-        </div>
+        
       </div>
 
       <div className="dashboard-content">
@@ -186,7 +190,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="stat-content">
               <h3>{stats.totalProducts.toLocaleString()}</h3>
-              <p>Tổng sản phẩm</p>
+              <p>{user?.role === 'provider' ? 'Sản phẩm của bạn' : 'Tổng sản phẩm'}</p>
             </div>
             <div className={`stat-trend ${getGrowthClass(stats.growthRate.products)}`}>
               <span className="material-icons">{getGrowthIcon(stats.growthRate.products)}</span>
@@ -200,7 +204,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="stat-content">
               <h3>{stats.totalUsers.toLocaleString()}</h3>
-              <p>Tổng người dùng</p>
+              <p>{user?.role === 'provider' ? 'Khách hàng của bạn' : 'Tổng người dùng'}</p>
             </div>
             <div className={`stat-trend ${getGrowthClass(stats.growthRate.users)}`}>
               <span className="material-icons">{getGrowthIcon(stats.growthRate.users)}</span>
@@ -214,7 +218,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="stat-content">
               <h3>{stats.totalOrders.toLocaleString()}</h3>
-              <p>Tổng đơn hàng</p>
+              <p>{user?.role === 'provider' ? 'Đơn hàng của bạn' : 'Tổng đơn hàng'}</p>
             </div>
             <div className={`stat-trend ${getGrowthClass(stats.growthRate.orders)}`}>
               <span className="material-icons">{getGrowthIcon(stats.growthRate.orders)}</span>
@@ -228,7 +232,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="stat-content">
               <h3>{formatCurrency(stats.totalRevenue)}</h3>
-              <p>Doanh thu</p>
+              <p>{user?.role === 'provider' ? 'Doanh thu của bạn' : 'Doanh thu'}</p>
             </div>
             <div className={`stat-trend ${getGrowthClass(stats.growthRate.revenue)}`}>
               <span className="material-icons">{getGrowthIcon(stats.growthRate.revenue)}</span>
@@ -244,7 +248,7 @@ const Dashboard: React.FC = () => {
             <div className="card-header">
               <h2>
                 <span className="material-icons">today</span>
-                Hoạt động hôm nay
+                {user?.role === 'provider' ? 'Hoạt động hôm nay của bạn' : 'Hoạt động hôm nay'}
               </h2>
             </div>
             <div className="today-stats">
@@ -254,7 +258,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <div className="today-content">
                   <span className="today-value">{stats.newOrdersToday}</span>
-                  <span className="today-label">Đơn hàng mới</span>
+                  <span className="today-label">{user?.role === 'provider' ? 'Đơn hàng mới của bạn' : 'Đơn hàng mới'}</span>
                 </div>
               </div>
               <div className="today-item">
@@ -263,7 +267,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <div className="today-content">
                   <span className="today-value">{stats.activeUsers}</span>
-                  <span className="today-label">Người dùng hoạt động</span>
+                  <span className="today-label">{user?.role === 'provider' ? 'Khách hàng đang hoạt động' : 'Người dùng hoạt động'}</span>
                 </div>
               </div>
             </div>
@@ -274,7 +278,7 @@ const Dashboard: React.FC = () => {
             <div className="card-header">
               <h2>
                 <span className="material-icons">history</span>
-                Hoạt động gần đây
+                {user?.role === 'provider' ? 'Hoạt động gần đây của bạn' : 'Hoạt động gần đây'}
               </h2>
               <button className="btn-ghost btn-sm">
                 <span className="material-icons">more_vert</span>

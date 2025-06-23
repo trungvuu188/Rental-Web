@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import './AdminLayout.scss';
+import useAuth from '../../../hooks/useAuth';
 
 interface MenuItem {
   isAdmin?: boolean,
@@ -16,11 +17,8 @@ const AdminLayout: React.FC = () => {
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
   const navigate = useNavigate();
   const location = useLocation();
-  const [userRole, setUserRole] = useState<string>(''); 
-
-  useEffect(() => {
-    setUserRole(localStorage.getItem('userRole') || '');
-  }, [])
+  const { user } = useAuth();
+  const userRole = user?.role || '';
 
   const menuItems: MenuItem[] = [
     { 
@@ -45,9 +43,9 @@ const AdminLayout: React.FC = () => {
       badge: 5,
       submenu: [
         { path: '/admin/orders/pending', label: 'Chờ xử lý', icon: 'pending' },
-        { path: '/admin/orders/processing', label: 'Đang xử lý', icon: 'sync' },
+//        { path: '/admin/orders/processing', label: 'Đang xử lý', icon: 'sync' },
         { path: '/admin/orders/completed', label: 'Hoàn thành', icon: 'check_circle' },
-        { path: '/admin/orders/cancelled', label: 'Đã hủy', icon: 'cancel' },
+//        { path: '/admin/orders/cancelled', label: 'Đã hủy', icon: 'cancel' },
       ]
     },
     { 
@@ -162,7 +160,11 @@ const AdminLayout: React.FC = () => {
         <div className="sidebar-header">
           <div className="logo">
             <span className="logo-icon material-icons">store</span>
-            {!sidebarCollapsed && <span className="logo-text">Admin Panel</span>}
+            {!sidebarCollapsed && (
+              <span className="logo-text">
+                {userRole === 'provider' ? 'Provider Panel' : 'Admin Panel'}
+              </span>
+            )}
           </div>
           <button 
             className="sidebar-toggle"
@@ -188,8 +190,12 @@ const AdminLayout: React.FC = () => {
             </div>
             {!sidebarCollapsed && (
               <div className="user-info">
-                <span className="user-name">Admin User</span>
-                <span className="user-role">Quản trị viên</span>
+                <span className="user-name">
+                  {user?.firstName && user?.lastName ? `${user.firstName} ${user.lastName}` : user?.username || 'User'}
+                </span>
+                <span className="user-role">
+                  {userRole === 'provider' ? 'Nhà cung cấp' : 'Quản trị viên'}
+                </span>
               </div>
             )}
           </div>
@@ -214,12 +220,7 @@ const AdminLayout: React.FC = () => {
               >
                 <span className="material-icons">menu</span>
               </button>
-              <div className="breadcrumb">
-                <span className="material-icons">home</span>
-                <span>Admin</span>
-                <span className="separator">/</span>
-                <span>Dashboard</span>
-              </div>
+              
             </div>
             <div className="header-right">
               <div className="header-actions">

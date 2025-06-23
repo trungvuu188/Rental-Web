@@ -53,7 +53,7 @@ const Trendy = () => {
     );
 
     if (productInCart && productInCart.quantity >= 20) {
-      toast.error('Product limit reached', {
+      toast.error('Đã đạt giới hạn sản phẩm', {
         duration: 2000,
         style: {
           backgroundColor: '#ff4b4b',
@@ -66,7 +66,7 @@ const Trendy = () => {
       });
     } else {
       dispatch(addToCart(product));
-      toast.success(`Added to cart!`, {
+      toast.success(`Đã thêm vào giỏ hàng!`, {
         duration: 2000,
         style: {
           backgroundColor: '#07bc0c',
@@ -84,7 +84,7 @@ const Trendy = () => {
     <>
       <div className='trendyProducts'>
         <h2>
-          Our Trendy <span>Products</span>
+          Sản phẩm <span>Xu hướng</span> của chúng tôi
         </h2>
         <div className='trendyTabs'>
           <div className='tabs'>
@@ -92,7 +92,7 @@ const Trendy = () => {
               onClick={() => handleTabClick('tab1')}
               className={activeTab === 'tab1' ? 'active' : ''}
             >
-              All
+              Tất cả
             </p>
           </div>
           <div className='trendyTabContent'>
@@ -123,7 +123,7 @@ const Trendy = () => {
                         />
                       </a>
                       <h4 onClick={() => handleAddToCart(product)}>
-                        Add to Cart
+                        Thêm vào giỏ
                       </h4>
                     </div>
                     <div
@@ -134,7 +134,7 @@ const Trendy = () => {
                     </div>
                     <div className='trendyProductInfo'>
                       <div className='trendyProductCategoryWishlist'>
-                        <p>Tiem CoMin</p>
+                        <p>Tiệm CoMin</p>
                         <FiHeart
                           onClick={() => handleWishlistClick(product.productID)}
                           style={{
@@ -189,7 +189,7 @@ const Trendy = () => {
                           />
                         </Link>
                         <h4 onClick={() => handleAddToCart(product)}>
-                          Add to Cart
+                          Thêm vào giỏ
                         </h4>
                       </div>
                       <div
@@ -200,11 +200,9 @@ const Trendy = () => {
                       </div>
                       <div className='trendyProductInfo'>
                         <div className='trendyProductCategoryWishlist'>
-                          <p>Dresses</p>
+                          <p>Tiệm CoMin</p>
                           <FiHeart
-                            onClick={() =>
-                              handleWishlistClick(product.productID)
-                            }
+                            onClick={() => handleWishlistClick(product.productID)}
                             style={{
                               color: wishList[product.productID]
                                 ? 'red'
@@ -257,7 +255,7 @@ const Trendy = () => {
                           />
                         </Link>
                         <h4 onClick={() => handleAddToCart(product)}>
-                          Add to Cart
+                          Thêm vào giỏ
                         </h4>
                       </div>
                       <div
@@ -268,11 +266,9 @@ const Trendy = () => {
                       </div>
                       <div className='trendyProductInfo'>
                         <div className='trendyProductCategoryWishlist'>
-                          <p>Dresses</p>
+                          <p>Tiệm CoMin</p>
                           <FiHeart
-                            onClick={() =>
-                              handleWishlistClick(product.productID)
-                            }
+                            onClick={() => handleWishlistClick(product.productID)}
                             style={{
                               color: wishList[product.productID]
                                 ? 'red'
@@ -325,7 +321,7 @@ const Trendy = () => {
                           />
                         </Link>
                         <h4 onClick={() => handleAddToCart(product)}>
-                          Add to Cart
+                          Thêm vào giỏ
                         </h4>
                       </div>
                       <div
@@ -336,11 +332,9 @@ const Trendy = () => {
                       </div>
                       <div className='trendyProductInfo'>
                         <div className='trendyProductCategoryWishlist'>
-                          <p>Dresses</p>
+                          <p>Tiệm CoMin</p>
                           <FiHeart
-                            onClick={() =>
-                              handleWishlistClick(product.productID)
-                            }
+                            onClick={() => handleWishlistClick(product.productID)}
                             style={{
                               color: wishList[product.productID]
                                 ? 'red'
