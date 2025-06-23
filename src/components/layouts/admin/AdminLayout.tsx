@@ -55,7 +55,7 @@ const AdminLayout: React.FC = () => {
       icon: 'people',
       submenu: [
         { path: '/admin/users/customers', label: 'Khách hàng', icon: 'person' },
-        { path: '/admin/users/staff', label: 'Nhân viên', icon: 'badge' },
+        // { path: '/admin/users/staff', label: 'Nhân viên', icon: 'badge' },
         { path: '/admin/users/admins', label: 'Quản trị viên', icon: 'admin_panel_settings' },
       ]
     },

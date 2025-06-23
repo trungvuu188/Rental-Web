@@ -6,12 +6,10 @@ import {
   updateQuantity,
   selectCartTotalAmount,
 } from '../../Features/Cart/cartSlice';
-
 import { MdOutlineClose } from 'react-icons/md';
-
 import { Link } from 'react-router-dom';
-
 import success from '../../assets/success.png';
+import Calendar from '../ui/date-picker/DatePicker';
 
 const ShoppingCart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -19,6 +17,7 @@ const ShoppingCart = () => {
 
   const [activeTab, setActiveTab] = useState('cartTab1');
   const [payments, setPayments] = useState(false);
+  const [selectedDates, setSelectedDates] = useState(new Set());
 
   const handleTabClick = (tab) => {
     if (tab === 'cartTab1' || cartItems.length > 0) {
@@ -41,8 +40,7 @@ const ShoppingCart = () => {
     });
   };
 
-  // current Date
-
+  // Current Date
   const currentDate = new Date();
 
   const formatDate = (date) => {
@@ -53,18 +51,25 @@ const ShoppingCart = () => {
   };
 
   // Random number
-
   const orderNumber = Math.floor(Math.random() * 100000);
 
   // Radio Button Data
-
-  const [selectedPayment, setSelectedPayment] = useState(
-    'Direct Bank Transfer'
-  );
+  const [selectedPayment, setSelectedPayment] = useState('Direct Bank Transfer');
 
   const handlePaymentChange = (e) => {
     setSelectedPayment(e.target.value);
   };
+
+  // Handle date selection from Calendar
+  const handleDateChange = (dates) => {
+    setSelectedDates(dates);
+  };
+
+  // Format selected dates for input display
+  const formattedSelectedDates = Array.from(selectedDates)
+    .sort((a, b) => a - b)
+    .map((day) => String(day).padStart(2, '0'))
+    .join(', ');
 
   return (
     <>
@@ -269,7 +274,6 @@ const ShoppingCart = () => {
                   </table>
 
                   {/* For Mobile devices */}
-
                   <div className='shoppingBagTableMobile'>
                     {cartItems.length > 0 ? (
                       <>
@@ -397,10 +401,6 @@ const ShoppingCart = () => {
                           </div>
                         </td>
                       </tr>
-                      {/* <tr>
-                        <th>VAT</th>
-                        <td>{(totalPrice === 0 ? 0 : 11).toFixed(2)}VND</td>
-                      </tr> */}
                       <tr>
                         <th>Tổng cộng</th>
                         <td>{totalPrice === 0 ? 0 : totalPrice + 20000} VND</td>
@@ -431,34 +431,19 @@ const ShoppingCart = () => {
                         <input type='text' placeholder='Tên' />
                         <input type='text' placeholder='Họ' />
                       </div>
-                      {/* <input
-                        type="text"
-                        placeholder="Tên công ty (tùy chọn)"
-                      /> */}
-                      {/* <select name="country" id="country">
-                        <option value="Country / Region" selected disabled>
-                          Quốc gia / Khu vực
-                        </option>
-                        <option value="India">Ấn Độ</option>
-                        <option value="Canada">Canada</option>
-                        <option value="United Kingdom">Vương quốc Anh</option>
-                        <option value="United States">Hoa Kỳ</option>
-                        <option value="Turkey">Thổ Nhĩ Kỳ</option>
-                      </select> */}
+                      <div className='checkoutDetailsFormRow'>
+                        <Calendar onDateChange={handleDateChange} />
+                        <input
+                          type='text'
+                          value={formattedSelectedDates}
+                          placeholder='Ngày thuê'
+                          readOnly
+                        />
+                      </div>
                       <input type='text' placeholder='Địa chỉ đường*' />
                       <input type='text' placeholder='Thành phố / Tỉnh *' />
-                      {/* <input type="text" placeholder="Mã bưu điện / ZIP *" /> */}
                       <input type='text' placeholder='Số điện thoại *' />
-                      {/* <input type="mail" placeholder="Email của bạn *" /> */}
                       <div className='checkoutDetailsFormCheck'>
-                        {/* <label>
-                          <input type="checkbox" />
-                          <p>Tạo tài khoản?</p>
-                        </label> */}
-                        {/* <label>
-                          <input type="checkbox" />
-                          <p>Giao hàng đến địa chỉ khác</p>
-                        </label> */}
                       </div>
                       <textarea
                         cols={30}
@@ -499,17 +484,17 @@ const ShoppingCart = () => {
                             <td>{totalPrice} VND</td>
                           </tr>
                           <tr>
+                            <th>Ngày thuê</th>
+                            <td>{selectedDates?.size}</td>
+                          </tr>
+                          <tr>
                             <th>Vận chuyển</th>
                             <td>20000 VND</td>
                           </tr>
-                          {/* <tr>
-                            <th>VAT</th>
-                            <td>11 VND</td>
-                          </tr> */}
                           <tr>
                             <th>Tổng cộng</th>
                             <td>
-                              {totalPrice === 0 ? 0 : totalPrice + 20000} VND
+                              {totalPrice === 0 ? 0 : totalPrice * selectedDates.size + 20000} VND
                             </td>
                           </tr>
                         </tbody>
@@ -527,11 +512,6 @@ const ShoppingCart = () => {
                       />
                       <div className='checkoutPaymentMethod'>
                         <span>Chuyển khoản ngân hàng</span>
-                        {/* <p>
-                          Thực hiện thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi.
-                          Vui lòng sử dụng ID đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng
-                          của bạn sẽ không được giao cho đến khi tiền đã được thanh toán trong tài khoản của chúng tôi.
-                        </p> */}
                       </div>
                     </label>
                     <label>
@@ -543,12 +523,6 @@ const ShoppingCart = () => {
                       />
                       <div className='checkoutPaymentMethod'>
                         <span>Thanh toán khi nhận hàng</span>
-                        {/* <p>
-                          Phasellus sed volutpat orci. Fusce eget lore mauris
-                          vehicula elementum gravida nec dui. Aenean aliquam
-                          varius ipsum, non ultricies tellus sodales eu. Donec
-                          dignissim viverra nunc, ut aliquet magna posuere eget.
-                        </p> */}
                       </div>
                     </label>
                     <div className='policyText'>
@@ -595,6 +569,10 @@ const ShoppingCart = () => {
                       <h4>{formatDate(currentDate)}</h4>
                     </div>
                     <div className='orderInfoItem'>
+                      <p>Ngày thuê</p>
+                      <h4>{formattedSelectedDates || 'Chưa chọn'}</h4>
+                    </div>
+                    <div className='orderInfoItem'>
                       <p>Tổng cộng</p>
                       <h4>{totalPrice.toFixed(2)}VND</h4>
                     </div>
@@ -636,14 +614,14 @@ const ShoppingCart = () => {
                             <th>Vận chuyển</th>
                             <td>20000 VND</td>
                           </tr>
-                          {/* <tr>
-                            <th>VAT</th>
-                            <td>11 VND</td>
-                          </tr> */}
+                          <tr>
+                            <th>Ngày thuê</th>
+                            <td>{formattedSelectedDates}</td>
+                          </tr>
                           <tr>
                             <th>Tổng cộng</th>
                             <td>
-                              {totalPrice === 0 ? 0 : totalPrice + 20000} VND
+                              {totalPrice === 0 ? 0 : totalPrice * selectedDates.size + 20000} VND
                             </td>
                           </tr>
                         </tbody>

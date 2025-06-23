@@ -6,6 +6,7 @@ import './assets/scss/main.scss';
 import Popup from "./components/PopupBanner/Popup";
 import ScrollToTop from "./components/ScrollButton/ScrollToTop";
 import { Toaster } from "react-hot-toast";
+import Chatbox from "./components/Chatbox/Chatbox";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes />
       <Toaster />
       <DemoAccounts />
+      <Chatbox />
     </Provider>
   );
 }

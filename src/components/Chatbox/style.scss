@@ -1,0 +1,26 @@
+.chatbox-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: #0084ff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  .chatbox-icon {
+    width: 30px;
+    height: 30px;
+    color: white;
+  }
