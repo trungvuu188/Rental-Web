@@ -1,12 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './style.scss';
 
 const Chatbox = () => {
-//   const navigate = useNavigate();
+
+  const pageId = "dtlenn"; // Replace with your Page ID
+  const messengerUrl = `https://m.me/${pageId}?ref=Hello%20from%20website`;
 
   const handleChatClick = () => {
-    // navigate('/messenger');
+    window.open(messengerUrl, "_blank"); // Opens Messenger in a new tab
   };
 
   return (

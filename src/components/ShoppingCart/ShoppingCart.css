@@ -1007,6 +1007,98 @@
   /* -------------------------------- */
 }
 
+/* -------------------------------- */
+  /* -----------Banking dialog--------------- */
+  /* -------------------------------- */
+  .bank-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+  
+  .bank-dialog {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .bank-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .bank-dialog-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .bank-dialog-close {
+    cursor: pointer;
+    color: #666666;
+  }
+  
+  .bank-dialog-close:hover {
+    color: #000000;
+  }
+  
+  .bank-dialog-content p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  .bank-dialog-content p strong {
+    font-weight: 600;
+  }
+  
+  .bank-dialog-qr {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  .bank-dialog-qr-image {
+    width: 128px;
+    height: 128px;
+  }
+  
+  .bank-dialog-instruction {
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .bank-dialog-button {
+    width: 100%;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .bank-dialog-button:hover {
+    background-color: #0056b3;
+  }
+
 @media screen and (max-width: 320px) {
   .shoppingBagTableMobileItemsDetailMain h4 {
     font-size: 14px;

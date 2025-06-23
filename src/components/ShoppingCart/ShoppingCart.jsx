@@ -18,6 +18,7 @@ const ShoppingCart = () => {
   const [activeTab, setActiveTab] = useState('cartTab1');
   const [payments, setPayments] = useState(false);
   const [selectedDates, setSelectedDates] = useState(new Set());
+  const [showBankDialog, setShowBankDialog] = useState(false);
 
   const handleTabClick = (tab) => {
     if (tab === 'cartTab1' || cartItems.length > 0) {
@@ -70,6 +71,25 @@ const ShoppingCart = () => {
     .sort((a, b) => a - b)
     .map((day) => String(day).padStart(2, '0'))
     .join(', ');
+
+    // Handle "Đặt hàng" button click
+  const handlePlaceOrder = () => {
+    if (selectedPayment === 'Direct Bank Transfer') {
+      setShowBankDialog(true); // Show dialog if Direct Bank Transfer is selected
+    } else {
+      handleTabClick('cartTab3');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setPayments(true);
+    }
+  };
+
+  // Close dialog and navigate to cartTab3
+  const handleCloseDialog = () => {
+    setShowBankDialog(false);
+    handleTabClick('cartTab3');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setPayments(true);
+  };
 
   return (
     <>
@@ -536,13 +556,47 @@ const ShoppingCart = () => {
                     </div>
                   </div>
                   <button
-                    onClick={() => {
-                      handleTabClick('cartTab3');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      setPayments(true);
-                    }}
+                    onClick={handlePlaceOrder}  
                   >
                     Đặt hàng
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Bank Transfer Dialog */}
+            {showBankDialog && (
+              <div className="bank-dialog-overlay">
+                <div className="bank-dialog">
+                  <div className="bank-dialog-header">
+                    <h3>Thông tin chuyển khoản</h3>
+                    <MdOutlineClose
+                      size={24}
+                      className="bank-dialog-close"
+                      onClick={handleCloseDialog}
+                    />
+                  </div>
+                  <div className="bank-dialog-content">
+                    <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                    <p><strong>Số tài khoản:</strong> 1234 5678 9012 3456</p>
+                    <p><strong>Chủ tài khoản:</strong> Công ty ABC</p>
+                    <p><strong>Nội dung chuyển khoản:</strong> Thanh toán đơn hàng #{orderNumber}</p>
+                  </div>
+                  <div className="bank-dialog-qr">
+                    <img
+                      src="/path/to/qr-code.png" // Replace with your QR code image path
+                      alt="QR Code"
+                      className="bank-dialog-qr-image"
+                    />
+                  </div>
+                  <p className="bank-dialog-instruction">
+                    Vui lòng quét mã Avenue hoặc chuyển khoản theo thông tin trên. Sau khi hoàn tất, nhấn "Xác nhận" để tiếp tục.
+                  </p>
+                  <button
+                    className="bank-dialog-button"
+                    onClick={handleCloseDialog}
+                  >
+                    Xác nhận
                   </button>
                 </div>
               </div>
