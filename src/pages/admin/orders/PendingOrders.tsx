@@ -20,42 +20,42 @@ export const PendingOrders: React.FC = () => {
     fetchPendingOrders();
   }, []);
 
-  const fetchPendingOrders = async () => {
+  const fetchPendingOrders = () => {
     try {
       setLoading(true);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Retrieve orders from localStorage
+      const orderData = JSON.parse(localStorage.getItem('orderProductData') || '[]');
       
-      setOrders([
-        {
-          id: 'ORD001',
-          customerName: 'Nguyễn Văn A',
-          customerEmail: 'a@email.com',
-          total: 1500000,
-          itemCount: 3,
-          createdAt: '2024-01-20T10:00:00Z',
-          paymentMethod: 'Chuyển khoản'
-        },
-        {
-          id: 'ORD002',
-          customerName: 'Trần Thị B',
-          customerEmail: 'b@email.com',
-          total: 850000,
-          itemCount: 2,
-          createdAt: '2024-01-20T09:30:00Z',
-          paymentMethod: 'COD'
-        }
-      ]);
+      // Map orderProductData to PendingOrder interface
+      const mappedOrders: PendingOrder[] = orderData.map((order: any) => ({
+        id: order.orderNumber.toString(),
+        customerName: 'Khách hàng', // Placeholder, as customerName isn't captured in ShoppingCart
+        customerEmail: 'khachhang@example.com', // Placeholder, as customerEmail isn't captured
+        total: order.totalPrice,
+        itemCount: order.products.reduce((sum: number, product: any) => sum + product.quantity, 0),
+        createdAt: new Date(
+          order.date.split('/').reverse().join('-') // Convert DD/MM/YYYY to YYYY-MM-DD
+        ).toISOString(),
+        paymentMethod: order.paymentMethod === 'Direct Bank Transfer' ? 'Chuyển khoản' : 'COD',
+      }));
+
+      setOrders(mappedOrders);
     } catch (error) {
-      console.error('Error fetching pending orders:', error);
+      console.error('Error fetching pending orders from localStorage:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleApproveOrder = async (orderId: string) => {
+  const handleApproveOrder = (orderId: string) => {
     if (window.confirm('Xác nhận duyệt đơn hàng này?')) {
       try {
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Update localStorage by removing the approved order
+        const orderData = JSON.parse(localStorage.getItem('orderProductData') || '[]');
+        const updatedOrders = orderData.filter((order: any) => order.orderNumber.toString() !== orderId);
+        localStorage.setItem('orderProductData', JSON.stringify(updatedOrders, null, 2));
+        
+        // Update state
         setOrders(prev => prev.filter(order => order.id !== orderId));
       } catch (error) {
         console.error('Error approving order:', error);
@@ -170,4 +170,4 @@ export const PendingOrders: React.FC = () => {
       </div>
     </div>
   );
-}; 
+};

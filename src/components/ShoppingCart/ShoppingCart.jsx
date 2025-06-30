@@ -19,6 +19,9 @@ const ShoppingCart = () => {
   const [payments, setPayments] = useState(false);
   const [selectedDates, setSelectedDates] = useState(new Set());
   const [showBankDialog, setShowBankDialog] = useState(false);
+  const [customerFirstName, setCustomerFirstName] = useState('');
+  const [customerLastName, setCustomerLastName] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
 
   const handleTabClick = (tab) => {
     if (tab === 'cartTab1' || cartItems.length > 0) {
@@ -72,14 +75,54 @@ const ShoppingCart = () => {
     .map((day) => String(day).padStart(2, '0'))
     .join(', ');
 
-    // Handle "Đặt hàng" button click
+  // Handle "Đặt hàng" button click
   const handlePlaceOrder = () => {
-    if (selectedPayment === 'Direct Bank Transfer') {
-      setShowBankDialog(true); // Show dialog if Direct Bank Transfer is selected
-    } else {
-      handleTabClick('cartTab3');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setPayments(true);
+    const orderData = {
+      orderNumber,
+      date: formatDate(currentDate),
+      selectedDates: formattedSelectedDates,
+      totalPrice: totalPrice === 0 ? 0 : totalPrice * selectedDates.size + 20000,
+      paymentMethod: selectedPayment,
+      customerName: `${customerFirstName} ${customerLastName}`.trim(),
+      customerEmail,
+      products: cartItems.map((item) => ({
+        productID: item.productID,
+        productName: item.productName,
+        quantity: item.quantity,
+        productPrice: item.productPrice,
+        subtotal: item.quantity * item.productPrice,
+      })),
+    };
+
+    try {
+      // Retrieve existing orders from localStorage
+      const existingOrders = JSON.parse(localStorage.getItem('orderProductData') || '[]');
+      // Append new order
+      existingOrders.push(orderData);
+      // Save back to localStorage
+      localStorage.setItem('orderProductData', JSON.stringify(existingOrders, null, 2));
+
+      // // Create and download JSON file
+      // const blob = new Blob([JSON.stringify(existingOrders, null, 2)], { type: 'application/json' });
+      // const url = URL.createObjectURL(blob);
+      // const link = document.createElement('a');
+      // link.href = url;
+      // link.download = 'orderProductData.json';
+      // document.body.appendChild(link);
+      // link.click();
+      // document.body.removeChild(link);
+      // URL.revokeObjectURL(url);
+
+      if (selectedPayment === 'Direct Bank Transfer') {
+        setShowBankDialog(true); // Show dialog if Direct Bank Transfer is selected
+      } else {
+        handleTabClick('cartTab3');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setPayments(true);
+      }
+    } catch (error) {
+      console.error('Error saving order to localStorage:', error);
+      alert('Có lỗi xảy ra khi lưu đơn hàng. Vui lòng thử lại.');
     }
   };
 
@@ -447,10 +490,26 @@ const ShoppingCart = () => {
                   <h4>Thông tin thanh toán</h4>
                   <div className='checkoutDetailsForm'>
                     <form>
-                      <div className='checkoutDetailsFormRow'>
-                        <input type='text' placeholder='Tên' />
-                        <input type='text' placeholder='Họ' />
-                      </div>
+                    <div className='checkoutDetailsFormRow'>
+                      <input
+                        type='text'
+                        placeholder='Tên'
+                        value={customerFirstName}
+                        onChange={(e) => setCustomerFirstName(e.target.value)}
+                      />
+                      <input
+                        type='text'
+                        placeholder='Họ'
+                        value={customerLastName}
+                        onChange={(e) => setCustomerLastName(e.target.value)}
+                      />
+                    </div>
+                    <input
+                      type='email'
+                      placeholder='Email *'
+                      value={customerEmail}
+                      onChange={(e) => setCustomerEmail(e.target.value)}
+                    />
                       <div className='checkoutDetailsFormRow'>
                         <Calendar onDateChange={handleDateChange} />
                         <input
@@ -502,8 +561,7 @@ const ShoppingCart = () => {
                           <tr>
                             <th>Tổng phụ</th>
                             <td>{totalPrice} VND</td>
-                          </tr>
-                          <tr>
+ XXIII
                             <th>Ngày thuê</th>
                             <td>{selectedDates?.size}</td>
                           </tr>
@@ -628,7 +686,7 @@ const ShoppingCart = () => {
                     </div>
                     <div className='orderInfoItem'>
                       <p>Tổng cộng</p>
-                      <h4>{totalPrice.toFixed(2)}VND</h4>
+                      <h4>{(totalPrice === 0 ? 0 : totalPrice * selectedDates.size + 20000).toFixed(2)}VND</h4>
                     </div>
                     <div className='orderInfoItem'>
                       <p>Phương thức thanh toán</p>
@@ -675,7 +733,7 @@ const ShoppingCart = () => {
                           <tr>
                             <th>Tổng cộng</th>
                             <td>
-                              {totalPrice === 0 ? 0 : totalPrice * selectedDates.size + 20000} VND
+                              {(totalPrice === 0 ? 0 : totalPrice * selectedDates.size + 20000)} VND
                             </td>
                           </tr>
                         </tbody>
