@@ -26,8 +26,8 @@ export const CompletedOrders: React.FC = () => {
       const orderData = JSON.parse(localStorage.getItem('completedOrderData') || '[]');
       const mappedOrders: CompletedOrder[] = orderData.map((order: any) => ({
         id: order.orderNumber.toString(),
-        customerName: 'Khách hàng',
-        customerEmail: 'khachhang@example.com',
+        customerName: order.customerName.toString() || 'Khach hang',
+        customerEmail: order.customerEmail.toString() || 'khachhang@gmail.com',
         total: order.totalPrice,
         itemCount: order.products.reduce((sum: number, product: any) => sum + product.quantity, 0),
         createdAt: new Date(order.date.split('/').reverse().join('-')).toISOString(),
