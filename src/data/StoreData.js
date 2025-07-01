@@ -625,37 +625,162 @@ export const limiteds = [
   },
 ];
 
+// Shop 2: Tiệm NewTrend
+const shop2CoupleWears = [
+  {
+    productID: 'NT-C1',
+    frontImg: coupleWear3,
+    backImg: coupleWear3,
+    productName: "Set Váy Dài và Áo Sơ Mi Nam Đi Biển Màu Hồng Pastel",
+    productPrice: 99000,
+    productDesc: "Thiết kế dành riêng cho những chuyến đi biển, set đồ đôi gồm váy dài nhẹ nhàng và áo sơ mi nam màu hồng pastel tạo cảm giác thư giãn, lãng mạn.",
+    productReviews: "0 review(s)",
+    shopId: 'shop2',
+    shopName: 'Tiệm NewTrend',
+    category: 'Couple',
+  },
+  {
+    productID: 'NT-C2',
+    frontImg: coupleWear4,
+    backImg: coupleWear4,
+    productName: "Set Váy Ngắn Cúp Ngực và Áo Sơ Mi Nam Màu Hồng Pastel",
+    productPrice: 99000,
+    productDesc: "Set đồ gồm váy ngắn cúp ngực đầy nữ tính kết hợp cùng áo sơ mi nam màu hồng pastel lịch lãm, mang đến phong cách năng động, trẻ trung.",
+    productReviews: "0 review(s)",
+    shopId: 'shop2',
+    shopName: 'Tiệm NewTrend',
+    category: 'Couple',
+  },
+  // Add more couple wears for Shop 2
+];
 
-export const categoryWears = [
+const shop2MenWears = [
   {
-    id: 1,
-    title: 'Couple',
-    data: coupleWears
-  },
-  {
-    id: 2,
-    title: 'Men',
-    data: menWears
-  },
-  {
-    id: 3,
-    title: 'Women',
-    data: womenWears
-  },
-  {
-    id: 4,
-    title: 'Swim Suit',
-    data: swimWears
-  },
-  {
-    id: 5,
-    data: newArrivals
-  },
-  {
-    id: 6,
-    data: limiteds
+    productID: 'NT-M1',
+    frontImg: menWear1,
+    backImg: menWear1_1,
+    productName: "Áo Sơ Mi Nam Đi Biển Màu Nâu",
+    productPrice: 99000,
+    productDesc: "Áo sơ mi nam màu nâu thiết kế rộng rãi, thoải mái, phù hợp cho những chuyến đi biển.",
+    productReviews: "0 review(s)",
+    shopId: 'shop2',
+    shopName: 'Tiệm NewTrend',
+    category: 'Men',
   },
 ];
 
-export default StoreData;
+const shop2Limiteds = [
+  {
+    productID: 'NT-L1',
+    frontImg: limited1,
+    backImg: limited1,
+    productName: "Áo Yếm In Họa Tiết & Váy Lụa Xanh Hoàng Gia",
+    productPrice: 99000,
+    productDesc: "Bộ đồ gồm áo yếm họa tiết độc đáo phối cùng váy lụa xanh hoàng gia giúp bạn tỏa sáng trong mọi ánh nhìn.",
+    productReviews: "8k+ reviews",
+    shopId: 'shop2',
+    shopName: 'Tiệm NewTrend',
+    category: 'Limited',
+  },
+  // Add more limited items for Shop 2
+];
+
+// Combine products for each shop
+const shop1Products = [
+  ...coupleWears,
+  ...menWears,
+  ...womenWears,
+];
+
+const shop2Products = [
+  ...shop2CoupleWears,
+  ...shop2MenWears,
+  ...shop2Limiteds,
+];
+
+
+export default {
+  shops: [
+    {
+      shopId: 'shop1',
+      shopName: 'Tiệm CoMin',
+      products: shop1Products,
+    },
+    {
+      shopId: 'shop2',
+      shopName: 'Tiệm NewTrend',
+      products: shop2Products,
+    },
+  ],
+};
+
+// Category structure for filtering
+export const categoryWears = [
+  {
+    id: 1,
+    title: 'Tiệm CoMin',
+    shopId: 'shop1',
+    data: shop1Products,
+  },
+  {
+    id: 2,
+    title: 'Tiệm NewTrend',
+    shopId: 'shop2',
+    data: shop2Products,
+  },
+  {
+    id: 3,
+    title: 'Couple',
+    data: [...coupleWears, ...shop2CoupleWears],
+  },
+  {
+    id: 4,
+    title: 'Men',
+    data: [...shop2MenWears],
+  },
+  {
+    id: 5,
+    title: 'Women',
+    data: [...womenWears],
+  },
+  {
+    id: 8,
+    title: 'Swim Suit',
+    data: [],
+  },
+];
+
+
+// export const categoryWears = [
+//   {
+//     id: 1,
+//     title: 'Couple',
+//     data: coupleWears
+//   },
+//   {
+//     id: 2,
+//     title: 'Men',
+//     data: menWears
+//   },
+//   {
+//     id: 3,
+//     title: 'Women',
+//     data: womenWears
+//   },
+//   {
+//     id: 4,
+//     title: 'Swim Suit',
+//     data: swimWears
+//   },
+//   {
+//     id: 5,
+//     data: newArrivals
+//   },
+//   {
+//     id: 6,
+//     data: limiteds
+//   },
+// ];
+
+// export default StoreData;
   
