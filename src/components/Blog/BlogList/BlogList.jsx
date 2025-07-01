@@ -27,11 +27,11 @@ const BlogList = () => {
       <div className='blogListSection'>
         <div className='blogListHeaderContainer'>
           <div className='blogListHeader'>
-            <h2>The Blog</h2>
+            <h2>Blog</h2>
             <div className='blogListHeaderCategories'>
               {/* <p>ALL</p>
               <p>COMPANY</p> */}
-              <p className='activeCategory'>FASHION</p>
+              <p className='activeCategory'>Thời trang</p>
               {/* <p>STYLE</p>
               <p>TRENDS</p>
               <p>BEAUTY</p> */}
@@ -46,7 +46,7 @@ const BlogList = () => {
               </div>
               <div className='blogPostContent'>
                 <div className='blogPostContentDate'>
-                  <p>by admin</p>
+                  <p>bởi quản trị viên</p>
                   <p>{blogPost.blogDate}</p>
                 </div>
                 <div className='blogPostContentHeading'>
@@ -61,7 +61,7 @@ const BlogList = () => {
                 </div>
                 <div className='blogPostContentReadMore'>
                   <a to='/BlogDetails' onClick={() => scrollToTop(blogPost.blogID)}>
-                    Continue Reading
+                    Đọc tiếp
                   </a>
                 </div>
               </div>

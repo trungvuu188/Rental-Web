@@ -11,18 +11,18 @@ const Services = () => {
       <div className="services">
         <div className="serviceBox">
           <FaCartFlatbedSuitcase size={50} style={{ marginBottom: "20px" }} />
-          <h3>Fast And Free Delivery</h3>
-          <p>Free delivery for all orders over 2.000.000VND</p>
+          <h3>Giao hàng nhanh & miễn phí</h3>
+          <p>Miễn phí giao hàng cho đơn từ 2.000.000đ</p>
         </div>
         <div className="serviceBox">
           <TfiHeadphoneAlt size={50} style={{ marginBottom: "20px" }} />
-          <h3>24/7 Customer Support</h3>
-          <p>Friendly 24/7 customer support</p>
+          <h3>Hỗ trợ khách hàng 24/7</h3>
+          <p>Hỗ trợ khách hàng thân thiện 24/7</p>
         </div>
         <div className="serviceBox">
           <RiShieldCheckLine size={50} style={{ marginBottom: "20px" }} />
-          <h3>Money Back Guarantee</h3>
-          <p>We return money within 30 days</p>
+          <h3>Đảm bảo hoàn tiền</h3>
+          <p>Hoàn tiền trong vòng 30 ngày</p>
         </div>
       </div>
     </>

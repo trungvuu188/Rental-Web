@@ -19,7 +19,7 @@ const ContactPage = () => {
   return (
     <>
       <div className="contactSection">
-        <h2>Contact Us</h2>
+        <h2>Liên hệ</h2>
         {/* <div className="contactMap">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49206.16593395236!2d2.5776979486328124!3d39.57346430000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129793280de39c05%3A0x85d5f5ea839d6c2a!2sUOMO!5e0!3m2!1sen!2sin!4v1708798894132!5m2!1sen!2sin"
@@ -59,30 +59,30 @@ const ContactPage = () => {
             </div>
           </div> */}
           <div className="contactForm">
-            <h3>Get In Touch</h3>
+            <h3>Gửi liên hệ</h3>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
                 value={name}
-                placeholder="Name *"
+                placeholder="Họ và tên *"
                 onChange={(e) => setname(e.target.value)}
                 required
               />
               <input
                 type="email"
                 value={email}
-                placeholder="Email address *"
+                placeholder="Địa chỉ email *"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <textarea
                 rows={10}
                 cols={40}
-                placeholder="Your Message"
+                placeholder="Nội dung liên hệ"
                 value={message}
                 onChange={(e) => setmessage(e.target.value)}
               />
-              <button type="submit">Submit</button>
+              <button type="submit">Gửi</button>
             </form>
           </div>
         </div>

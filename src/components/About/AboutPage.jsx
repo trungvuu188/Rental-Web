@@ -22,10 +22,10 @@ const AboutPage = () => {
   return (
     <>
       <div className='aboutSection'>
-        <h2>About Us</h2>
+        <h2>Về chúng tôi</h2>
         <img src={about1} alt='' />
         <div className='aboutContent'>
-          <h3>Our Story</h3>
+          <h3>Câu chuyện của chúng tôi</h3>
           <h4>
             ShareIt ra đời từ một câu hỏi đơn giản: Làm thế nào để chúng ta có
             thể mặc đẹp mỗi ngày mà không làm tổn hại đến môi trường? Chúng tôi
@@ -40,7 +40,7 @@ const AboutPage = () => {
           </p>
           <div className='content1'>
             <div className='contentBox'>
-              <h5>Our Mission</h5>
+              <h5>Sứ mệnh</h5>
               <p>
                 Sứ mệnh của ShareIt là góp phần xây dựng một nền thời trang bền
                 vững, nơi mỗi chiếc áo, chiếc váy đều được tận dụng tối đa giá
@@ -63,7 +63,7 @@ const AboutPage = () => {
               <img src={about2} alt='' />
             </div>
             <div className='textContent'>
-              <h5>Our Vision</h5>
+              <h5>Tầm nhìn</h5>
               <p>
                 Chúng tôi mơ về một tương lai nơi thời trang không còn đồng
                 nghĩa với tiêu dùng quá mức. ShareIt mong muốn trở thành nền
