@@ -23,22 +23,16 @@ export const PendingOrders: React.FC = () => {
   const fetchPendingOrders = () => {
     try {
       setLoading(true);
-      // Retrieve orders from localStorage
       const orderData = JSON.parse(localStorage.getItem('orderProductData') || '[]');
-      
-      // Map orderProductData to PendingOrder interface
       const mappedOrders: PendingOrder[] = orderData.map((order: any) => ({
         id: order.orderNumber.toString(),
-        customerName: 'Khách hàng', // Placeholder, as customerName isn't captured in ShoppingCart
-        customerEmail: 'khachhang@example.com', // Placeholder, as customerEmail isn't captured
+        customerName: 'Khách hàng',
+        customerEmail: 'khachhang@example.com',
         total: order.totalPrice,
         itemCount: order.products.reduce((sum: number, product: any) => sum + product.quantity, 0),
-        createdAt: new Date(
-          order.date.split('/').reverse().join('-') // Convert DD/MM/YYYY to YYYY-MM-DD
-        ).toISOString(),
+        createdAt: new Date(order.date.split('/').reverse().join('-')).toISOString(),
         paymentMethod: order.paymentMethod === 'Direct Bank Transfer' ? 'Chuyển khoản' : 'COD',
       }));
-
       setOrders(mappedOrders);
     } catch (error) {
       console.error('Error fetching pending orders from localStorage:', error);
@@ -50,13 +44,21 @@ export const PendingOrders: React.FC = () => {
   const handleApproveOrder = (orderId: string) => {
     if (window.confirm('Xác nhận duyệt đơn hàng này?')) {
       try {
-        // Update localStorage by removing the approved order
         const orderData = JSON.parse(localStorage.getItem('orderProductData') || '[]');
-        const updatedOrders = orderData.filter((order: any) => order.orderNumber.toString() !== orderId);
-        localStorage.setItem('orderProductData', JSON.stringify(updatedOrders, null, 2));
-        
-        // Update state
-        setOrders(prev => prev.filter(order => order.id !== orderId));
+        const approvedOrder = orderData.find((order: any) => order.orderNumber.toString() === orderId);
+        if (approvedOrder) {
+          // Add to completed orders in localStorage
+          const completedOrders = JSON.parse(localStorage.getItem('completedOrderData') || '[]');
+          completedOrders.push(approvedOrder);
+          localStorage.setItem('completedOrderData', JSON.stringify(completedOrders, null, 2));
+
+          // Remove from pending orders
+          const updatedOrders = orderData.filter((order: any) => order.orderNumber.toString() !== orderId);
+          localStorage.setItem('orderProductData', JSON.stringify(updatedOrders, null, 2));
+
+          // Update state
+          setOrders(prev => prev.filter(order => order.id !== orderId));
+        }
       } catch (error) {
         console.error('Error approving order:', error);
       }
@@ -130,29 +132,20 @@ export const PendingOrders: React.FC = () => {
             <tbody>
               {filteredOrders.map(order => (
                 <tr key={order.id}>
-                  <td>
-                    <span className="order-id">#{order.id}</span>
-                  </td>
+                  <td><span className="order-id">#{order.id}</span></td>
                   <td>
                     <div className="customer-info">
                       <div className="customer-name">{order.customerName}</div>
                       <div className="customer-email">{order.customerEmail}</div>
                     </div>
                   </td>
-                  <td>
-                    <span className="item-count">{order.itemCount} sản phẩm</span>
-                  </td>
+                  <td><span className="item-count">{order.itemCount} sản phẩm</span></td>
                   <td className="amount">{formatCurrency(order.total)}</td>
-                  <td>
-                    <span className="payment-method">{order.paymentMethod}</span>
-                  </td>
-                  <td>{new Date(order.createdAt).toLocaleString('vi-VN')}</td>
+                  <td><span className="payment-method">{order.paymentMethod}</span></td>
+                  <td>{new Date(order.createdAt).toLocaleDateString('vi-VN')}</td>
                   <td>
                     <div className="action-buttons">
-                      <button 
-                        className="btn btn-success"
-                        onClick={() => handleApproveOrder(order.id)}
-                      >
+                      <button className="btn btn-success" onClick={() => handleApproveOrder(order.id)}>
                         <span className="material-icons">check</span>
                         Duyệt
                       </button>

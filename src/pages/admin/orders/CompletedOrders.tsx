@@ -20,32 +20,22 @@ export const CompletedOrders: React.FC = () => {
     fetchCompletedOrders();
   }, []);
 
-  const fetchCompletedOrders = async () => {
+  const fetchCompletedOrders = () => {
     try {
       setLoading(true);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setOrders([
-        {
-          id: 'ORD101',
-          customerName: 'Lê Thị C',
-          customerEmail: 'c@email.com',
-          total: 2100000,
-          itemCount: 4,
-          createdAt: '2024-01-18T14:00:00Z',
-          paymentMethod: 'Chuyển khoản'
-        },
-        {
-          id: 'ORD102',
-          customerName: 'Phạm Văn D',
-          customerEmail: 'd@email.com',
-          total: 1200000,
-          itemCount: 1,
-          createdAt: '2024-01-17T11:30:00Z',
-          paymentMethod: 'COD'
-        }
-      ]);
+      const orderData = JSON.parse(localStorage.getItem('completedOrderData') || '[]');
+      const mappedOrders: CompletedOrder[] = orderData.map((order: any) => ({
+        id: order.orderNumber.toString(),
+        customerName: 'Khách hàng',
+        customerEmail: 'khachhang@example.com',
+        total: order.totalPrice,
+        itemCount: order.products.reduce((sum: number, product: any) => sum + product.quantity, 0),
+        createdAt: new Date(order.date.split('/').reverse().join('-')).toISOString(),
+        paymentMethod: order.paymentMethod === 'Direct Bank Transfer' ? 'Chuyển khoản' : 'COD',
+      }));
+      setOrders(mappedOrders);
     } catch (error) {
-      console.error('Error fetching completed orders:', error);
+      console.error('Error fetching completed orders from localStorage:', error);
     } finally {
       setLoading(false);
     }
@@ -115,23 +105,17 @@ export const CompletedOrders: React.FC = () => {
             <tbody>
               {filteredOrders.map(order => (
                 <tr key={order.id}>
-                  <td>
-                    <span className="order-id">#{order.id}</span>
-                  </td>
+                  <td><span className="order-id">#{order.id}</span></td>
                   <td>
                     <div className="customer-info">
                       <div className="customer-name">{order.customerName}</div>
                       <div className="customer-email">{order.customerEmail}</div>
                     </div>
                   </td>
-                  <td>
-                    <span className="item-count">{order.itemCount} sản phẩm</span>
-                  </td>
+                  <td><span className="item-count">{order.itemCount} sản phẩm</span></td>
                   <td className="amount">{formatCurrency(order.total)}</td>
-                  <td>
-                    <span className="payment-method">{order.paymentMethod}</span>
-                  </td>
-                  <td>{new Date(order.createdAt).toLocaleString('vi-VN')}</td>
+                  <td><span className="payment-method">{order.paymentMethod}</span></td>
+                  <td>{new Date(order.createdAt).toLocaleDateString('vi-VN')}</td>
                   <td>
                     <div className="action-buttons">
                       <button className="btn btn-outline">
@@ -148,4 +132,4 @@ export const CompletedOrders: React.FC = () => {
       </div>
     </div>
   );
-}; 
+};
