@@ -82,7 +82,7 @@ const LimitedEdition = () => {
     <>
       <div className='limitedProductSection'>
         <h2>
-          Limited <span>Edition</span>
+          Phiên bản <span>giới hạn</span>
         </h2>
         <div className='limitedProductSlider'>
           <div className='swiper-button image-swiper-button-next'>
