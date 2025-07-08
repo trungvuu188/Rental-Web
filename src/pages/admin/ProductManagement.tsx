@@ -18,11 +18,12 @@ interface Product {
 
 const ProductManagement: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedRows, setSelectedRows] = useState<(string | number)[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(10);
-  const [totalProducts] = useState(156); // Mock total
+  const [totalProducts, setTotalProducts] = useState(0);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -34,9 +35,9 @@ const ProductManagement: React.FC = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      // Mock API call
       await new Promise(resolve => setTimeout(resolve, 1000));
 
+      // Load mock products
       const mockProducts: Product[] = mockAdminProducts.map(p => ({
         id: p.id,
         name: p.name,
@@ -50,7 +51,22 @@ const ProductManagement: React.FC = () => {
         updated_at: p.updated_at,
       }));
 
-      setProducts(mockProducts);
+      // Load new products from localStorage
+      const newProducts = JSON.parse(localStorage.getItem('newProducts') || '[]');
+      
+      // Prepend new products to appear at the top
+      const allProducts = [...newProducts, ...mockProducts];
+      
+      // Update total products
+      setTotalProducts(allProducts.length);
+      
+      // Calculate pagination
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      const paginatedProducts = allProducts.slice(startIndex, endIndex);
+
+      setProducts(allProducts);
+      setDisplayedProducts(paginatedProducts);
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {
@@ -88,7 +104,25 @@ const ProductManagement: React.FC = () => {
 
   const handleDelete = (productId: string) => {
     if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
-      setProducts(prev => prev.filter(p => p.id !== productId));
+      const updatedProducts = products.filter(p => p.id !== productId);
+      setProducts(updatedProducts);
+      setTotalProducts(updatedProducts.length);
+
+      // Update localStorage
+      const newProducts = JSON.parse(localStorage.getItem('newProducts') || '[]');
+      const updatedNewProducts = newProducts.filter((p: Product) => p.id !== productId);
+      localStorage.setItem('newProducts', JSON.stringify(updatedNewProducts));
+
+      // Update displayed products with pagination
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      setDisplayedProducts(updatedProducts.slice(startIndex, endIndex));
+
+      // Adjust current page if necessary
+      const totalPages = Math.ceil(updatedProducts.length / pageSize);
+      if (currentPage > totalPages && totalPages > 0) {
+        setCurrentPage(totalPages);
+      }
     }
   };
 
@@ -96,20 +130,57 @@ const ProductManagement: React.FC = () => {
     if (selectedRows.length === 0) return;
 
     if (window.confirm(`Bạn có chắc chắn muốn xóa ${selectedRows.length} sản phẩm đã chọn?`)) {
-      setProducts(prev => prev.filter((_, index) => !selectedRows.includes(index)));
+      // Calculate actual product indices considering pagination
+      const startIndex = (currentPage - 1) * pageSize;
+      const selectedProductIndices = selectedRows.map(row => startIndex + Number(row));
+      const updatedProducts = products.filter((_, index) => !selectedProductIndices.includes(index));
+      setProducts(updatedProducts);
+      setTotalProducts(updatedProducts.length);
+
+      // Update localStorage
+      const newProducts = JSON.parse(localStorage.getItem('newProducts') || '[]');
+      const updatedNewProducts = newProducts.filter((p: Product) => 
+        updatedProducts.some(up => up.id === p.id)
+      );
+      localStorage.setItem('newProducts', JSON.stringify(updatedNewProducts));
       setSelectedRows([]);
+
+      // Update displayed products
+      const newStartIndex = (currentPage - 1) * pageSize;
+      const newEndIndex = newStartIndex + pageSize;
+      setDisplayedProducts(updatedProducts.slice(newStartIndex, newEndIndex));
+
+      // Adjust current page if necessary
+      const totalPages = Math.ceil(updatedProducts.length / pageSize);
+      if (currentPage > totalPages && totalPages > 0) {
+        setCurrentPage(totalPages);
+      }
     }
   };
 
   const handleBulkStatusChange = (status: string) => {
     if (selectedRows.length === 0) return;
 
-    setProducts(prev => prev.map((product, index) => {
-      if (selectedRows.includes(index)) {
-        return { ...product, status: status as any };
+    const startIndex = (currentPage - 1) * pageSize;
+    const selectedProductIndices = selectedRows.map(row => startIndex + Number(row));
+    
+    const updatedProducts = products.map((product, index) => {
+      if (selectedProductIndices.includes(index)) {
+        return { ...product, status: status as any, updated_at: new Date().toISOString() };
       }
       return product;
-    }));
+    });
+
+    setProducts(updatedProducts);
+    setDisplayedProducts(updatedProducts.slice(startIndex, startIndex + pageSize));
+
+    // Update localStorage
+    const newProducts = JSON.parse(localStorage.getItem('newProducts') || '[]');
+    const updatedNewProducts = newProducts.map((p: Product) => {
+      const updated = updatedProducts.find(up => up.id === p.id);
+      return updated || p;
+    });
+    localStorage.setItem('newProducts', JSON.stringify(updatedNewProducts));
     setSelectedRows([]);
   };
 
@@ -124,9 +195,9 @@ const ProductManagement: React.FC = () => {
           <img
             src={record.image}
             alt={record.name}
-          // onError={(e) => {
-          //   (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
-          // }}
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = 'https://via.placeholder.com/80';
+            }}
           />
         </div>
       )
@@ -255,10 +326,8 @@ const ProductManagement: React.FC = () => {
       </div>
 
       <div className="page-content">
-        
-
         <DataTable
-          data={products}
+          data={displayedProducts}
           columns={columns}
           loading={loading}
           rowSelection={{
@@ -342,4 +411,4 @@ const ProductManagement: React.FC = () => {
   );
 };
 
-export default ProductManagement; 
+export default ProductManagement;

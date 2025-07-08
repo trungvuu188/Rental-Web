@@ -7,15 +7,27 @@ interface Category {
   name: string;
 }
 
+interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
+  stock: number;
+  status: 'active' | 'inactive' | 'out_of_stock';
+  image: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+}
+
 interface ProductForm {
   name: string;
   description: string;
   price: number;
   categoryId: string;
-  imageUrl: string;
+  image: string;
   stock: number;
-  specifications: Record<string, string>;
-  tags: string[];
+  status: 'active' | 'inactive' | 'out_of_stock';
 }
 
 export const AddProduct: React.FC = () => {
@@ -27,10 +39,9 @@ export const AddProduct: React.FC = () => {
     description: '',
     price: 0,
     categoryId: '',
-    imageUrl: '',
+    image: '',
     stock: 0,
-    specifications: {},
-    tags: []
+    status: 'active'
   });
 
   useEffect(() => {
@@ -38,7 +49,6 @@ export const AddProduct: React.FC = () => {
   }, []);
 
   const fetchCategories = async () => {
-    // Only show the four allowed categories
     setCategories([
       { id: '1', name: 'Couple' },
       { id: '2', name: 'Women' },
@@ -60,10 +70,27 @@ export const AddProduct: React.FC = () => {
     setLoading(true);
 
     try {
-      // Mock API call - replace with actual implementation
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Product created:', formData);
+      const id = `prod_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      const currentDate = new Date().toISOString();
+      const category = categories.find(cat => cat.id === formData.categoryId)?.name || '';
+
+      const newProduct: Product = {
+        id,
+        name: formData.name,
+        category,
+        price: formData.price,
+        stock: formData.stock,
+        status: formData.status,
+        image: formData.image || 'https://via.placeholder.com/80',
+        description: formData.description,
+        created_at: currentDate,
+        updated_at: currentDate
+      };
+
+      const existingProducts = JSON.parse(localStorage.getItem('newProducts') || '[]');
+      localStorage.setItem('newProducts', JSON.stringify([newProduct, ...existingProducts]));
+
+      console.log('Product created:', newProduct);
       navigate('/admin/products/list');
     } catch (error) {
       console.error('Error creating product:', error);
@@ -98,7 +125,7 @@ export const AddProduct: React.FC = () => {
         <form onSubmit={handleSubmit} className="product-form">
           <div className="form-section">
             <h3>Thông tin cơ bản</h3>
-            
+
             <div className="form-group">
               <label htmlFor="name">Tên sản phẩm *</label>
               <input
@@ -173,12 +200,27 @@ export const AddProduct: React.FC = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="imageUrl">URL hình ảnh</label>
+              <label htmlFor="status">Trạng thái *</label>
+              <select
+                id="status"
+                name="status"
+                value={formData.status}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="active">Hoạt động</option>
+                <option value="inactive">Tạm dừng</option>
+                <option value="out_of_stock">Hết hàng</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="image">URL hình ảnh</label>
               <input
                 type="url"
-                id="imageUrl"
-                name="imageUrl"
-                value={formData.imageUrl}
+                id="image"
+                name="image"
+                value={formData.image}
                 onChange={handleInputChange}
                 placeholder="https://example.com/image.jpg"
               />
@@ -215,4 +257,4 @@ export const AddProduct: React.FC = () => {
       </div>
     </div>
   );
-}; 
+};
