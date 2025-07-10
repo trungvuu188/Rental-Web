@@ -1,10 +1,9 @@
-// ShopDetails.js
 import './ShopDetails.css';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../../Features/Cart/cartSlice';
 import Filter from '../Filters/Filter';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { categoryWears } from '../../../data/StoreData';
 import { FiHeart } from 'react-icons/fi';
 import { FaStar } from 'react-icons/fa';
@@ -19,6 +18,7 @@ import {
 
 const ShopDetails = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const viewProductDetail = useViewProductDetail();
   const [wishList, setWishList] = useState({});
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -96,6 +96,10 @@ const ShopDetails = () => {
     }
   };
 
+  const handleRentNow = (product) => {
+    navigate('/cart', { state: { rentNowProduct: { ...product, quantity: 1 } } });
+  };
+
   const selectedCategory = categoryWears.find(
     (item) => item.id === selectedCategoryId
   );
@@ -133,9 +137,9 @@ const ShopDetails = () => {
                 <Link to='/' onClick={scrollToTop}>
                   Trang chủ
                 </Link>
-                &nbsp;/&nbsp;
+                 / 
                 <Link to='/shop'>Cửa hàng</Link>
-                &nbsp;/&nbsp;
+                 / 
                 <span>{selectedCategory?.title || 'Cửa hàng'}</span>
               </div>
               <div className='filterLeft' onClick={toggleDrawer}>
@@ -192,9 +196,14 @@ const ShopDetails = () => {
                               className='sdProduct_back'
                             />
                           </a>
-                          <h4 onClick={() => handleAddToCart(product)}>
-                            Thêm vào giỏ
-                          </h4>
+                          <div className='sdProductActions'>
+                            <h4 onClick={() => handleAddToCart(product)}>
+                              Thêm vào giỏ
+                            </h4>
+                            <h4 onClick={() => handleRentNow(product)}>
+                              Thuê ngay
+                            </h4>
+                          </div>
                         </div>
                         <div
                           className='sdProductImagesCart'

@@ -166,6 +166,10 @@
   top: 270px;
 }
 
+.sdProductContainer:hover h4 + h4 {
+  top: 200px;
+}
+
 .sdProductInfo {
   width: 258px;
   display: flex;
