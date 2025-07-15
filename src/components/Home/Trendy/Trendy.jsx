@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Trendy.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../../Features/Cart/cartSlice';
+import { addToCart, selectCartTotalAmount } from '../../../Features/Cart/cartSlice';
 import { Link } from 'react-router-dom';
 import StoreData, { limiteds, newArrivals } from '../../../data/StoreData';
 import { FiHeart } from 'react-icons/fi';
@@ -80,6 +80,21 @@ const Trendy = () => {
     }
   };
 
+  const handleRentNow = (product) => {
+    dispatch(addToCart({ ...product, quantity: 1, isRental: true }));
+    toast.success(`Đã thêm vào giỏ hàng để thuê!`, {
+      duration: 2000,
+      style: {
+        backgroundColor: '#07bc0c',
+        color: 'white',
+      },
+      iconTheme: {
+        primary: '#fff',
+        secondary: '#07bc0c',
+      },
+    });
+  };
+
   return (
     <>
       <div className='trendyProducts'>
@@ -125,6 +140,14 @@ const Trendy = () => {
                       <h4 onClick={() => handleAddToCart(product)}>
                         Thêm vào giỏ
                       </h4>
+                      <Link
+                        to="/cart"
+                        state={{ rentNowProduct: { ...product, quantity: 1, isRental: true } }}
+                        onClick={scrollToTop}
+                        className="rent-now-link"
+                      >
+                        <h4>Thuê ngay</h4>
+                      </Link>
                     </div>
                     <div
                       className='trendyProductImagesCart'
@@ -149,7 +172,6 @@ const Trendy = () => {
                         <Link to='product' onClick={scrollToTop}>
                           <h5>{product.productName}</h5>
                         </Link>
-
                         <p>{product.productPrice}VND</p>
                         <div className='trendyProductRatingReviews'>
                           <div className='trendyProductRatingStar'>
@@ -191,6 +213,14 @@ const Trendy = () => {
                         <h4 onClick={() => handleAddToCart(product)}>
                           Thêm vào giỏ
                         </h4>
+                        <Link
+                          to="/cart"
+                          state={{ rentNowProduct: { ...product, quantity: 1, isRental: true } }}
+                          onClick={scrollToTop}
+                          className="rent-now-link"
+                        >
+                          <h4>Thuê ngay</h4>
+                        </Link>
                       </div>
                       <div
                         className='trendyProductImagesCart'
@@ -215,7 +245,6 @@ const Trendy = () => {
                           <Link to='product' onClick={scrollToTop}>
                             <h5>{product.productName}</h5>
                           </Link>
-
                           <p>{product.productPrice}VND</p>
                           <div className='trendyProductRatingReviews'>
                             <div className='trendyProductRatingStar'>
@@ -257,6 +286,14 @@ const Trendy = () => {
                         <h4 onClick={() => handleAddToCart(product)}>
                           Thêm vào giỏ
                         </h4>
+                        <Link
+                          to="/cart"
+                          state={{ rentNowProduct: { ...product, quantity: 1, isRental: true } }}
+                          onClick={scrollToTop}
+                          className="rent-now-link"
+                        >
+                          <h4>Thuê ngay</h4>
+                        </Link>
                       </div>
                       <div
                         className='trendyProductImagesCart'
@@ -281,7 +318,6 @@ const Trendy = () => {
                           <Link to='product' onClick={scrollToTop}>
                             <h5>{product.productName}</h5>
                           </Link>
-
                           <p>{product.productPrice}VND</p>
                           <div className='trendyProductRatingReviews'>
                             <div className='trendyProductRatingStar'>
@@ -323,6 +359,14 @@ const Trendy = () => {
                         <h4 onClick={() => handleAddToCart(product)}>
                           Thêm vào giỏ
                         </h4>
+                        <Link
+                          to="/cart"
+                          state={{ rentNowProduct: { ...product, quantity: 1, isRental: true } }}
+                          onClick={scrollToTop}
+                          className="rent-now-link"
+                        >
+                          <h4>Thuê ngay</h4>
+                        </Link>
                       </div>
                       <div
                         className='trendyProductImagesCart'
@@ -347,7 +391,6 @@ const Trendy = () => {
                           <Link to='/product' onClick={scrollToTop}>
                             <h5>{product.productName}</h5>
                           </Link>
-
                           <p>{product.productPrice}VND</p>
                           <div className='trendyProductRatingReviews'>
                             <div className='trendyProductRatingStar'>

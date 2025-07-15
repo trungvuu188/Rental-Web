@@ -78,6 +78,21 @@ const LimitedEdition = () => {
     }
   };
 
+  const handleRentNow = (product) => {
+    dispatch(addToCart({ ...product, quantity: 1, isRental: true }));
+    toast.success(`Đã thêm vào giỏ hàng để thuê!`, {
+      duration: 2000,
+      style: {
+        backgroundColor: '#07bc0c',
+        color: 'white',
+      },
+      iconTheme: {
+        primary: '#fff',
+        secondary: '#07bc0c',
+      },
+    });
+  };
+
   return (
     <>
       <div className='limitedProductSection'>
@@ -144,8 +159,16 @@ const LimitedEdition = () => {
                           className='lpImage'
                         />
                       </a>
+                      <Link
+                        to="/cart"
+                        state={{ rentNowProduct: { ...product, quantity: 1, isRental: true } }}
+                        onClick={scrollToTop}
+                        className="rent-now-link"
+                      >
+                        <h4>Thuê ngay</h4>
+                      </Link>
                       <h4 onClick={() => handleAddToCart(product)}>
-                        Add to Cart
+                        Thêm vào giỏ
                       </h4>
                     </div>
                     <div
@@ -180,7 +203,6 @@ const LimitedEdition = () => {
                             <FaStar color='#FEC78A' size={10} />
                             <FaStar color='#FEC78A' size={10} />
                           </div>
-
                           <span>{product.productReviews}</span>
                         </div>
                       </div>
